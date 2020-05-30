@@ -53,9 +53,13 @@ Custom commands
 ---------------
 Command processor APIs can be used to add new commands to the system.
 
-API Reference
--------------
+Command Processor API Reference
+-------------------------------
 
 .. include:: /inc/command.inc
+
+Console API Reference
+---------------------
+
 .. include:: /inc/console.inc
 

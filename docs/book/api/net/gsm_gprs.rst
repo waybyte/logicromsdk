@@ -1,5 +1,8 @@
 GSM & GPRS API
 ==============
 
-.. include:: ../inc/network.in
+API Reference
+-------------
+
+.. include:: /inc/network.inc
 

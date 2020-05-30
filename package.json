@@ -2,6 +2,6 @@
 	"description": "SIWI GSM Software Development Kit",
 	"name": "framework-siwisdk",
 	"system": "*",
-	"url": "https://github.com/espressif/esp-idf",
+	"url": "https://github.com/siwiembedded/siwisdk",
 	"version": "0.1.0"
 }

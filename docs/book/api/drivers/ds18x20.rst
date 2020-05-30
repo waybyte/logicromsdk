@@ -1,2 +1,11 @@
 DS18x20 Temperature Sensor API
 ==============================
+
+OneWire temperature sensor library. Supported Sensors:
+
+* DS18B20
+* DS18S20
+* DS1822
+
+.. include:: /inc/ds18b20.inc
+

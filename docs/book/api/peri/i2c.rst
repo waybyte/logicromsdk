@@ -1,5 +1,8 @@
 I2C
 ===
 
-Overview
---------
+API Reference
+-------------
+
+.. include:: /inc/i2c.inc
+

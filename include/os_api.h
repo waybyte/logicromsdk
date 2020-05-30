@@ -22,7 +22,6 @@
 #define EVENT_NO_WAIT		0				/** Do not wait */
 
 /**
- * @typedef os_taskfn_f
  * OS Task Function typedef
  * @param arg	User data argument to function
  */

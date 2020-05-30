@@ -5,7 +5,7 @@
 #ifndef INC_COMMAND_H
 #define INC_COMMAND_H
 
-#include "../include/private/linker_list.h"
+#include "private/linker_list.h"
 
 #define CMD_MAX_ARGS 16
 
@@ -73,7 +73,7 @@ typedef int (*cmd_handler_f)(int argc, const char **argv, struct cmdinfo_t *info
 /**
  * Command descriptor structure
  */
-typedef struct cmddesc_t {
+typedef struct {
 	const char *cmd;	/**< Name of command */
 	int min_arg;		/**< Minimum arguments */
 	int max_arg;		/**< Maximum arguments */

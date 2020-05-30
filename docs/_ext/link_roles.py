@@ -22,7 +22,7 @@ def get_github_rev():
 
 def setup(app):
     app.add_role('github', autolink('https://github.com/%s'))
-    app.add_role('header_src_file', autolink('https://github.com/ajaybhargav/siwisdk/blob/%s/%s'))
+    app.add_role('header_src_file', autolink('https://github.com/siwiembedded/siwisdk/blob/%s/%s'))
     return {'parallel_read_safe': True, 'parallel_write_safe': True, 'version': '1.0'}
 
 def autolink(pattern):
@@ -32,3 +32,4 @@ def autolink(pattern):
         node = nodes.reference(rawtext, text, refuri=url, **options)
         return [node], []
     return role
+

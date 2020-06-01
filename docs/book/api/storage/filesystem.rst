@@ -15,3 +15,7 @@ Application can read write files using standard system calls.
 
 See application example for more information.
 
+SPI Flash
+=========
+
+.. include:: /inc/spifs.inc

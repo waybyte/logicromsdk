@@ -17,5 +17,5 @@ and standard io operation can then be performed via system calls.
 API Reference
 -------------
 
-.. .. include:: /inc/bluetooth.inc
+.. include:: /inc/bluetooth.inc
 

@@ -7,6 +7,10 @@
 
 #include "private/linker_list.h"
 
+/**
+ * Maximum number of allowed arguments
+ * including commmand
+ */
 #define CMD_MAX_ARGS 16
 
 /**

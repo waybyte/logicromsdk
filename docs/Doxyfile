@@ -851,6 +851,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/driver/dht.h \
                          ../include/driver/ds18b20.h \
                          ../include/driver/onewire.h \
+			 ../include/gpslib.h \
                          ../include/hw/adc.h \
 			 ../include/hw/bluetooth.h \
                          ../include/hw/gpio.h \

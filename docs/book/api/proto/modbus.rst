@@ -1,5 +1,5 @@
-Modbus Slave
-============
+Modbus Master
+=============
 
 API Reference
 -------------

@@ -6,4 +6,5 @@ Protocols
 
    HTTP Client <httpc>
    FTP Client <ftpc>
+   NTP Client <ntpc>
    Modbus Slave <modbus>

@@ -851,9 +851,9 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/driver/dht.h \
                          ../include/driver/ds18b20.h \
                          ../include/driver/onewire.h \
-			 ../include/gpslib.h \
+                         ../include/gpslib.h \
                          ../include/hw/adc.h \
-			 ../include/hw/bluetooth.h \
+                         ../include/hw/bluetooth.h \
                          ../include/hw/gpio.h \
                          ../include/hw/i2c.h \
                          ../include/hw/pwm.h \
@@ -870,6 +870,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/proto/ftpc.h \
                          ../include/proto/httpc.h \
                          ../include/proto/modbus.h \
+                         ../include/proto/ntpc.h \
                          ../include/remotedbg.h \
                          ../include/ril/ril.h \
                          ../include/ril/ril_alarm.h \
@@ -888,7 +889,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/ril/ril_telephony.h \
                          ../include/ril/ril_util.h \
                          ../include/siwi/sockets.h \
-			 ../include/spifs.h \
+                         ../include/spifs.h \
                          ../include/sys/dirent.h \
                          ../include/sys/ioctl.h \
                          ../include/sys/socket.h \

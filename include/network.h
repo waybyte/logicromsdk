@@ -49,7 +49,7 @@ int network_getparam(struct netparam_t *param);
  * @param sockfd	[in] Socket descriptor (optional, 0 if not used)
  * @return			network status see @ref _net_state
  */
-int network_getstate(int sockfd);
+int network_getstatus(int sockfd);
 
 /**
  * Get APN configuration stored in memory

@@ -76,7 +76,7 @@ struct socket_callback_t {
 	 * @param len		Length of data
 	 * @return			Always return 0, return value is unused
 	 */
-	int (*recv_callback)(int sockid, const unsigned char *buf, int len);
+	int (*recv_callback)(int sockid, const void *buf, int len);
 	/**
 	 * Socket transmit callback
 	 * @param sockid	Socket ID
@@ -86,7 +86,7 @@ struct socket_callback_t {
 	 * @param arg		user argument passed during send
 	 * @return			Always return 0, return value is unused
 	 */
-	int (*xmit_callback)(int sockid, int result, unsigned char *buf, int len, void *arg);
+	int (*xmit_callback)(int sockid, int result, const void *buf, int len, void *arg);
 };
 
 /**
@@ -166,7 +166,7 @@ int socket_close(int id);
  * @param arg		[in] User data argument, This argument will be passed to transmit callback function
  * @return			0 on success, negative value on error
  */
-int socket_send(int id, const unsigned char *buf, int len, int timeout, void *arg);
+int socket_send(int id, const void *buf, int len, int timeout, void *arg);
 
 /**
  * Get socket status

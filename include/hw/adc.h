@@ -18,7 +18,7 @@ enum adcch_e {
 	ADC_CH5,/**< ADC channel 5 mapped to pin ADC1 */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -36,7 +36,7 @@ int adc_config(int ch);
  */
 unsigned int adc_read(int ch);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

@@ -6,7 +6,7 @@
 #ifndef INCLUDE_CRYPTO_SHA_H_
 #define INCLUDE_CRYPTO_SHA_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -18,7 +18,7 @@ extern "C" {
  */
 void sha1(unsigned char *input, int ilen, unsigned char output[20]);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

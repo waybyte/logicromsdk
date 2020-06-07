@@ -15,7 +15,7 @@ enum pwmch_e {
 };
 
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -57,7 +57,7 @@ int pwm_stop(int ch);
  */
 int pwm_free(int ch);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

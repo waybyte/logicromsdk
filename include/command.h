@@ -108,7 +108,7 @@ typedef struct {
  */
 typedef void (*commandproc_cb)(int result, struct cmdinfo_t *info, void *arg);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -127,7 +127,7 @@ extern "C" {
  */
 int command_process(const char *cmd, int len, struct cmdinfo_t *info, commandproc_cb callback, void *arg);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

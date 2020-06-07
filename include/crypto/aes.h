@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <sys/types.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -37,7 +37,7 @@ int aes_cbc_decrypt(uint8_t* out, const uint8_t* in, size_t inSz,
 int aes_cbc_encrypt(uint8_t* out, const uint8_t* in, size_t inSz,
 		const uint8_t* key, const uint8_t* iv);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

@@ -15,7 +15,7 @@
  */
 typedef void (*timercb_f)(int id, void *arg);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -60,7 +60,7 @@ void siwi_timer_stop(int id);
  */
 void siwi_timer_reset(int id);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

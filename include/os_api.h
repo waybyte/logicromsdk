@@ -9,6 +9,11 @@
 #include <stdint.h>
 
 /**
+ * Main Task ID
+ */
+#define main_taskid		0
+
+/**
  * @name ev_flags
  * Event flags
  */
@@ -38,7 +43,7 @@ struct osmsg_t {
 	int source_taskid;	/**< Filled automatically by os_get_message() */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -199,7 +204,7 @@ unsigned int disable_irqs(void);
  */
 void enable_irqs(unsigned int flags);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

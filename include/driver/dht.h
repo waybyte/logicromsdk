@@ -40,7 +40,7 @@ enum dht_err_e {
  */
 #define dht_read44(p,h,t)	dht_read(p,h,t)
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -68,7 +68,7 @@ int dht_read11(int iohandle, double *humidity, double *temperature);
  */
 int dht_read(int iohandle, double *humidity, double *temperature);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

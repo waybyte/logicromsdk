@@ -6,7 +6,7 @@
 #ifndef INCLUDE_CRYPTO_BASE64_H_
 #define INCLUDE_CRYPTO_BASE64_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -30,7 +30,7 @@ int base64_encode(const unsigned char* input, int inlen, unsigned char *output, 
  */
 int base64_decode(const unsigned char* input, int inlen, unsigned char *output, int outsize);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

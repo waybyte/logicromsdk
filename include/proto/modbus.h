@@ -115,7 +115,7 @@ struct modbus_t {
  */
 typedef void (*mb_dirctl)(int dir);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -159,7 +159,7 @@ unsigned char mb_lrc(unsigned char *msg, int len);
  */
 char *mb_strerror(uint8_t errnum);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

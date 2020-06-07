@@ -18,7 +18,7 @@ enum senstype_e {
 	DS1822,     /**< Sensor type DS1822 */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -39,7 +39,7 @@ int ow_18x20_search(int ow_handle, uint8_t *newAddr);
  */
 int ow_18x20_read(int ow, uint8_t *addr, float *temperature);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

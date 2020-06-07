@@ -13,7 +13,7 @@
  */
 typedef void (*timer_callback_f)(int id, void *arg);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -42,7 +42,7 @@ int task_timer_start(int tid, unsigned int ms, int cyclic);
  */
 int task_timer_stop(int tid);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

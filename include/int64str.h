@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -36,7 +36,7 @@ const char *i64toa(int64_t value);
  */
 const char *ui64toa(uint64_t value);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

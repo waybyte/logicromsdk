@@ -31,7 +31,7 @@
  */
 #define PARAM_RESET(x)			param_reset(#x)
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -84,7 +84,7 @@ int param_reset(const char *name);
  */
 int param_factoryreset(void);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

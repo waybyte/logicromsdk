@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -20,7 +20,7 @@ extern "C" {
  */
 const char *get_opname(uint16_t mcc, uint16_t mnc);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

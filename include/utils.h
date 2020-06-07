@@ -8,7 +8,7 @@
 
 #include <time.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -92,7 +92,7 @@ int load_init(void);
  */
 int wget_init(void);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

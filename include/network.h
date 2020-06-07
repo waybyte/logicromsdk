@@ -32,7 +32,7 @@ struct netparam_t {
 	const char *apn;	/**< Currently used APN as null terminted string */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -150,7 +150,7 @@ const char *get_operatorname(char *opbuf, int len);
  */
 const char *get_simprovider(char *spn_buf, int len);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

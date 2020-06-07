@@ -9,6 +9,11 @@
 #include <stdint.h>
 
 /**
+ * Main Task ID
+ */
+#define main_taskid		0
+
+/**
  * @name ev_flags
  * Event flags
  */

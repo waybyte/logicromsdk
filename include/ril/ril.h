@@ -211,7 +211,7 @@ typedef s32 (*atrsp_callback_f)(char* line, u32 len, void* arg);
  */
 typedef void (*ril_recvcb_f)(u8* ptrData, u32 dataLen, void* reserved);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -258,7 +258,7 @@ int ril_urc_attach(const char *keyword, urc_handler_f callback);
  */
 int ril_urc_detach(const char *keyword);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

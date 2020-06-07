@@ -13,7 +13,7 @@
 
 #define OW_ADDR_LEN	8
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -193,7 +193,7 @@ uint8_t ow_check_crc16(const uint8_t* input, uint16_t len, const uint8_t* invert
  */
 uint16_t ow_crc16(const uint8_t* input, uint16_t len, uint16_t crc);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

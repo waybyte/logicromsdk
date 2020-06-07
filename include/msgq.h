@@ -6,7 +6,7 @@
 #ifndef INCLUDE_MSGQ_H_
 #define INCLUDE_MSGQ_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -59,7 +59,7 @@ int msgq_empty(unsigned int qhandle);
  */
 int msgq_delete(unsigned int qhandle);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

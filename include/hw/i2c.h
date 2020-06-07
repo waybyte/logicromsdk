@@ -6,7 +6,7 @@
 #ifndef INCLUDE_HW_I2C_H_
 #define INCLUDE_HW_I2C_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -56,7 +56,7 @@ int i2c_hw_rw(unsigned char address, unsigned char *wrbuf, int wrlen, unsigned c
  */
 int i2c_hw_free(void);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

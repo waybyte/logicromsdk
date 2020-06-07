@@ -6,7 +6,7 @@
 #ifndef INC_CIRCULAR_BUF_H_
 #define INC_CIRCULAR_BUF_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -79,7 +79,7 @@ int circbuf_getcount(int handle);
  */
 int circbuf_reset(int handle);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

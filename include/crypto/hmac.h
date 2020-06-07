@@ -6,7 +6,7 @@
 #ifndef INCLUDE_CRYPTO_HMAC_H_
 #define INCLUDE_CRYPTO_HMAC_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -22,7 +22,7 @@ extern "C" {
 int HmacSHA256_encode(const unsigned char* key, unsigned int keySz,
 		const unsigned char *data, unsigned int dlen, unsigned char hash[32]);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

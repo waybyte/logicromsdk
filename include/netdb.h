@@ -31,7 +31,7 @@ struct hostent {
 #define h_addr h_addr_list[0]	/**< for backward compatibility */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -66,7 +66,7 @@ struct hostent *gethostbyname(const char *name);
 int gethostbyname_r(const char *name, struct hostent *ret, char *buf,
                 size_t buflen, struct hostent **result, int *h_errnop);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

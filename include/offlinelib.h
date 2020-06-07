@@ -25,7 +25,7 @@ enum offline_mode_e {
 	OFFLINE_MODE_LIFO,/**< Last-in First-out mode (not supported yet) */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -107,7 +107,7 @@ int reset_offline(int force);
  */
 int is_offline_pending(int *out_count);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

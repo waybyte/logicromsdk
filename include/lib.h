@@ -31,7 +31,7 @@ enum loglevel_e {
 	DBG_USER_START = DBG_LIB_END,/**< Start of Application log levels */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -92,7 +92,7 @@ int debug(int level, const char *fmt, ...);
  */
 int ota_in_progress(void);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

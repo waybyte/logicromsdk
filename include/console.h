@@ -6,7 +6,7 @@
 #ifndef INC_CONSOLE_H
 #define INC_CONSOLE_H
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -36,7 +36,7 @@ typedef int (*cliauth_f)(const char *user, const char *pass);
  */
 int cli_set_authfn(cliauth_f fn);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

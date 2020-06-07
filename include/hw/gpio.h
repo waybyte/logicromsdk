@@ -111,7 +111,7 @@ enum gpioname_e {
 	GPIO_PIN_MAX,
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -193,7 +193,7 @@ int gpio_setuserdata(int handle, void *arg);
  */
 void *gpio_getuserdata(int handle);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

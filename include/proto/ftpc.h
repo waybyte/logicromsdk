@@ -80,7 +80,7 @@ struct ftprename_t {
 	char *newname;			/**< New filename */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -110,7 +110,7 @@ int ftpc_getstatus(void);
  */
 int ftpc_command(int cmd, void *arg, void *result);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

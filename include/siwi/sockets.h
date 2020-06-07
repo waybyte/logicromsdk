@@ -122,7 +122,7 @@ struct ssl_certs_t {
 	int privatekey_len;		/**< Length of private key in case buffer is provided */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -276,7 +276,7 @@ void *ssl_socket_getuserdata(int id);
  */
 int ssl_socket_free(int id);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

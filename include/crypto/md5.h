@@ -6,7 +6,7 @@
 #ifndef INCLUDE_CRYPTO_MD5_H_
 #define INCLUDE_CRYPTO_MD5_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -18,7 +18,7 @@ extern "C" {
  */
 void md5_hash(unsigned char *input, int ilen, unsigned char output[16]);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

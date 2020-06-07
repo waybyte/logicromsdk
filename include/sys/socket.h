@@ -123,7 +123,7 @@ struct sockaddr {
 	char		sa_data[14];	/**< actually longer; address value */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -211,7 +211,7 @@ int getsockopt (int sockfd, int level, int optname, void *optval, socklen_t *opt
  */
 int setsockopt (int sockfd, int level, int optname, const void *optval, socklen_t optlen);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

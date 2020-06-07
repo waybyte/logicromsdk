@@ -34,7 +34,7 @@
  */
 #define FIOASYNC	0x5452
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -46,7 +46,7 @@ extern "C" {
  */
 int ioctl(int fd, unsigned long cmd, ...);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

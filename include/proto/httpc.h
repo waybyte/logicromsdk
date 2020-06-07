@@ -122,7 +122,7 @@ typedef union httpc_arg_t {
 	struct _httpc_up_t upload;			/**< HTTP Upload _httpc_up_t for httpc_upload */
 } httpc_arg;
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -207,7 +207,7 @@ int urlencode(const unsigned char *in_buf, char *enc);
  */
 int urldecode(const char *in_buf, char *dec);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

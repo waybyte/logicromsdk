@@ -6,7 +6,7 @@
 #ifndef INCLUDE_CRYPTO_CRC_H_
 #define INCLUDE_CRYPTO_CRC_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -45,7 +45,7 @@ unsigned short crc16_mcrf4xx(const unsigned char *buf, int size);
  */
 unsigned char crc8(const unsigned char *buf, int size);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

@@ -24,7 +24,7 @@ struct in_addr {
 	in_addr_t s_addr;	/**< IPv4 address binary format */
 };
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -78,7 +78,7 @@ uint32_t ntohl(uint32_t x);
  */
 uint16_t ntohs(uint16_t x);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

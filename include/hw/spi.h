@@ -11,7 +11,7 @@
  */
 #define SPI_MAX_SPEED	10000000U
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -68,7 +68,7 @@ unsigned int spi_hw_getclock(void);
  */
 int spi_hw_free(void);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

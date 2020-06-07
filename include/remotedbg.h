@@ -6,7 +6,7 @@
 #ifndef INCLUDE_REMOTEDBG_H_
 #define INCLUDE_REMOTEDBG_H_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -23,7 +23,7 @@ extern "C" {
  */
 void rdbg_init(void);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

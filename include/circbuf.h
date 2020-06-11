@@ -54,9 +54,29 @@ int circbuf_pop_byte(int handle, unsigned char *data);
  * @param handle	[in] Handle to circular buffer
  * @param data		[out] pointer to read buffer
  * @param len		[in] Length of data to read
- * @return			On success, returns actual length read, -1 on error
+ * @return			On success, returns actual length read, negative value on error
  */
 int circbuf_pop(int handle, unsigned char *data, unsigned int len);
+
+/**
+ * Peek a byte from head of circular buffer. Subsequent calls
+ * to this function will lead to same byte unless @ref circbuf_pop or
+ * @ref circbuf_pop_byte is called.
+ * @param handle	[in] Handle to circular buffer
+ * @param data		[out] Pointer to read buffer
+ * @return			On success, returns actual length read, negative value on error
+ */
+int circbuf_peek_byte(int handle, unsigned char *data);
+
+/**
+ * Peek data from start of circular buffer. Data will not be removed
+ * from buffer unless @ref circbuf_pop or @ref circbuf_pop_byte is called.
+ * @param handle	[in] Handle to circular buffer
+ * @param data		[out] pointer to read buffer
+ * @param len		[in] Length of data to read
+ * @return			On success, returns actual length read, negative value on error
+ */
+int circbuf_peek(int handle, unsigned char *data, int len);
 
 /**
  * Check if buffer is empty

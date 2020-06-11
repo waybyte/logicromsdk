@@ -34,6 +34,28 @@
  */
 #define FIOASYNC	0x5452
 
+/**
+ * Get Next character in read buffer
+ * without removing it. Multiple call to
+ * ioctl will result in same character unless
+ * read() is called
+ * expects int *
+ */
+#define TIOCPEEK	0x545C
+/**
+ * Get data from read buffer without removing it.
+ * expects struct @ref iopeek_t *
+ */
+#define TIOCPEEKBUF	0x545D
+
+/**
+ * Peek structure
+ */
+struct iopeek_t {
+	void *buf;	/** Buffer pointer to store read data */
+	int len;	/** Length of buffer, on return this is updated with actual bytes read */
+};
+
 #ifdef __cplusplus
 extern "C" {
 #endif

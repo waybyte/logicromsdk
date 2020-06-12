@@ -11,11 +11,18 @@ extern "C" {
 #endif
 
 /**
- * Initialize I2C hardwar and setup pin-mux
+ * Initialize I2C hardware and setup pin-mux
  * @param speed_khz		[in] I2C Speed in Khz (must be < 400)
  * @return				0 on success, negative value on error
  */
 int i2c_hw_init(int speed_khz);
+
+/**
+ * Set I2C master clock speed
+ * @param speed_khz		[in] I2C Speed in Khz (must be < 400)
+ * @return				0 on success, negative value on error
+ */
+int i2c_hw_setspeed(int speed_khz);
 
 /**
  * Master send data over I2C slave device
@@ -48,7 +55,7 @@ int i2c_hw_read(unsigned char address, unsigned char *buffer, int len);
  * @param rdlen			[in] No. of bytes to read
  * @return				Length of data read from slave on success, negative value on error
  */
-int i2c_hw_rw(unsigned char address, unsigned char *wrbuf, int wrlen, unsigned char *rdbuf, int rdlen);
+int i2c_hw_writeread(unsigned char address, unsigned char *wrbuf, int wrlen, unsigned char *rdbuf, int rdlen);
 
 /**
  * De-Init I2C bus and release GPIO

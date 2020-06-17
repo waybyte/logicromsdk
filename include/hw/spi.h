@@ -7,9 +7,9 @@
 #define INCLUDE_HW_SPI_H_
 
 /**
- * Max supported Hardware SPI speed (default)
+ * Max supported Hardware SPI speed (default 10MHz)
  */
-#define SPI_MAX_SPEED	10000000U
+#define SPI_MAX_SPEED	32000000U
 
 /**
  * SPI Modes to configure clock polarity and clock phase.

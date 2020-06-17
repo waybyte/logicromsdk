@@ -17,6 +17,10 @@ enum sfstat_e {
 	SF_STAT_MOUNTED,   /**< SPI Flash enabled and filesystem is mounted successfully */
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Enable SPI Flash and mount LFS filesystem
  * @param gpio_cs		[in] GPIO number connected to SPI chip select
@@ -38,5 +42,9 @@ int spifs_disable(void);
  * @return			SPI Flash status see @ref sfstat_e
  */
 int spifs_getstatus(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_SPIFS_H_ */

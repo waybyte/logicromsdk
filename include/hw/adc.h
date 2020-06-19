@@ -14,8 +14,10 @@ enum adcch_e {
 	ADC_CH1,/**< ADC channel 1 mapped to @ref GPIO_1 */
 	ADC_CH2,/**< ADC channel 2 mapped to @ref GPIO_21 */
 	ADC_CH3,/**< ADC channel 3 mapped to @ref GPIO_31 */
+#if defined(PLATFORM_S20U) || defined(PLATFORM_M56)
 	ADC_CH4,/**< ADC channel 4 mapped to @ref GPIO_32 */
 	ADC_CH5,/**< ADC channel 5 mapped to pin ADC1 */
+#endif
 };
 
 #ifdef __cplusplus

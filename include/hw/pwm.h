@@ -11,7 +11,9 @@
  */
 enum pwmch_e {
 	PWM_CH0,/**< PWM Channel 0 (available on @ref GPIO_1) */
+#if !defined(PLATFORM_M66)
 	PWM_CH1,/**< PWM Channel 1 (available on @ref GPIO_36) */
+#endif
 };
 
 

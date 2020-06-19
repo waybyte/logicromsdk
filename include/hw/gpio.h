@@ -79,6 +79,7 @@ enum gpioname_e {
 	GPIO_22,
 	GPIO_23,
 	GPIO_24,
+#if defined (PLATFORM_MC60) || defined(PLATFORM_S20U) || defined(PLATFORM_M56)
 	GPIO_25,
 	GPIO_26,
 	GPIO_27,
@@ -87,11 +88,15 @@ enum gpioname_e {
 	GPIO_30,
 	GPIO_31,
 	GPIO_32,
+#endif
+#if defined(PLATFORM_S20U) || defined(PLATFORM_M56)
 	GPIO_33,
 	GPIO_34,
 	GPIO_35,
 	GPIO_36,
 	GPIO_37,
+#endif
+#if defined(PLATFORM_M56)
 	/* S56 Module, Extra GPIO */
 	GPIO_38,
 	GPIO_39,
@@ -108,6 +113,7 @@ enum gpioname_e {
 	GPIO_50,
 	GPIO_51,
 	GPIO_52,
+#endif
 	GPIO_PIN_MAX,
 };
 

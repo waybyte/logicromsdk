@@ -1,7 +1,7 @@
 {
-	"description": "SIWI GSM Software Development Kit",
+	"description": "SIWI GSM Software Development Kit for MT6261 and MT2503 SoC",
 	"name": "framework-siwisdk",
 	"system": "*",
 	"url": "https://github.com/siwiembedded/siwisdk",
-	"version": "0.4.0"
+	"version": "0.5.0"
 }

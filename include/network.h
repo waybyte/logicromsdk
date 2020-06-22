@@ -105,6 +105,12 @@ int network_gprsenable(int enable);
 int network_isgprsenable(void);
 
 /**
+ * Get IP address assigned to module
+ * @return			IP Address octets
+ */
+unsigned char *network_getlocalip(void);
+
+/**
  * Get currently used APN
  * @return			currently used APN (Do not free the buffer)
  */

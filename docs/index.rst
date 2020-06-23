@@ -5,7 +5,7 @@ Welcome to siwisdk's documentation!
 ===================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    Quick Start Guide <book/quick_start>
    API Reference Guide <book/api/index>

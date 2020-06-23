@@ -57,7 +57,7 @@ extern "C" {
 
 /**
  * Initialize SPI Hardware and setup pinmux
- * @param int hardware_cs	[in] Set it TRUE, if application hardware chip
+ * @param hardware_cs		[in] Set it TRUE, if application hardware chip
  * 								 select is used and hardware controls chip
  * 								 select status, FALSE otherwise
  * @return					0 on success, negative on error

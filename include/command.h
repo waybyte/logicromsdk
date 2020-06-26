@@ -81,6 +81,7 @@ typedef struct {
 	const char *cmd;	/**< Name of command */
 	int min_arg;		/**< Minimum arguments */
 	int max_arg;		/**< Maximum arguments */
+	cmd_handler_f cmdfn;/**< Command handler function */
 	const char *help;	/**< Short help message */
 	const char *usage;	/**< Long help message with usage */
 	int type;			/**< Command type flags command_type_e */
@@ -91,7 +92,7 @@ typedef struct {
  * @param _name		Name of command
  * @param _minarg	Minimum number of arguments including command (must be >= 1)
  * @param _maxarg	Maximum number of arguments including command (must be >= 1 & <= CMD_MAX_ARGS)
- * @param _cmd		Command function
+ * @param _cmd		Command handler function
  * @param _help		Short help message
  * @param _usage	Long help message and usage detail
  * @param _type		Command type flag see command_type_e

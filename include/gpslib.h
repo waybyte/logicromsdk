@@ -95,6 +95,7 @@ struct gpsdata_t {
  */
 struct gpsconfig_t {
 	int type;			/**< GPS type @ref gpstype_e, For In-built GPS use @ref GPS_TYPE_MTK */
+	int baud;			/**< GPS Baudrate */
 	float speedlimit;	/**< Over-speed limit in Km/h */
 	float harshturn;	/**< Harsh Turning speed limit in Km/h */
 	float harshbrk;		/**< Harsh breaking limit in g (m/s2) */

@@ -8,6 +8,7 @@
 #ifndef INC_FTPC_H_
 #define INC_FTPC_H_
 
+#ifndef PLATFORM_BC20
 /**
  * FTP Errors
  */
@@ -113,5 +114,7 @@ int ftpc_command(int cmd, void *arg, void *result);
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* PLATFORM_BC20 */
 
 #endif /* INC_FTPC_H_ */

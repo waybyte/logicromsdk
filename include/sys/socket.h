@@ -23,6 +23,11 @@
 #define PF_INET			2
 
 /**
+ * Internet address family V6
+ */
+#define PF_INET6		10
+
+/**
  * BSD address family
  */
 #define AF_UNSPEC		PF_UNSPEC
@@ -31,6 +36,11 @@
  * Internet address family (TCP, UDP)
  */
 #define AF_INET			PF_INET
+
+/**
+ * Internet address family V6
+ */
+#define AF_INET6		PF_INET6
 
 /**
  * Stream socket type (TCP/connection oriented)
@@ -112,6 +122,15 @@ struct sockaddr_in {
 	in_port_t sin_port;			/**< Port in network byte order */
 	struct in_addr sin_addr;	/**< IPv4 address */
 	char sin_zero[8];			/**< reserved */
+};
+
+struct sockaddr_in6 {
+	uint8_t sin6_len;			/**< length of this structure */
+	sa_family_t sin6_family;	/**< AF_INET6 */
+	in_port_t sin6_port;		/**< Transport layer port # */
+	uint32_t sin6_flowinfo;		/**< IPv6 flow information */
+	struct in6_addr sin6_addr;	/**< IPv6 address */
+	uint32_t sin6_scope_id;		/**< Set of interfaces for scope */
 };
 
 /**
@@ -198,7 +217,7 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *src_
  * @param optlen			[out] length of @a optval buffer, value is updated with actual size of @a optval
  * @return					On success, zero is returned for the standard options.  On error, -1 is returned, and errno is set appropriately.
  */
-int getsockopt (int sockfd, int level, int optname, void *optval, socklen_t *optlen);
+int getsockopt(int sockfd, int level, int optname, void *optval, socklen_t *optlen);
 
 /**
  * Set socket option
@@ -209,7 +228,7 @@ int getsockopt (int sockfd, int level, int optname, void *optval, socklen_t *opt
  * @param optlen			[in] sizeof @a optval
  * @return					On success, zero is returned for the standard options.  On error, -1 is returned, and errno is set appropriately.
  */
-int setsockopt (int sockfd, int level, int optname, const void *optval, socklen_t optlen);
+int setsockopt(int sockfd, int level, int optname, const void *optval, socklen_t optlen);
 
 #ifdef __cplusplus
 }

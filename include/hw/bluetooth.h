@@ -6,6 +6,7 @@
 #ifndef INC_HW_BLUETOOTH_H_
 #define INC_HW_BLUETOOTH_H_
 
+#ifndef PLATFORM_BC20
 /**
  * Maximum length for BT device name
  */
@@ -127,5 +128,7 @@ int bt_device_unpair(const char *name);
  * @return				For return value see @ref bterr_e
  */
 int bt_device_unpairall(void);
+
+#endif /* PLATFORM_BC20 */
 
 #endif /* INC_HW_BLUETOOTH_H_ */

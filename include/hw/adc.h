@@ -10,13 +10,15 @@
  * ADC channels
  */
 enum adcch_e {
-	ADC_CH0,/**< ADC channel 0 mapped to pin ADC0 */
-	ADC_CH1,/**< ADC channel 1 mapped to @ref GPIO_1 */
-	ADC_CH2,/**< ADC channel 2 mapped to @ref GPIO_21 */
-	ADC_CH3,/**< ADC channel 3 mapped to @ref GPIO_31 */
+	ADC_CH0,/**< ADC channel 0 */
+	ADC_CH1,/**< ADC channel 1 */
+#ifndef PLATFORM_BC20
+	ADC_CH2,/**< ADC channel 2 */
+	ADC_CH3,/**< ADC channel 3 */
+#endif
 #if defined(PLATFORM_S20U) || defined(PLATFORM_M56)
-	ADC_CH4,/**< ADC channel 4 mapped to @ref GPIO_32 */
-	ADC_CH5,/**< ADC channel 5 mapped to pin ADC1 */
+	ADC_CH4,/**< ADC channel 4 */
+	ADC_CH5,/**< ADC channel 5 */
 #endif
 };
 

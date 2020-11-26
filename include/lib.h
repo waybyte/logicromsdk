@@ -86,12 +86,6 @@ void system_gettz(char *tz, int size);
  */
 int debug(int level, const char *fmt, ...);
 
-/**
- * Get OTA status
- * @return			Return 1 if FOTA in progress, 0 otherwise
- */
-int ota_in_progress(void);
-
 #ifdef __cplusplus
 }
 #endif

@@ -12,6 +12,7 @@
 extern "C" {
 #endif
 
+#ifndef PLATFORM_BC20
 /**
  * Get Operator name
  * @param mcc		[in] Mobile country Code
@@ -19,6 +20,7 @@ extern "C" {
  * @return			On success pointer network operator name is returned (Do not free this memory). On error empty string is returned.
  */
 const char *get_opname(uint16_t mcc, uint16_t mnc);
+#endif
 
 #ifdef __cplusplus
 }

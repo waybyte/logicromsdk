@@ -27,6 +27,15 @@
 #define EVENT_NO_WAIT		0				/** Do not wait */
 
 /**
+ * Sleep Type
+ */
+enum sleeptype_e {
+	SLEEP_TYPE_NONE,	/**< Sleep disable */
+	SLEEP_TYPE_LIGHT,	/**< Light sleep mode */
+	SLEEP_TYPE_DEEP,	/**< Deep sleep mode */
+};
+
+/**
  * OS Task Function typedef
  * @param arg	User data argument to function
  */
@@ -54,11 +63,26 @@ void sys_reset(void);
 
 /**
  * Get Core system version
- * @param verbuf	Buffer to store version (minimum 30)
- * @param len		Length of verbuf
+ * @param verbuf	[in,out] Buffer to store version (minimum 30)
+ * @param len		[in] Length of verbuf
  * @return			Returns length of data stored in verbuf
  */
 int sys_get_coreversion(char *verbuf, int len);
+
+#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
+/**
+ * Set sleep timeout. System will wake up as soon as timeout finishes
+ * or an any event occurs.
+ * @param ms		[in] Sleep timeout in miliseconds
+ */
+void sys_setsleep_timeout(uint32_t ms);
+
+/**
+ * Enter sleep mode
+ * @param type		[in] Type of sleep @a sleeptype_e
+ */
+void sys_setsleep(int type);
+#endif
 
 /**
  * Task sleep API
@@ -184,6 +208,25 @@ uint32_t os_get_currtaskid(void);
  * @return				On success task ID is returned, -1 on error.
  */
 int os_create_task(os_taskfn_f fn, void *arg, int suspend);
+
+#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
+/**
+ * Create a new OS task, with extended parameters
+ * @param fn			[in] Task function of type os_taskfn_f
+ * @param stack			[in] Task stack size in bytes
+ * @param arg			[in] Argument to task function
+ * @param suspend		[in] TRUE will suspend the task on creation, FALSE otherwise. Suspended task can be started later by calling os_start_task()
+ * @return				On success task ID is returned, -1 on error.
+ */
+int os_create_taskex(os_taskfn_f fn, uint32_t stack, void *arg, int suspend);
+
+/**
+ * Start a task created by os_task_delete()
+ * @param taskid		[in] Task ID
+ * @return				0 on success, negative value on error
+ */
+int os_task_delete(int taskid);
+#endif
 
 /**
  * Start a task created by os_create_task()

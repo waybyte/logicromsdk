@@ -16,6 +16,7 @@ enum gpstype_e {
 	GPS_TYPE_SIRF,   /**< SIRF Star III GPS module */
 	GPS_TYPE_MTK,    /**< GPS/GNSS module based on Mediatek chipset */
 	GPS_TYPE_STIRNSS,/**< GNSS module with IRNSS support based on STA80xx chipset (e.g. L89) */
+	GPS_TYPE_UNICORE,/**< Default value for BC20 as onboard GNSS module */
 };
 
 /**

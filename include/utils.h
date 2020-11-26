@@ -65,7 +65,7 @@ void msleep(unsigned long ms);
  * @param linelen		[in] Number of values to print per line, 0 for default value of 16
  * @return
  */
-int print_buffer (unsigned long addr, const void* data, unsigned int width, unsigned int count, unsigned int linelen);
+int print_buffer(unsigned long addr, const void* data, unsigned int width, unsigned int count, unsigned int linelen);
 
 /**
  * Enable load command line utility to load file on device via Xmodem

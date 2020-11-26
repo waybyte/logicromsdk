@@ -52,9 +52,9 @@ enum gpio_trigger_e {
 /**
  * @enum gpioname_e GPIO List
  * Each GPIO can be configured for alternate function via Pinmux APIs, Check "See Also" section for more information
- * @note GPIO number after GPIO37 are available only with S56 GSM Module
  */
 enum gpioname_e {
+	GPIO_0,
 	GPIO_1,
 	GPIO_2,
 	GPIO_3,
@@ -78,8 +78,13 @@ enum gpioname_e {
 	GPIO_21,
 	GPIO_22,
 	GPIO_23,
+#ifdef PLATFORM_BC20
 	GPIO_24,
+	GPIO_25,
+	GPIO_26,
+#endif
 #if defined (PLATFORM_MC60) || defined(PLATFORM_S20U) || defined(PLATFORM_M56)
+	GPIO_24,
 	GPIO_25,
 	GPIO_26,
 	GPIO_27,
@@ -87,17 +92,17 @@ enum gpioname_e {
 	GPIO_29,
 	GPIO_30,
 	GPIO_31,
-	GPIO_32,
 #endif
 #if defined(PLATFORM_S20U) || defined(PLATFORM_M56)
+	GPIO_32,
 	GPIO_33,
 	GPIO_34,
 	GPIO_35,
 	GPIO_36,
-	GPIO_37,
 #endif
 #if defined(PLATFORM_M56)
 	/* S56 Module, Extra GPIO */
+	GPIO_37,
 	GPIO_38,
 	GPIO_39,
 	GPIO_40,
@@ -112,7 +117,6 @@ enum gpioname_e {
 	GPIO_49,
 	GPIO_50,
 	GPIO_51,
-	GPIO_52,
 #endif
 	GPIO_PIN_MAX,
 };

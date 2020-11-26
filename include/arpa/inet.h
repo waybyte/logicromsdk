@@ -17,11 +17,27 @@
 /* Address indicating an error return.  */
 #define INADDR_NONE			((in_addr_t) 0xffffffff)
 
+#ifndef __socklen_t_defined
+typedef __socklen_t socklen_t;
+#define __socklen_t_defined
+#endif
+
 /**
  * IPv4 Address structure.
  */
 struct in_addr {
 	in_addr_t s_addr;	/**< IPv4 address binary format */
+};
+
+/**
+ * IPv6 Address structure
+ */
+struct in6_addr {
+	union {
+		uint32_t u32_addr[4];
+		uint8_t u8_addr[16];
+	} un;
+#define s6_addr un.u8_addr
 };
 
 #ifdef __cplusplus
@@ -77,6 +93,27 @@ uint32_t ntohl(uint32_t x);
  * @return			Host byte order 16-bit data
  */
 uint16_t ntohs(uint16_t x);
+
+#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
+/**
+ * Convert IPv4 and IPv6 addresses from binary to text form
+ * @param af		[in] Address family
+ * @param src		[in] Source buffer containing binary address
+ * @param dst		[out] destination buffer to store converted text
+ * @param size		[in] size of destination buffer
+ * @return
+ */
+const char *inet_ntop(int af, const void *src, char *dst, socklen_t size);
+
+/**
+ * Convert IPv4 and IPv6 addresses from text to binary form
+ * @param af		[in] Address family
+ * @param src		[in] points to a character string containing an IPv4/IPv6 network address
+ * @param dst		[out] pointer to which to save the address in network order
+ * @return
+ */
+int inet_pton(int af, const char *src, void *dst);
+#endif
 
 #ifdef __cplusplus
 }

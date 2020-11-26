@@ -22,6 +22,22 @@ enum _net_state {
 /**
  * Network parameter structure
  */
+#ifdef PLATFORM_BC20
+typedef struct {
+	uint8_t csq;		/**< Signal strength RSSI value (0:-113dBm or less to 31:-55dBm or more, 99: Not detectable) */
+	uint8_t rscp;		/**< Received signal code power */
+	uint8_t rsrp;		/**< Reference signal received quality */
+	uint8_t rsrq;		/**< Reference signal received power */
+} cesq_t;
+
+struct netparam_t {
+	int simstate;		/**< SIM CPIN status @ref Enum_SIMState */
+	int cereg;			/**< CEREG network status @ref Enum_NetworkState */
+	int state;			/**< Internal state (for debugging) */
+	cesq_t cesq;		/**< Extended Signal quality structure */
+	const char *apn;	/**< Currently used APN as null terminted string */
+};
+#else
 struct netparam_t {
 	int simstate;		/**< SIM CPIN status @ref Enum_SIMState */
 	int creg;			/**< CREG GSM status @ref Enum_NetworkState */
@@ -31,6 +47,7 @@ struct netparam_t {
 	unsigned char csq;	/**< Signal strength RSSI value (0:-113dBm or less to 31:-55dBm or more, 99: Not detectable) */
 	const char *apn;	/**< Currently used APN as null terminted string */
 };
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -42,14 +59,6 @@ extern "C" {
  * @return			always return 0
  */
 int network_getparam(struct netparam_t *param);
-
-/**
- * Get network status.
- * If socket descriptor is provided, extended network status will be provided with socket status
- * @param sockfd	[in] Socket descriptor (optional, 0 if not used)
- * @return			network status see @ref _net_state
- */
-int network_getstatus(int sockfd);
 
 /**
  * Get APN configuration stored in memory
@@ -91,6 +100,26 @@ int network_setdns(const char *pri, const char *sec);
  */
 int network_resetdns(void);
 
+#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
+/**
+ * Get status of network, if its ready or not for data transaction
+ * @return			returns 1 if network ready, 0 otherwise
+ */
+int network_isready(void);
+
+/**
+ * Reset and restart network
+ */
+void network_reset(void);
+#else
+/**
+ * Get network status.
+ * If socket descriptor is provided, extended network status will be provided with socket status
+ * @param sockfd	[in] Socket descriptor (optional, 0 if not used)
+ * @return			network status see @ref _net_state
+ */
+int network_getstatus(int sockfd);
+
 /**
  * Enable/Disable GPRS. GPRS is enabled by default
  * @param enable	[in] 1 to enable, 0 to disable
@@ -109,6 +138,7 @@ int network_isgprsenable(void);
  * @return			IP Address octets
  */
 unsigned char *network_getlocalip(void);
+#endif
 
 /**
  * Get currently used APN

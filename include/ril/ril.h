@@ -122,7 +122,8 @@ typedef enum {
 	URC_SYS_BEGIN = 0,
 	URC_SYS_INIT_STATE_IND,     /**< Indication for module initialization state during boot stage, parameter value as @ref Enum_SysInitState */
 	URC_SIM_CARD_STATE_IND,     /**< Indication for SIM card state (state change), parameter value as @ref Enum_SIMState */
-	URC_GSM_NW_STATE_IND,       /**< Indication for GSM  network state (state change), parameter value as @ref Enum_NetworkState */
+	URC_GSM_NW_STATE_IND,       /**< Indication for GSM network state (state change), parameter value as @ref Enum_NetworkState */
+	URC_EGPRS_NW_STATE_IND = 3,	/**< Indication for EPS Network registration status, parameter value as @ref Enum_NetworkState */
 	URC_GPRS_NW_STATE_IND,      /**< Indication for GPRS network state (state change), parameter value as @ref Enum_NetworkState */
 	URC_CFUN_STATE_IND,         /**< Indication for CFUN state, with parameters as one of @ref Enum_CfunState */
 	URC_COMING_CALL_IND,        /**< Indication for coming call with parameter as @ref ST_ComingCallInfo */
@@ -131,6 +132,7 @@ typedef enum {
 	URC_MODULE_VOLTAGE_IND,     /**< Indication for abnormal voltage of module supply power, parameter value as @ref Enum_VoltageIndType */
 	URC_ALARM_RING_IND,		    /**< Indication for clock alarm. */
 	URC_STKPCI_RSP_IND,			/**< Indication for un-handled STKPCI responses, Only when QSTK is enabled, Parameter value is incoming +STKPCI response as null terminated string */
+	URC_RRC_STATUS_IND,			/**< NBIoT RRC Status update, Only applicable for BC20 */
 	URC_SYS_END = 100,
 	/*
 	 * System URC definition end

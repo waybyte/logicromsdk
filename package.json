@@ -1,7 +1,7 @@
 {
-	"description": "SIWI GSM Software Development Kit for MT6261 and MT2503 SoC",
+	"description": "SIWI Software Development Kit for Quectel GSM and NBIoT Modules",
 	"name": "framework-siwisdk",
 	"system": "*",
 	"url": "https://github.com/siwiembedded/siwisdk",
-	"version": "0.5.2"
+	"version": "0.6.0"
 }

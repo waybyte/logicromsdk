@@ -20,7 +20,8 @@
 enum command_ret_e {
 	CMD_RET_SUCCESS,	/**< Command executed successfully */
 	CMD_RET_FAILURE,	/**< Command executing failure */
-	CMD_RET_PERM,       /**< Command Permission denied */
+	CMD_RET_PERM,		/**< Command Permission denied */
+	CMD_RET_LOGOUT,		/**< Execute session logout */
 	CMD_RET_USAGE = -1,	/**< Failure, please report 'usage' error */
 };
 

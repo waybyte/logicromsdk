@@ -73,12 +73,14 @@ int sys_get_coreversion(char *verbuf, int len);
 /**
  * Set sleep timeout. System will wake up as soon as timeout finishes
  * or an any event occurs.
+ * @note only available on NBIoT Platforms
  * @param ms		[in] Sleep timeout in miliseconds
  */
 void sys_setsleep_timeout(uint32_t ms);
 
 /**
  * Enter sleep mode
+ * @note only available on NBIoT Platforms
  * @param type		[in] Type of sleep @a sleeptype_e
  */
 void sys_setsleep(int type);
@@ -212,6 +214,7 @@ int os_create_task(os_taskfn_f fn, void *arg, int suspend);
 #if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**
  * Create a new OS task, with extended parameters
+ * @note only available on NBIoT Platforms
  * @param fn			[in] Task function of type os_taskfn_f
  * @param stack			[in] Task stack size in bytes
  * @param arg			[in] Argument to task function
@@ -221,7 +224,8 @@ int os_create_task(os_taskfn_f fn, void *arg, int suspend);
 int os_create_taskex(os_taskfn_f fn, uint32_t stack, void *arg, int suspend);
 
 /**
- * Start a task created by os_task_delete()
+ * Start a task created by os_create_task()/os_create_taskex()
+ * @note only available on NBIoT Platforms
  * @param taskid		[in] Task ID
  * @return				0 on success, negative value on error
  */

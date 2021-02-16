@@ -28,6 +28,10 @@
 #define NULL    ((void *) 0)
 #endif
 
+#ifdef bool
+#define bool unsigned char
+#endif
+
 #define  RIL_MAX_URC_PREFIX_LEN		50	/**< Maximum allowed URC keyword length */
 #define PHONE_NUMBER_MAX_LEN		41	/**< Maximum phone number length */
 
@@ -259,6 +263,20 @@ int ril_urc_attach(const char *keyword, urc_handler_f callback);
  * @return				0 on success, negative value on error
  */
 int ril_urc_detach(const char *keyword);
+
+/**
+ * Lock RIL to take exclusive access.
+ * @note ril_lock()/ril_unlock() should be called from same task
+ * @param wait			[in] 1 to wait for RIL to be available, 0 otherwise
+ * @return				0 on success, -EWOULDBLOCK on error or when lock is unavailable
+ */
+int ril_lock(int wait);
+
+/**
+ * Unlock RIL layer
+ * @note ril_lock()/ril_unlock() should be called from same task
+ */
+void ril_unlock(void);
 
 #ifdef __cplusplus
 }

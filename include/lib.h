@@ -65,7 +65,7 @@ const char *get_siwilib_version(void);
  * Set system time-zone in +/-HH:MM format (e.g. +5:30)
  * @param tz	[in] Timezone value
  */
-void system_settz(char *tz);
+void system_settz(const char *tz);
 
 /**
  * Get current time-zone

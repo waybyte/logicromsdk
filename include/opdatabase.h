@@ -1,6 +1,7 @@
 /*
  * opdatabase.h
  *
+ * @note These APIs are only available on GSM Platforms
  */
 
 #ifndef INCLUDE_OPDATABASE_H_

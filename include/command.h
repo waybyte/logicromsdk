@@ -35,6 +35,7 @@ enum command_src_e {
 	CMD_SRC_DBG,      /**< Command source Remote debug console */
 	CMD_SRC_SMS,      /**< Command source SMS */
 	CMD_SRC_TCP,      /**< Command source TCP */
+	CMD_SRC_SYS,      /**< Command source system() API */
 };
 
 /**
@@ -43,15 +44,16 @@ enum command_src_e {
  */
 enum command_type_e {
 	CMD_TYPE_DEFAULT = 0,         /**< Default command, executing allowed everywhere and can be executed by user and admin. */
-	CMD_TYPE_HIDDEN = 1,          /**< Hidden command, Only executed by admin user */
+	CMD_TYPE_HIDDEN = 1,          /**< Hidden command, Only executed by admin user; Unless allowed by allow flags */
 	CMD_ALLOW_SMS = 2,            /**< Command allowed over SMS */
 	CMD_ALLOW_TCP = 4,            /**< Command allowed over TCP */
 	CMD_ALLOW_DBG = 8,            /**< Command allowed over remote debug */
 	CMD_ALLOW_CONSOLE = 0x10,     /**< Command allowed over console */
 	CMD_ALLOW_BT_CONSOLE = 0x20,  /**< Command allowed over Bluetooth console */
-	CMD_ALLOW_SYS = 0x40,         /**< Command allowed to execute via system API */
+	CMD_ALLOW_SYS = 0x40,         /**< Command allowed to execute via system() API */
 
 	/* Combination Flags */
+	CMD_ALLOW_ALL = 0x7F,         /**< Command allowed from all sources */
 	CMD_ALLOW_TCP_SMS = 0x6,      /**< Command allowed over TCP and SMS */
 	CMD_ALLOW_CONSOLE_ONLY = 0x38,/**< Command allowed over Console only */
 	CMD_ALLOW_TCP_SMS_DBG = 0xE,  /**< Command allowed over TCP, SMS and remote console */

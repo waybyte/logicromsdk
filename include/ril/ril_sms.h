@@ -82,6 +82,25 @@ typedef enum
     RIL_SMS_STATUS_TYPE_INVALID = 0xFF
 } Enum_RIL_SMS_StatusType;
 
+typedef enum
+{
+    LIB_SMS_PDU_TYPE_DELIVER = 0x00,
+    LIB_SMS_PDU_TYPE_SUBMIT = 0x01,
+    LIB_SMS_PDU_TYPE_STATUS_REPORT = 0x02,
+    LIB_SMS_PDU_TYPE_RESERVED = 0x03,
+
+    LIB_SMS_PDU_TYPE_INVALID = 0xFF,
+} LIB_SMS_PDUTypeEnum;
+
+typedef enum
+{
+    LIB_SMS_DCS_ALPHA_DEFAULT = 0,
+    LIB_SMS_DCS_ALPHA_8BIT_DATA = 1,
+    LIB_SMS_DCS_ALPHA_UCS2 = 2,
+
+    LIB_SMS_DCS_ALPHA_INVALID = 0xFF
+} LIB_SMS_DCSAlphaEnum;
+
 /***********************************************************************
  * STRUCT TYPE DEFINITIONS
 ************************************************************************/

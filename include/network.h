@@ -100,18 +100,6 @@ int network_setdns(const char *pri, const char *sec);
  */
 int network_resetdns(void);
 
-#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
-/**
- * Get status of network, if its ready or not for data transaction
- * @return			returns 1 if network ready, 0 otherwise
- */
-int network_isready(void);
-
-/**
- * Reset and restart network
- */
-void network_reset(void);
-#else
 /**
  * Get network status.
  * If socket descriptor is provided, extended network status will be provided with socket status
@@ -120,6 +108,22 @@ void network_reset(void);
  */
 int network_getstatus(int sockfd);
 
+#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
+/**
+ * Get status of network, if its ready or not for data transaction
+ * @note This API applies to NBIoT Platforms only.
+ *
+ * @return			returns 1 if network ready, 0 otherwise
+ */
+int network_isready(void);
+
+/**
+ * Reset and restart network
+ */
+void network_reset(void);
+#endif
+
+#if !defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**
  * Enable/Disable GPRS. GPRS is enabled by default
  * @param enable	[in] 1 to enable, 0 to disable

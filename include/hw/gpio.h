@@ -82,6 +82,9 @@ enum gpioname_e {
 	GPIO_24,
 	GPIO_25,
 	GPIO_26,
+	GPIO_27,
+	GPIO_28,
+	GPIO_29,
 #endif
 #if defined (PLATFORM_MC60) || defined(PLATFORM_S20U) || defined(PLATFORM_M56)
 	GPIO_24,

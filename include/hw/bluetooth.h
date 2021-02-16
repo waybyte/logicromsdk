@@ -8,6 +8,10 @@
 
 #ifndef PLATFORM_BC20
 /**
+ * @note Bluetooth is only available on GSM platforms.
+ */
+
+/**
  * Maximum length for BT device name
  */
 #define BTDEV_NAME_LEN_MAX                     56 /* 18 * 3 + 2 */

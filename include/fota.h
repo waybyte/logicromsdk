@@ -1,10 +1,10 @@
 /*
- * lib.h
+ * fota.h
  *
  */
 
-#ifndef INCLUDE_LIB_H_
-#define INCLUDE_LIB_H_
+#ifndef INCLUDE_FOTA_H_
+#define INCLUDE_FOTA_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,8 +21,10 @@ int fota_start(const char *in_url);
  * Get OTA status
  * @return			Return 1 if FOTA in progress, 0 otherwise
  */
-int ota_in_progress(void);
+int fota_in_progress(void);
 
 #ifdef __cplusplus
 }
 #endif
+#endif	/* INCLUDE_FOTA_H_ */
+

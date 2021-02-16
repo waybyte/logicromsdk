@@ -1,8 +1,7 @@
 /*
  * ftpc.h
  *
- *  Created on: Mar 11, 2017
- *      Author: ajay_
+ * @note FTP Client APIs are only available on GSM platform only
  */
 
 #ifndef INC_FTPC_H_

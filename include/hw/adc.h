@@ -11,10 +11,12 @@
  */
 enum adcch_e {
 	ADC_CH0,/**< ADC channel 0 */
+#ifndef PLATFORM_SIM868
 	ADC_CH1,/**< ADC channel 1 */
 #ifndef PLATFORM_BC20
 	ADC_CH2,/**< ADC channel 2 */
 	ADC_CH3,/**< ADC channel 3 */
+#endif
 #endif
 #if defined(PLATFORM_S20U) || defined(PLATFORM_M56)
 	ADC_CH4,/**< ADC channel 4 */

@@ -78,7 +78,7 @@ enum gpioname_e {
 	GPIO_21,
 	GPIO_22,
 	GPIO_23,
-#ifdef PLATFORM_BC20
+#if defined(PLATFORM_BC20) || defined(PLATFORM_SIM868)
 	GPIO_24,
 	GPIO_25,
 	GPIO_26,

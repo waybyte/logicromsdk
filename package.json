@@ -1,7 +1,7 @@
 {
-	"description": "SIWI Software Development Kit for Quectel GSM and NBIoT Modules",
+	"description": "Software Development Kit for GSM and NBIoT Modules",
 	"name": "framework-siwisdk",
 	"system": "*",
 	"url": "https://github.com/siwiembedded/siwisdk",
-	"version": "0.6.0"
+	"version": "0.7.1"
 }

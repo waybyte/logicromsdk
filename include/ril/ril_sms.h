@@ -114,7 +114,7 @@ typedef struct
 
 typedef struct
 {
-    bool conPres; //FALSE: This is a normal SMS. TRUE: This is a concatenate SMS
+    u8 conPres; //FALSE: This is a normal SMS. TRUE: This is a concatenate SMS
     ST_RIL_SMS_Con con;
 } ST_RIL_SMS_SendExt;
 
@@ -124,7 +124,7 @@ typedef struct
     char oa[RIL_SMS_PHONE_NUMBER_MAX_LEN];
     char scts[RIL_SMS_TIME_STAMP_STR_MAX_LEN];
 
-    bool conPres; //FALSE: This is a normal SMS. TRUE: This is a concatenate SMS
+    u8 conPres; //FALSE: This is a normal SMS. TRUE: This is a concatenate SMS
     ST_RIL_SMS_Con con;
 
     u8 data[RIL_SMS_TEXT_DATA_MAX_LEN];
@@ -136,7 +136,7 @@ typedef struct
     u8 alpha; //It's value is same as 'LIB_SMS_DCSAlphaEnum'
     char da[RIL_SMS_PHONE_NUMBER_MAX_LEN];
 
-    bool conPres; //FALSE: This is a normal SMS. TRUE: This is a concatenate SMS
+    u8 conPres; //FALSE: This is a normal SMS. TRUE: This is a concatenate SMS
     ST_RIL_SMS_Con con;
 
     u8 data[RIL_SMS_TEXT_DATA_MAX_LEN];

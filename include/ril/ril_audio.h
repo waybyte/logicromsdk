@@ -108,7 +108,7 @@ s32 RIL_AUD_RegisterPlayCB(RIL_AUD_PLAY_IND audCB);
  *                RIL_AT_SUCCESS, this function succeeds.
  *                Or, please see the definition of Enum_ATSndError.
  *****************************************************************************/
-s32 RIL_AUD_PlayFile(char* filePath, bool isRepeated);
+s32 RIL_AUD_PlayFile(char* filePath, u8 isRepeated);
 
 /*****************************************************************************
  * FUNCTION
@@ -234,7 +234,7 @@ s32 RIL_AUD_SetChannel(Enum_AudChannel audChannel);
  *                RIL_AT_SUCCESS, this function succeeds.
  *                Or, please see the definition of Enum_ATSndError.
  *****************************************************************************/
-s32 RIL_AUD_PlayMem(u32 mem_addr, u32 mem_size, u8 aud_format, bool repeat);
+s32 RIL_AUD_PlayMem(u32 mem_addr, u32 mem_size, u8 aud_format, u8 repeat);
 
 /*****************************************************************************
  * FUNCTION

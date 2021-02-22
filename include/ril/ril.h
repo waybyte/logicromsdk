@@ -28,10 +28,6 @@
 #define NULL    ((void *) 0)
 #endif
 
-#ifdef bool
-#define bool unsigned char
-#endif
-
 #define  RIL_MAX_URC_PREFIX_LEN		50	/**< Maximum allowed URC keyword length */
 #define PHONE_NUMBER_MAX_LEN		41	/**< Maximum phone number length */
 

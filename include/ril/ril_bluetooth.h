@@ -534,7 +534,7 @@ s32 RIL_BT_PairReq(BT_DEV_HDL hdlDevice);
 *                RIL_AT_INVALID_PARAM, invalid input parameter.
 *                RIL_AT_UNINITIALIZED, RIL is not ready, need to wait for MSG_ID_RIL_READY
 *****************************************************************/
-s32 RIL_BT_PairConfirm(bool accept, char* pinCode);
+s32 RIL_BT_PairConfirm(u8 accept, char* pinCode);
 
 
 
@@ -650,7 +650,7 @@ s32 RIL_BT_SPP_DirectConn(char* btMacAddr, u8 mode, char* pinCode);
 *                RIL_AT_INVALID_PARAM, invalid input parameter.
 *                RIL_AT_UNINITIALIZED, RIL is not ready, need to wait for MSG_ID_RIL_READY
 *****************************************************************/
-s32 RIL_BT_ConnAccept(bool accept , u8 mode);
+s32 RIL_BT_ConnAccept(u8 accept , u8 mode);
 
 
 /*****************************************************************

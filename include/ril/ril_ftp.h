@@ -56,7 +56,7 @@ typedef enum
     
 }ENUM_FTP_STATUS;
 
-s32 RIL_FTP_QFTPOPEN(u8* hostName, u32 port,u8* userName,u8* password, bool mode);
+s32 RIL_FTP_QFTPOPEN(u8* hostName, u32 port,u8* userName,u8* password, u8 mode);
 
 s32 RIL_FTP_QFTPCLOSE(void);
 

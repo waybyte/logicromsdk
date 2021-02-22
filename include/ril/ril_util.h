@@ -46,7 +46,7 @@ typedef enum {
     (((alpha_char >= CHAR_0) && (alpha_char <= CHAR_9) ) ? 1 : 0)
 
 extern s32  ril_strprefixmatch(const char* str, const char *prefix);
-extern bool ril_hexstrtoint(u8 *str, u32 *val);
+extern u8 ril_hexstrtoint(u8 *str, u32 *val);
 extern char* ril_strtoupper(char* str);
 
 /******************************************************************************

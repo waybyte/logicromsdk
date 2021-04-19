@@ -1,21 +1,11 @@
-/*****************************************************************************
-*  Copyright Statement:
-*  --------------------
-*  This software is protected by Copyright and the information contained
-*  herein is confidential. The software may not be copied and the information
-*  contained herein may not be used or disclosed except with the written
-*  permission of Quectel Co., Ltd. 2013
-*
-*****************************************************************************/
 /**
- * File has been taken and modified from OpenCPU SDK
+ * ril.h
  */
+
 #ifndef __RIL_H__
 #define __RIL_H__
 
-/**
- * @cond SHOULD_DOCUMENT_ALL
- */
+#ifndef _DOXYGEN_
 #ifndef FALSE
 #define FALSE    0
 #endif
@@ -28,7 +18,7 @@
 #define NULL    ((void *) 0)
 #endif
 
-#define  RIL_MAX_URC_PREFIX_LEN		50	/**< Maximum allowed URC keyword length */
+#define RIL_MAX_URC_PREFIX_LEN		50	/**< Maximum allowed URC keyword length */
 #define PHONE_NUMBER_MAX_LEN		41	/**< Maximum phone number length */
 
 typedef unsigned char       u8;
@@ -40,24 +30,22 @@ typedef          int        s32;
 typedef unsigned long long  u64;
 typedef          long long  s64;
 typedef unsigned int        ticks;
-/**
- * @endcond
- */
+#endif
 
 /**
  * System Initialization status
  */
-typedef enum {
-	SYS_STATE_START = 0,/**< System started */                       /**< SYS_STATE_START */
-	SYS_STATE_ATOK  = 1,/**< System ready for AT commands */         /**< SYS_STATE_ATOK */
-	SYS_STATE_PHBOK = 2,/**< Device is ready to make/receive calls *//**< SYS_STATE_PHBOK */
-	SYS_STATE_SMSOK = 3 /**< SIM card is ready for SMS */            /**< SYS_STATE_SMSOK */
-} Enum_SysInitState;
+enum sysinitstate_e {
+	SYS_STATE_START = 0,/**< System started */
+	SYS_STATE_ATOK  = 1,/**< System ready for AT commands */
+	SYS_STATE_PHBOK = 2,/**< Device is ready to make/receive calls */
+	SYS_STATE_SMSOK = 3 /**< SIM card is ready for SMS */
+};
 
 /**
  * Definition for SIM Card State
  */
-typedef enum {
+enum simstate_e {
 	SIM_STAT_NOT_INSERTED = 0,/**< SIM card not inserted */
 	SIM_STAT_READY,           /**< SIM card ready, no further action required */
 	SIM_STAT_PIN_REQ,         /**< ME waiting for SIM PIN */
@@ -69,33 +57,33 @@ typedef enum {
 	SIM_STAT_BUSY,            /**< SIM card busy */
 	SIM_STAT_NOT_READY,       /**< SIM card not ready */
 	SIM_STAT_UNSPECIFIED      /**< Unknown error */
-} Enum_SIMState;
+};
 
 /**
  * Network status
  */
-typedef enum {
-	NW_STAT_NOT_REGISTERED = 0,    /**< Not register to network */
-	NW_STAT_REGISTERED,            /**< The normal network state */
-	NW_STAT_SEARCHING,             /**< Searching network */
-	NW_STAT_REG_DENIED,            /**< The register request is denied */
-	NW_STAT_UNKNOWN,               /**< status unknown */
-	NW_STAT_REGISTERED_ROAMING     /**< Registered and Roaming state */
-} Enum_NetworkState;
+enum networkstate_e {
+	NW_STAT_NOT_REGISTERED = 0, /**< Not register to network */
+	NW_STAT_REGISTERED,			/**< The normal network state */
+	NW_STAT_SEARCHING,			/**< Searching network */
+	NW_STAT_REG_DENIED,			/**< The register request is denied */
+	NW_STAT_UNKNOWN,			/**< status unknown */
+	NW_STAT_REGISTERED_ROAMING	/**< Registered and Roaming state */
+};
 
 /**
  * Phone functionality state
  */
-typedef enum {
+enum cfunstate_e {
 	CFUN_STATE_0 = 0,/**< Minimal functionality */
 	CFUN_STATE_1 = 1,/**< Full functionality */
 	CFUN_STATE_4 = 4 /**< Disable phone from both transmit ting and receiv ing RF signals */
-} Enum_CfunState;
+};
 
 /**
  * Call status
  */
-typedef enum {
+enum callstatus_e {
 	CALL_STATE_ERROR = -1, /**< Error */
 	CALL_STATE_OK = 0,     /**< Status OK */
 	CALL_STATE_BUSY,       /**< Response "BUSY" */
@@ -103,42 +91,42 @@ typedef enum {
 	CALL_STATE_NO_CARRIER, /**< Response "NO_CARRIER" */
 	CALL_STATE_NO_DIALTONE,/**< Response "NO_DIALTONE" */
 	CALL_STATE_END         /**< CALL_STATE_END */
-} Enum_CallState;
+};
 
 /**
  * Voltage Indication Type
  */
-typedef enum{
+enum vbattind_e {
 	VBATT_UNDER_WRN = 0,/**< Warning: Under voltage */
 	VBATT_UNDER_PDN,    /**< Warning: Under voltage power-down */
 	VBATT_OVER_WRN,     /**< Warning: Over voltage */
 	VBATT_OVER_PDN      /**< Warning: Over voltage power-down */
-} Enum_VoltageIndType;
+};
 
 /**
  * URC Codes
  */
-typedef enum {
+enum sysurc_e {
 	URC_SYS_BEGIN = 0,
-	URC_SYS_INIT_STATE_IND,     /**< Indication for module initialization state during boot stage, parameter value as @ref Enum_SysInitState */
-	URC_SIM_CARD_STATE_IND,     /**< Indication for SIM card state (state change), parameter value as @ref Enum_SIMState */
-	URC_GSM_NW_STATE_IND,       /**< Indication for GSM network state (state change), parameter value as @ref Enum_NetworkState */
-	URC_EGPRS_NW_STATE_IND = 3,	/**< Indication for EPS Network registration status, parameter value as @ref Enum_NetworkState */
-	URC_GPRS_NW_STATE_IND,      /**< Indication for GPRS network state (state change), parameter value as @ref Enum_NetworkState */
-	URC_CFUN_STATE_IND,         /**< Indication for CFUN state, with parameters as one of @ref Enum_CfunState */
-	URC_COMING_CALL_IND,        /**< Indication for coming call with parameter as @ref ST_ComingCallInfo */
-	URC_CALL_STATE_IND,         /**< Indication for call state (state change), parameter value as @ref Enum_CallState */
+	URC_SYS_INIT_STATE_IND,     /**< Indication for module initialization state during boot stage, parameter value as @ref sysinitstate_e */
+	URC_SIM_CARD_STATE_IND,     /**< Indication for SIM card state (state change), parameter value as @ref simstate_e */
+	URC_GSM_NW_STATE_IND,       /**< Indication for GSM network state (state change), parameter value as @ref networkstate_e */
+	URC_EGPRS_NW_STATE_IND = 3,	/**< Indication for EPS Network registration status, parameter value as @ref networkstate_e */
+	URC_GPRS_NW_STATE_IND,      /**< Indication for GPRS network state (state change), parameter value as @ref networkstate_e */
+	URC_CFUN_STATE_IND,         /**< Indication for CFUN state, with parameters as one of @ref cfunstate_e */
+	URC_COMING_CALL_IND,        /**< Indication for coming call with parameter as @ref callinfo_t */
+	URC_CALL_STATE_IND,         /**< Indication for call state (state change), parameter value as @ref callstatus_e */
 	URC_NEW_SMS_IND,            /**< Indication for new short message, parameter value as index of incoming SMS */
-	URC_MODULE_VOLTAGE_IND,     /**< Indication for abnormal voltage of module supply power, parameter value as @ref Enum_VoltageIndType */
+	URC_MODULE_VOLTAGE_IND,     /**< Indication for abnormal voltage of module supply power, parameter value as @ref vbattind_e */
 	URC_ALARM_RING_IND,		    /**< Indication for clock alarm. */
 	URC_STKPCI_RSP_IND,			/**< Indication for un-handled STKPCI responses, Only when QSTK is enabled, Parameter value is incoming +STKPCI response as null terminated string */
-	URC_RRC_STATUS_IND,			/**< NBIoT RRC Status update, Only applicable for BC20 */
+	URC_RRC_STATUS_IND,			/**< 4GLTE & NBIoT RRC Status update */
 	URC_SYS_END = 100,
 	/*
 	 * System URC definition end
 	 */
 	URC_END						/**< Unhandled URC response */
-} Enum_URCType;
+};
 
 /**
  * Return code for AT command response process callback function
@@ -166,28 +154,12 @@ enum ril_rc_e {
 /**
  * Incoming call phone info
  */
-typedef struct {
+struct callinfo_t {
 	s32 type; /**< Type of address with following possible values.\n
 				   129: Unknown type (ISDN format number)\n
 				   145: International number type (ISDN format) */
 	char phoneNumber[PHONE_NUMBER_MAX_LEN]; /**< Phone number as null terminated string */
-} ST_ComingCall;
-
-/**
- * Incoming call URC parameter
- */
-typedef struct {
-	u32 ringCnt; /**< Ring count */
-	ST_ComingCall comingCall[6]; /**< Calling number information */
-} ST_ComingCallInfo;
-
-/**
- * URC handle structure
- */
-typedef struct {
-	char  keyword[RIL_MAX_URC_PREFIX_LEN];					/**< Keyword to search in URC response */
-	void  (* handler)(const char *strURC, void *reserved);	/**< URC handler function */
-} ST_URC_HDLENTRY;
+};
 
 /**
  * URC handler function type
@@ -261,8 +233,8 @@ int ril_urc_attach(const char *keyword, urc_handler_f callback);
 int ril_urc_detach(const char *keyword);
 
 /**
- * Lock RIL to take exclusive access.
- * @note ril_lock()/ril_unlock() should be called from same task
+ * Get exclusive access to Radio interface layer. This lock is only an advisory lock for RIL.
+ * @note ril_lock() and ril_unlock() should be called from same task
  * @param wait			[in] 1 to wait for RIL to be available, 0 otherwise
  * @return				0 on success, -EWOULDBLOCK on error or when lock is unavailable
  */
@@ -270,7 +242,7 @@ int ril_lock(int wait);
 
 /**
  * Unlock RIL layer
- * @note ril_lock()/ril_unlock() should be called from same task
+ * @note ril_lock() and ril_unlock() should be called from same task
  */
 void ril_unlock(void);
 

@@ -6,20 +6,7 @@
 #ifndef INCLUDE_HW_PWM_H_
 #define INCLUDE_HW_PWM_H_
 
-/**
- * PWM Channels
- */
-enum pwmch_e {
-	PWM_CH0,/**< PWM Channel 0 */
-#if !defined(PLATFORM_M66)
-	PWM_CH1,/**< PWM Channel 1 */
-#endif
-#ifdef PLATFORM_BC20
-	PWM_CH2,/**< PWM Channel 2 */
-	PWM_CH3,/**< PWM Channel 3 */
-#endif
-};
-
+#include <plat/def_pwm.h>
 
 #ifdef __cplusplus
 extern "C" {

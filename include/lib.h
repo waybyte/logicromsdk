@@ -27,7 +27,7 @@ enum loglevel_e {
 	DBG_NETWORK,                 /**< Network layer debug level */
 
 	/* User application Debug levels must start at DBG_USER_START */
-	DBG_LIB_END = 23,
+	DBG_LIB_END = 24,
 	DBG_USER_START = DBG_LIB_END,/**< Start of Application log levels */
 };
 
@@ -43,23 +43,23 @@ extern "C" {
 typedef void (*urc_callback_f)(unsigned int urc_code, unsigned int urc_param);
 
 /**
- * Initialize SDK library
+ * Initialize LOGICROM SDK library
  * @param stdio			[in] STDIO port (e.g. /dev/ttyUSB0), can be NULL if STDIO is not required
  * @param handler		[in] Function pointer for handling unsolicited responses @ref urc_callback_f
  */
-void siwilib_init(const char *stdio, urc_callback_f handler);
+void logicrom_init(const char *stdio, urc_callback_f handler);
 
 /**
  * Get device serial number
  * @return		Serial number of device. Buffer is statically allocated, do not free
  */
-const char *siwi_getserial(void);
+const char *system_getserial(void);
 
 /**
  * Get SDK library version
  * @return		Library version string.
  */
-const char *get_siwilib_version(void);
+const char *get_logicrom_version(void);
 
 /**
  * Set system time-zone in +/-HH:MM format (e.g. +5:30)

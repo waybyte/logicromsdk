@@ -31,17 +31,17 @@ typedef struct {
 } cesq_t;
 
 struct netparam_t {
-	int simstate;		/**< SIM CPIN status @ref Enum_SIMState */
-	int cereg;			/**< CEREG network status @ref Enum_NetworkState */
+	int simstate;		/**< SIM CPIN status @ref simstate_e */
+	int cereg;			/**< CEREG network status @ref networkstate_e */
 	int state;			/**< Internal state (for debugging) */
 	cesq_t cesq;		/**< Extended Signal quality structure */
 	const char *apn;	/**< Currently used APN as null terminted string */
 };
 #else
 struct netparam_t {
-	int simstate;		/**< SIM CPIN status @ref Enum_SIMState */
-	int creg;			/**< CREG GSM status @ref Enum_NetworkState */
-	int cgreg;			/**< CGREG GPRS status @ref Enum_NetworkState */
+	int simstate;		/**< SIM CPIN status @ref simstate_e */
+	int creg;			/**< CREG GSM status @ref networkstate_e */
+	int cgreg;			/**< CGREG GPRS status @ref networkstate_e */
 	int state;			/**< Internal state (for debugging) */
 	int atgprs;			/**< Internal state of GPRS (for debugging) */
 	unsigned char csq;	/**< Signal strength RSSI value (0:-113dBm or less to 31:-55dBm or more, 99: Not detectable) */

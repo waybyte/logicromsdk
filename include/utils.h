@@ -39,18 +39,6 @@ char *strcasestr(const char *str, const char *pattern);
 time_t timegm(struct tm *tm);
 
 /**
- * Get exclusive lock of Radio interface layer. This lock is only an advisory lock for RIL.
- * @param wait		[in] 1 if wait until lock is available, 0 return immediately if lock is unavailable.
- * @return			0 on success, negative value on error
- */
-int ril_lock(int wait);
-
-/**
- * Release RIL lock
- */
-void ril_unlock(void);
-
-/**
  * Sleep for duration in milliseconds
  * @param ms		[in] Sleep duration in ms
  */
@@ -81,7 +69,7 @@ int load_init(void);
  * Enable wget command line utility to download file from web
  * File download status will be returned via URC response (URC_FILE_DOWNLOAD_STATUS)
  * to URC response handler function
- * @see siwilib_init
+ * @see logicrom_init
  * @see urc_handler_f
  *
  * Wget command usage:

@@ -3,8 +3,8 @@
  *
  */
 
-#ifndef INCLUDE_SIWI_SOCKETS_H_
-#define INCLUDE_SIWI_SOCKETS_H_
+#ifndef INCLUDE_NET_SOCKETS_H_
+#define INCLUDE_NET_SOCKETS_H_
 
 #define SOC_WRITE_TO_DEFAULT	45
 
@@ -280,4 +280,4 @@ int ssl_socket_free(int id);
 }
 #endif
 
-#endif /* INCLUDE_SIWI_SOCKETS_H_ */
+#endif /* INCLUDE_NET_SOCKETS_H_ */

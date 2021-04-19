@@ -35,7 +35,8 @@ enum bterr_e {
  */
 enum devtype_e {
 	DEV_TYPE_SEARCH,/**< Searched device list */
-	DEV_TYPE_PAIRED /**< Paired device list */
+	DEV_TYPE_PAIRED,/**< Paired device list */
+	DEV_TYPE_ALL,	/**< All devices, Only for display */
 };
 
 /**
@@ -44,6 +45,15 @@ enum devtype_e {
 struct btdevinfo_t {
 	char name[BTDEV_NAME_LEN_MAX];	/**< Name of device */
 	unsigned char addr[6];			/**< Hardware address of device */
+};
+
+/**
+ * Bluetooth Controller information structure
+ */
+struct btinfo_t {
+	struct btdevinfo_t dev;		/**< BT contoller device info */
+	int power;					/**< Controller power on/off status */
+	int visible;				/**< Controller visibility status */
 };
 
 /**
@@ -68,6 +78,13 @@ int bt_device_power(int on_off);
  * @return				For return value see @ref bterr_e
  */
 int bt_device_reset(void);
+
+/**
+ * Get Bluetooth controller information
+ * @param info			[in,out] Pointer to structure to store information
+ * @return				For return value see @ref bterr_e
+ */
+int bt_device_getinfo(struct btinfo_t *info);
 
 /**
  * Change display name of device
@@ -132,6 +149,33 @@ int bt_device_unpair(const char *name);
  * @return				For return value see @ref bterr_e
  */
 int bt_device_unpairall(void);
+
+/**
+ * Helper function to display device list
+ * @param disp_type		[in] Display list type @ref devtype_e
+ */
+void bt_print_devlist(int disp_type);
+
+/**
+ * Install "BTMAN" command to manage Bluetooth controller
+ * from command line interface.
+ *
+ * Command Format:
+ * BTMAN [OP] [ARG]
+ *
+ * OP - Operation to perform
+ * ARG - Argument, depends on operation
+ *
+ * Available operation:
+ * 1. Power - Power on/off BT. ARG = 0/1
+ * 2. Scan - Scan BT devices. ARG = Timeout (optional, default 10s)
+ * 3. List - List all BT devices (Paired and Searched).
+ * 4. Pair - Pair a BT device. ARG = [DEV NAME],[PASSKEY (optional)]
+ * 5. Unpair - Unpair a BT device. ARG = DEV NAME (All devices are unpaired if no argument given)
+ *
+ * If no operation is specified, Command will print BT controller related information
+ */
+int bt_manager_init(void);
 
 #endif /* PLATFORM_BC20 */
 

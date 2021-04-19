@@ -6,6 +6,8 @@
 #ifndef INCLUDE_HW_GPIO_H_
 #define INCLUDE_HW_GPIO_H_
 
+#include <plat/def_gpio.h>
+
 /**
  * GPIO Callback function prototype
  * @param handle
@@ -47,81 +49,6 @@ enum gpio_trigger_e {
 	GPIO_TRIG_LOW = 1,/**< Trigger High -> Low level transition */
 	GPIO_TRIG_HIGH,   /**< Trigger Low -> High level transition */
 	GPIO_TRIG_BOTH    /**< Trigger on change of either level */
-};
-
-/**
- * @enum gpioname_e GPIO List
- * Each GPIO can be configured for alternate function via Pinmux APIs, Check "See Also" section for more information
- */
-enum gpioname_e {
-	GPIO_0,
-	GPIO_1,
-	GPIO_2,
-	GPIO_3,
-	GPIO_4,
-	GPIO_5,
-	GPIO_6,
-	GPIO_7,
-	GPIO_8,
-	GPIO_9,
-	GPIO_10,
-	GPIO_11,
-	GPIO_12,
-	GPIO_13,
-	GPIO_14,
-	GPIO_15,
-	GPIO_16,
-	GPIO_17,
-	GPIO_18,
-	GPIO_19,
-	GPIO_20,
-	GPIO_21,
-	GPIO_22,
-	GPIO_23,
-#if defined(PLATFORM_BC20) || defined(PLATFORM_SIM868)
-	GPIO_24,
-	GPIO_25,
-	GPIO_26,
-	GPIO_27,
-	GPIO_28,
-	GPIO_29,
-#endif
-#if defined (PLATFORM_MC60) || defined(PLATFORM_S20U) || defined(PLATFORM_M56)
-	GPIO_24,
-	GPIO_25,
-	GPIO_26,
-	GPIO_27,
-	GPIO_28,
-	GPIO_29,
-	GPIO_30,
-	GPIO_31,
-#endif
-#if defined(PLATFORM_S20U) || defined(PLATFORM_M56)
-	GPIO_32,
-	GPIO_33,
-	GPIO_34,
-	GPIO_35,
-	GPIO_36,
-#endif
-#if defined(PLATFORM_M56)
-	/* S56 Module, Extra GPIO */
-	GPIO_37,
-	GPIO_38,
-	GPIO_39,
-	GPIO_40,
-	GPIO_41,
-	GPIO_42,
-	GPIO_43,
-	GPIO_44,
-	GPIO_45,
-	GPIO_46,
-	GPIO_47,
-	GPIO_48,
-	GPIO_49,
-	GPIO_50,
-	GPIO_51,
-#endif
-	GPIO_PIN_MAX,
 };
 
 #ifdef __cplusplus

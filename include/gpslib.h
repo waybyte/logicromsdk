@@ -12,11 +12,12 @@
  * GPS Module type
  */
 enum gpstype_e {
-	GPS_TYPE_ANY,    /**< GPS module that is not known to library */
-	GPS_TYPE_SIRF,   /**< SIRF Star III GPS module */
-	GPS_TYPE_MTK,    /**< GPS/GNSS module based on Mediatek chipset */
-	GPS_TYPE_STIRNSS,/**< GNSS module with IRNSS support based on STA80xx chipset (e.g. L89) */
-	GPS_TYPE_UNICORE,/**< Default value for BC20 as onboard GNSS module */
+	GPS_TYPE_ANY,	   /**< GPS module that is not known to library */
+	GPS_TYPE_SIRF,	   /**< SIRF Star III GPS module */
+	GPS_TYPE_MTK,	   /**< GPS/GNSS module based on Mediatek chipset */
+	GPS_TYPE_STIRNSS,  /**< GNSS module with IRNSS support based on STA80xx chipset (e.g. L89) */
+	GPS_TYPE_UNICORE,  /**< Default value for BC20 as onboard GNSS module */
+	GPS_TYPE_MTKIRNSS, /**< IRNSS Module from MTK */
 };
 
 /**
@@ -95,7 +96,7 @@ struct gpsdata_t {
  * GPS Initial configuration structure
  */
 struct gpsconfig_t {
-	int type;			/**< GPS type @ref gpstype_e, For In-built GPS use @ref GPS_TYPE_MTK */
+	int type;			/**< GPS type @ref gpstype_e, For MT2503 GPS use @ref GPS_TYPE_MTK */
 	int baud;			/**< GPS Baudrate */
 	float speedlimit;	/**< Over-speed limit in Km/h */
 	float harshturn;	/**< Harsh Turning speed limit in Km/h */

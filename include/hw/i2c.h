@@ -11,7 +11,8 @@ extern "C" {
 #endif
 
 /**
- * Initialize I2C hardware and setup pin-mux
+ * Initialize I2C hardware and setup pin-mux.
+ * Please check hardware guide for I2C pin details.
  * @param speed_khz		[in] I2C Speed in Khz (must be < 400)
  * @return				0 on success, negative value on error
  */

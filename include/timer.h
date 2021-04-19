@@ -25,40 +25,40 @@ extern "C" {
  * @param arg			[in] User data pointer passed to callback function
  * @return				On success, returns timer ID registered. On error a negative value is returned
  */
-int siwi_timer_register(timercb_f callback, void *arg);
+int timer_register(timercb_f callback, void *arg);
 
 /**
  * Configure timer
- * @param id			[in] Timer ID returned by @c siwi_timer_register()
+ * @param id			[in] Timer ID returned by @c timer_register()
  * @param ms			[in] Timeout value in miliseconds
  * @param cyclic		[in] TRUE if timer is cyclic, FALSE if single shot timer
  * @return				0 on success, On error a negative value is returned
  */
-int siwi_timer_config(int id, unsigned long ms, int cyclic);
+int timer_config(int id, unsigned long ms, int cyclic);
 
 /**
  * Free a registered timer
- * @param id			[in] Timer ID returned by @c siwi_timer_register()
+ * @param id			[in] Timer ID returned by @c timer_register()
  */
-void siwi_timer_free(int id);
+void timer_free(int id);
 
 /**
  * Start a timer
- * @param id			[in] Timer ID returned by @c siwi_timer_register()
+ * @param id			[in] Timer ID returned by @c timer_register()
  */
-void siwi_timer_start(int id);
+void timer_start(int id);
 
 /**
  * Stop a timer
- * @param id			[in] Timer ID returned by @c siwi_timer_register()
+ * @param id			[in] Timer ID returned by @c timer_register()
  */
-void siwi_timer_stop(int id);
+void timer_stop(int id);
 
 /**
  * Restart a timer
- * @param id			[in] Timer ID returned by @c siwi_timer_register()
+ * @param id			[in] Timer ID returned by @c timer_register()
  */
-void siwi_timer_reset(int id);
+void timer_reset(int id);
 
 #ifdef __cplusplus
 }

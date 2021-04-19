@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 	/*
 	 * Initialize library and Setup STDIO
 	 */
-	siwilib_init("/dev/ttyS0", urc_callback);
+	logicrom_init("/dev/ttyS0", urc_callback);
 
 	printf("System Ready\n");
 

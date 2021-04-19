@@ -122,3 +122,6 @@ API Reference
 
 .. include:: /inc/gpio.inc
 
+.. note:: Please refer header file for actual number of GPIOs available for respective board.
+
+.. include:: /inc/def_gpio.inc

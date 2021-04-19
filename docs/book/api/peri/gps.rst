@@ -5,7 +5,7 @@ GPS Libaray
    :maxdepth: 2
 
 MT2503 SoC has on-chip GNSS module supports GPS + GLONASS, Galileo, Beidou
-constellations. SIWISDK gps library does all the heavy lifting and make
+constellations. LOGICROM gps library does all the heavy lifting and make
 it easy to use the full capabilities of GNSS module. Some features of gps
 library are:
 

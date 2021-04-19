@@ -34,3 +34,6 @@ ADC Channel Mapping
 
 .. include:: /inc/adc.inc
 
+.. note:: Please refer header file for actual number of channels available for respective board.
+
+.. include:: /inc/def_adc.inc

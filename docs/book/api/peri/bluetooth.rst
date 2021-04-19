@@ -1,7 +1,7 @@
 Bluetooth
 =========
 
-SiWi GSM module supports BT3.0 with EDR can work in BT host and client mode.
+MT2503 chipset supports BT3.0 with EDR can work in BT host and client mode.
 
 Currently only SPP profile is supported by SDK.
 

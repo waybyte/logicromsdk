@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('./_ext'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'siwisdk'
-copyright = '2020, Ajay Bhargav'
+project = 'logicromsdk'
+copyright = '2021, WAYBYTE Solutions'
 author = 'Ajay Bhargav'
 
 # -- General configuration ---------------------------------------------------
@@ -50,8 +50,8 @@ primary_domain = 'cpp'
 highlight_language = 'cpp'
 
 # Breathe Configuration
-breathe_projects = { 'siwisdk': './xml' }
-breathe_default_project = 'siwisdk'
+breathe_projects = { 'logicromsdk': './xml' }
+breathe_default_project = 'logicromsdk'
 
 # Exhale Configuration
 exhale_args = {

@@ -3,13 +3,13 @@ Quick Start Guide
 *****************
 
 This document is intended to help users setup software development environment
-for application development on SIWIGSM modules using SIWI software development
-kit. 
+for application development on 4G LTE, GSM and NB-IoT modules using LOGICROM
+software development kit.
 
 Setting up Development Environment
 ==================================
 
-SIWISDK is supported by both PlatformIO IDE and Arduino IDE with Arduino wiring
+LOGICROM is supported by both PlatformIO IDE and Arduino IDE with Arduino wiring
 support. Users can select IDE of their choice though our recommendation is to
 go with PlatformIO.
 
@@ -33,8 +33,8 @@ Quick Installation steps for PlatformIO IDE
 
 .. image:: ../_static/platformio-ide-vscode-pkg-installer.png
 
-Installing SIWIGSM Platform
----------------------------
+Installing LOGICROM Platform
+----------------------------
 
 1. Click on "PlatformIO Home" button on the bottom `PlatformIO Toolbar <https://docs.platformio.org/en/latest/integration/ide/vscode.html#ide-vscode-toolbar>`_
 
@@ -48,15 +48,15 @@ Installing SIWIGSM Platform
 
 .. image:: ../_static/platformio-ide-advance-installation.png
 
-4. In the box marked ``1``, Add repository link for platform-siwigsm
-   ``https://github.com/siwiembedded/platform-siwigsm.git`` and hit install button
+4. In the box marked ``1``, Add repository link for platform-logicrom
+   ``https://github.com/waybyte/platform-logicrom.git`` and hit install button
    marked ``2``.
    
 .. image:: ../_static/platformio-ide-platform-install.png
 
-You have successfully installed SIWI GSM Platform
+You have successfully installed LOGICROM Platform
 
-.. image:: ../_static/platformio-ide-siwigsm-finish.png
+.. image:: ../_static/platformio-ide-logicrom-finish.png
 
 Setting Up the Project
 ----------------------
@@ -68,7 +68,7 @@ Setting Up the Project
 2. Configure Project settings:
    * Name: Name of project
    * Board: Select board from dropdown
-   * Framework: Select from "Arduino" or "SIWISDK" frameworks
+   * Framework: Select from "Arduino" or "LogicromSDK" frameworks
    * Location: To use custom location, un-check "Use default location" and select project folder.
    * Click finish to create project.
 
@@ -123,7 +123,7 @@ in project source tree.
 .. code-block:: ini
 
    [env:s20gsm]
-   platform = siwigsm
+   platform = logicrom
    board = s20gsm
    framework = arduino
    
@@ -138,15 +138,16 @@ in project source tree.
 Setting Debug Build Environment
 -------------------------------
 
-User can add extra configuration in ``platform.ini`` to build project against siwisdk debug library.
+User can add extra configuration in ``platform.ini`` to build project against
+logicromsdk debug library.
 
 .. code-block:: ini
 
    ; Debug env
    [env:s20gsm_debug] ; Env Name
-   platform = siwigsm
+   platform = logicrom
    board = s20gsm
-   framework = arduino
+   framework = logicromsdk
    
    build_type = debug ; Build Type
    debug_build_flags = -Os -g2 ; Extra flags for build
@@ -169,20 +170,20 @@ More to read about Arduino IDE:
 
 `Arduino IDE <https://www.arduino.cc/en/main/software>`_
 
-Installing SIWIGSM Platform
----------------------------
+Installing LOGICROM Platform
+----------------------------
 
 1. Download and Install Arduino IDE from `ardino website <https://www.arduino.cc/>`_
 2. Open Arduino IDE, Go to **File** > **Preferences**
-3. Add SIWI GSM Boards URL to *Additional Board Manager URLs* and click OK.
-   ``https://siwiembedded.github.io/package_siwigsm_index.json``
+3. Add LOGICROM Boards URL to *Additional Board Manager URLs* and click OK.
+   ``https://siwiembedded.github.io/package_logicrom_index.json``
    
 .. image:: ../_static/arduino-ide-prefs.png
 
 4. Go to **Tools** > **Board** > **Board Manager**
-5. In search box, type "siwi"
-6. Click Install button for *SIWIGSM Arduino Boards*.
-7. Select your gsm board from board manager under "SIWIGSM Arduino"
+5. In search box, type "logicrom"
+6. Click Install button for *LOGICROM Arduino Boards*.
+7. Select your gsm board from board manager under "LOGICROM Arduino"
 
 .. image:: ../_static/arduino-ide-board-manager.png
 
@@ -190,5 +191,4 @@ Support
 =======
 
 Need help in installation or setup?
-visit SiWi Technical Support @ https://help.siwi.in/
-or Post issues on our gitup page @ https://github.com/siwiembedded/platform-siwigsm/issues
+or Post issues on our gitup page @ https://github.com/waybyte/platform-logicrom/issues

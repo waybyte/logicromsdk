@@ -1,8 +1,8 @@
-.. siwisdk documentation master file, created by
+.. logicromsdk documentation master file, created by
    sphinx-quickstart on Mon May 25 18:39:44 2020.
 
-Welcome to siwisdk's documentation!
-===================================
+Welcome to LOGICROM SDK Documentation!
+======================================
 
 .. toctree::
    :maxdepth: 3

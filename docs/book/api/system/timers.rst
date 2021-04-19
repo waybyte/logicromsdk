@@ -1,5 +1,5 @@
-SIWI Timer API
-==============
+System Timer API
+================
 
 API Reference
 -------------

@@ -9,18 +9,20 @@
 #define INC_MODBUS_H_
 
 #include <stdint.h>
+#include <termios.h>
 
 /**
  * Modbus Error codes
  */
 enum mb_err_e {
-	MB_OK,                   /**< No error. */
-	MB_ERR_INVALID_ARG = -1, /**< Invalid argument */
-	MB_ERR_NOTSUP = 2,       /**< Mode or Function code not supported */
-	MB_ERR_TIMEOUT = -3,     /**< Modbus request timed out */
-	MB_ERR_INVALID_DATA = -4,/**< Invalid response received from slave */
-	MB_ERR_CRC_FAIL = -5,    /**< Checksum failed, CRC (for RTU) or LRC (for ASCII) */
-	MB_ERR_INIT_FAIL = -6,   /**< Fail to initialize port */
+	MB_OK,					  /**< No error. */
+	MB_ERR_INVALID_ARG = -1,  /**< Invalid argument */
+	MB_ERR_NOTSUP = 2,		  /**< Mode or Function code not supported */
+	MB_ERR_TIMEOUT = -3,	  /**< Modbus request timed out */
+	MB_ERR_INVALID_DATA = -4, /**< Invalid response received from slave */
+	MB_ERR_CRC_FAIL = -5,	  /**< Checksum failed, CRC (for RTU) or LRC (for ASCII) */
+	MB_ERR_INIT_FAIL = -6,	  /**< Fail to initialize port or Port not initialized */
+	MB_ERR_CONF_FAIL = -7,	  /**< Fail to configure port */
 };
 
 /**
@@ -126,7 +128,18 @@ extern "C" {
  * @param func		[in] Direction control callback function
  * @return			For return value see @ref mb_err_e
  */
-int mb_init(char *com, int mode, mb_dirctl func);
+int mb_init(const char *com, int mode, mb_dirctl func);
+
+/**
+ * Configure MODBUS Parameters
+ * @param baud		[in] Baudrate value as in termios.h e.g. B9600
+ * @param com_para	[in] Communication parameter data bits, partiy and stopbit in ascii format e.g. "8N1", "8E2"
+ * 					Data bits: 8, 7, 6, 5 (not supported on all platforms)
+ * 					Parity: N - None, E - Even, O - Odd Parity
+ * 					Stop Bits: 1 or 2
+ * @return			For return value see @ref mb_err_e
+ */
+int mb_config(speed_t baud, const char *com_para);
 
 /**
  * Perform a MODBUS request

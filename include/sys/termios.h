@@ -226,6 +226,17 @@ int cfsetispeed(struct termios *p, speed_t sp);
 int cfsetospeed(struct termios *p, speed_t sp);
 
 /**
+ * @brief Set output baud rate in the termios structure
+ *
+ * There is no effect in hardware until a subsequent call of tcsetattr().
+ *
+ * @param p input termios structure
+ * @param sp output baud rate
+ * @return 0 when successful, -1 otherwise with errno set
+ */
+int cfsetspeed(struct termios *p, speed_t speed);
+
+/**
  * @brief Wait for transmission of output
  *
  * @param fd file descriptor of the terminal

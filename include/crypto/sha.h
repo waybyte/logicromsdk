@@ -16,7 +16,7 @@ extern "C" {
  * @param ilen		[in] Input data length
  * @param output	[out] Output buffer to store SHA1 hash
  */
-void sha1(unsigned char *input, int ilen, unsigned char output[20]);
+void sha1(const unsigned char *input, int ilen, unsigned char output[20]);
 
 #ifdef __cplusplus
 }

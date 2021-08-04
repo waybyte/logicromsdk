@@ -37,28 +37,32 @@ int timer_register(timercb_f callback, void *arg);
 int timer_config(int id, unsigned long ms, int cyclic);
 
 /**
- * Free a registered timer
- * @param id			[in] Timer ID returned by @c timer_register()
- */
-void timer_free(int id);
-
-/**
  * Start a timer
  * @param id			[in] Timer ID returned by @c timer_register()
+ * @return				0 on success, On error a negative value is returned
  */
-void timer_start(int id);
+int timer_start(int id);
 
 /**
  * Stop a timer
  * @param id			[in] Timer ID returned by @c timer_register()
+ * @return				0 on success, On error a negative value is returned
  */
-void timer_stop(int id);
+int timer_stop(int id);
 
 /**
  * Restart a timer
  * @param id			[in] Timer ID returned by @c timer_register()
+ * @return				0 on success, On error a negative value is returned
  */
-void timer_reset(int id);
+int timer_reset(int id);
+
+/**
+ * Free a registered timer
+ * @param id			[in] Timer ID returned by @c timer_register()
+ * @return				0 on success, On error a negative value is returned
+ */
+int timer_free(int id);
 
 #ifdef __cplusplus
 }

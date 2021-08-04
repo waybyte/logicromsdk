@@ -16,7 +16,7 @@ extern "C" {
  * @param ilen			[in] Length of input data
  * @param output		[out] Output buffer to store md5 hash
  */
-void md5_hash(const unsigned char *input, int ilen, unsigned char output[16]);
+void md5_hash(const void *input, int ilen, unsigned char output[16]);
 
 #ifdef __cplusplus
 }

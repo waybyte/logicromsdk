@@ -23,13 +23,13 @@ extern "C" {
 
 /**
  * Enable SPI Flash and mount LFS filesystem
+ * @param port			[in] SPI Port to use
  * @param gpio_cs		[in] GPIO number connected to SPI chip select
  * @param speed_hz		[in] SPI Speed in Hz (max 10MHz)
  * @param mode			[in] SPI mode
- * @param byte_order	[in] SPI byte order, see
  * @return				0 on success, negative value on failure
  */
-int spifs_enable(int gpio_cs, unsigned long speed_hz, int mode, int byte_order);
+int spifs_enable(int port, int gpio_cs, unsigned long speed_hz, int mode);
 
 /**
  * Disable SPI Flash and unmount LFS filesystem

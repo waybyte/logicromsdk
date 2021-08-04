@@ -54,7 +54,7 @@ extern "C" {
 int spi_hw_init(int port, int hardware_cs, int clock, int mode, int cs_pol);
 
 /**
- * Set/Change SPI clock speed. Default speed is @ref SPI_MAX_SPEED
+ * Set/Change SPI clock speed. Default speed is 10MHz
  * @param port				[in] SPI Port Number (@ref spiport_e)
  * @param clock_hz			[in] Clock speed in Hz
  * @return					0 on success, negative value on error

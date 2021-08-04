@@ -234,7 +234,7 @@ int cfsetospeed(struct termios *p, speed_t sp);
  * @param sp output baud rate
  * @return 0 when successful, -1 otherwise with errno set
  */
-int cfsetspeed(struct termios *p, speed_t speed);
+int cfsetspeed(struct termios *p, speed_t sp);
 
 /**
  * @brief Wait for transmission of output

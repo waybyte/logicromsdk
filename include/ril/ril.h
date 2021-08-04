@@ -97,7 +97,7 @@ enum sysurc_e {
 	URC_EGPRS_NW_STATE_IND = 3,	/**< Indication for EPS Network registration status, parameter value as @ref networkstate_e */
 	URC_GPRS_NW_STATE_IND,      /**< Indication for GPRS network state (state change), parameter value as @ref networkstate_e */
 	URC_CFUN_STATE_IND,         /**< Indication for CFUN state, with parameters as one of @ref cfunstate_e */
-	URC_COMING_CALL_IND,        /**< Indication for coming call with parameter as @ref callinfo_t */
+	URC_COMING_CALL_IND,        /**< Indication for coming call with parameter as @ref ril_callinfo_t */
 	URC_CALL_STATE_IND,         /**< Indication for call state (state change), parameter value as @ref callstatus_e */
 	URC_NEW_SMS_IND,            /**< Indication for new short message, parameter value as index of incoming SMS */
 	URC_MODULE_VOLTAGE_IND,     /**< Indication for abnormal voltage of module supply power, parameter value as @ref vbattind_e */

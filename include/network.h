@@ -150,46 +150,6 @@ unsigned char *network_getlocalip(void);
  */
 const char *network_getcurrapn(void);
 
-/**
- * Get module IMEI
- * @param imei_buf	[out] Buffer to store IMEI (optional, can be null)
- * @param len		[in] length of buffer
- * @return			IMEI buffer. If \a imei_buf is not provided then a Statically allocated buffer is returned, do not free.
- */
-const char *get_imei(char *imei_buf, int len);
-
-/**
- * Get IMSI value
- * @param imsi_buf	[out] Buffer to store IMSI (optional, can be null)
- * @param len		[in] length of buffer
- * @return			IMSI buffer. If \a imsi_buf is not provided then a Statically allocated buffer is returned, do not free.
- */
-const char *get_imsi(char *imsi_buf, int len);
-
-/**
- * Get SIM ICCID
- * @param ccid_buf	[out] Buffer to store CCID value (optional, can be null)
- * @param len		[in] length of buffer
- * @return			buffer containing ICCID. If \a ccid_buf is not provided then a Statically allocated buffer is returned, do not free.
- */
-const char *get_ccid(char *ccid_buf, int len);
-
-/**
- * Get current operator name
- * @param opbuf		[out] Buffer to store operator name (optional, can be null)
- * @param len		[in] length of \a opbuf
- * @return			buffer containing operator name. If \a opbuf is not provided then a Statically allocated buffer is returned, do not free.
- */
-const char *get_operatorname(char *opbuf, int len);
-
-/**
- * Get Service Provider Name from SIM card
- * @param spn_buf	[out] Buffer to store SPN (optional, can be null)
- * @param len		[in] length of \a spn_buf
- * @return			Buffer containing SPN. If \a spn_buf is not provided then a Statically allocated buffer is returned, do not free.
- */
-const char *get_simprovider(char *spn_buf, int len);
-
 #ifdef __cplusplus
 }
 #endif

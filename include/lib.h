@@ -86,6 +86,13 @@ void system_gettz(char *tz, int size);
  */
 int debug(int level, const char *fmt, ...);
 
+/**
+ * Format Filesystem
+ * @param path		[in] Mount point of filesystem
+ * @return			0 on success, -ve for error
+ */
+int formatfs(const char * path);
+
 #ifdef __cplusplus
 }
 #endif

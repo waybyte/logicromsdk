@@ -870,28 +870,16 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/param.h \
                          ../include/plat/def_adc.h \
                          ../include/plat/def_gpio.h \
+                         ../include/plat/def_i2c.h \
                          ../include/plat/def_pwm.h \
+                         ../include/plat/def_spi.h \
                          ../include/proto/ftpc.h \
                          ../include/proto/httpc.h \
                          ../include/proto/modbus.h \
                          ../include/proto/ntpc.h \
                          ../include/remotedbg.h \
                          ../include/ril/ril.h \
-                         ../include/ril/ril_alarm.h \
-                         ../include/ril/ril_audio.h \
-                         ../include/ril/ril_dtmf.h \
-                         ../include/ril/ril_ftp.h \
-                         ../include/ril/ril_http.h \
-                         ../include/ril/ril_location.h \
-                         ../include/ril/ril_network.h \
-                         ../include/ril/ril_ntp.h \
-                         ../include/ril/ril_qeng.h \
-                         ../include/ril/ril_sim.h \
-                         ../include/ril/ril_sms.h \
                          ../include/ril/ril_stk.h \
-                         ../include/ril/ril_system.h \
-                         ../include/ril/ril_telephony.h \
-                         ../include/ril/ril_util.h \
                          ../include/spifs.h \
                          ../include/sys/dirent.h \
                          ../include/sys/ioctl.h \

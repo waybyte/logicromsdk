@@ -44,15 +44,15 @@ Installing LOGICROM Platform
 
 .. image:: ../_static/platformio-ide-platforms-page.png
 
-3. On Platforms Page, Click on "Advanced Installation" button.
+3. On Platforms Page, Click on "Embedded" button on the top toolbar.
 
-.. image:: ../_static/platformio-ide-advance-installation.png
+.. image:: ../_static/platformio-ide-embedded-menu.png
 
-4. In the box marked ``1``, Add repository link for platform-logicrom
-   ``https://github.com/waybyte/platform-logicrom.git`` and hit install button
-   marked ``2``.
+4. Type "Logicrom" in the search box as shown, and click on "LOGICROM Development Platform".
    
-.. image:: ../_static/platformio-ide-platform-install.png
+.. image:: ../_static/platformio-ide-logicrom-search.png
+
+5. On Logicrom Platform page, Click install button as shown.
 
 You have successfully installed LOGICROM Platform
 
@@ -147,7 +147,7 @@ logicromsdk debug library.
    [env:s20gsm_debug] ; Env Name
    platform = logicrom
    board = s20gsm
-   framework = logicromsdk
+   framework = arduino
    
    build_type = debug ; Build Type
    debug_build_flags = -Os -g2 ; Extra flags for build
@@ -176,7 +176,7 @@ Installing LOGICROM Platform
 1. Download and Install Arduino IDE from `ardino website <https://www.arduino.cc/>`_
 2. Open Arduino IDE, Go to **File** > **Preferences**
 3. Add LOGICROM Boards URL to *Additional Board Manager URLs* and click OK.
-   ``https://siwiembedded.github.io/package_logicrom_index.json``
+   ``https://waybyte.github.io/package_logicrom_index.json``
    
 .. image:: ../_static/arduino-ide-prefs.png
 

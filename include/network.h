@@ -6,8 +6,14 @@
 #ifndef INCLUDE_NETWORK_H_
 #define INCLUDE_NETWORK_H_
 
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
- * Network status
+ * Network state
  */
 enum _net_state {
 	NET_STATE_INVALID,       /**< Network status unknown/invalid */
@@ -22,36 +28,17 @@ enum _net_state {
 /**
  * Network parameter structure
  */
-#ifdef PLATFORM_BC20
-typedef struct {
-	uint8_t csq;		/**< Signal strength RSSI value (0:-113dBm or less to 31:-55dBm or more, 99: Not detectable) */
-	uint8_t rscp;		/**< Received signal code power */
-	uint8_t rsrp;		/**< Reference signal received quality */
-	uint8_t rsrq;		/**< Reference signal received power */
-} cesq_t;
-
 struct netparam_t {
-	int simstate;		/**< SIM CPIN status @ref simstate_e */
-	int cereg;			/**< CEREG network status @ref networkstate_e */
-	int state;			/**< Internal state (for debugging) */
-	cesq_t cesq;		/**< Extended Signal quality structure */
+	uint8_t simstate;	/**< SIM CPIN status @ref simstate_e */
+	uint8_t creg;		/**< GSM status @ref networkstate_e */
+	uint8_t cgreg;		/**< EPS Network (4G/NB-Iot)/GPRS status @ref networkstate_e */
+	uint8_t state;		/**< Internal state (for debugging) */
+	uint8_t signal; 	/**< Signal level\n
+							 For GSM; RSSI Value - 0:-113dBm or less to 31:-55dBm or more,\n
+							 For 4G/NB-IoT; RSRP Value - 0:-140dBm or less to 97:-44dBm or more,\n
+							 99: Not detectable */
 	const char *apn;	/**< Currently used APN as null terminted string */
 };
-#else
-struct netparam_t {
-	int simstate;		/**< SIM CPIN status @ref simstate_e */
-	int creg;			/**< CREG GSM status @ref networkstate_e */
-	int cgreg;			/**< CGREG GPRS status @ref networkstate_e */
-	int state;			/**< Internal state (for debugging) */
-	int atgprs;			/**< Internal state of GPRS (for debugging) */
-	unsigned char csq;	/**< Signal strength RSSI value (0:-113dBm or less to 31:-55dBm or more, 99: Not detectable) */
-	const char *apn;	/**< Currently used APN as null terminted string */
-};
-#endif
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Get Network parameters
@@ -108,10 +95,8 @@ int network_resetdns(void);
  */
 int network_getstatus(int sockfd);
 
-#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**
- * Get status of network, if its ready or not for data transaction
- * @note This API applies to NBIoT Platforms only.
+ * Get status of network, if its ready or not for IP data transmission
  *
  * @return			returns 1 if network ready, 0 otherwise
  */
@@ -121,7 +106,6 @@ int network_isready(void);
  * Reset and restart network
  */
 void network_reset(void);
-#endif
 
 #if !defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**

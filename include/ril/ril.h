@@ -43,15 +43,17 @@ enum simstate_e {
 };
 
 /**
- * Network status
+ * Network Registration status
  */
 enum networkstate_e {
-	NW_STAT_NOT_REGISTERED = 0, /**< Not register to network */
-	NW_STAT_REGISTERED,			/**< The normal network state */
-	NW_STAT_SEARCHING,			/**< Searching network */
-	NW_STAT_REG_DENIED,			/**< The register request is denied */
-	NW_STAT_UNKNOWN,			/**< status unknown */
-	NW_STAT_REGISTERED_ROAMING	/**< Registered and Roaming state */
+	NW_STAT_NOT_REGISTERED = 0, /**< Not register and not searching */
+	NW_STAT_REGISTERED_HOME,	/**< Registered and in home network */
+	NW_STAT_SEARCHING,			/**< Not registered and Searching network */
+	NW_STAT_REG_DENIED,			/**< Registration is denied */
+	NW_STAT_UNKNOWN,			/**< Unknown registration */
+	NW_STAT_REGISTERED_ROAMING,	/**< Registered and in Roaming */
+	NW_STAT_SMSONLY_HOME,		/**< 4G LTE Only: Registered for SMS only in home network */
+	NW_STAT_SMSONLY_ROAMING,	/**< 4G LTE Only: Registered for SMS only in Roaming network */
 };
 
 /**
@@ -94,8 +96,8 @@ enum sysurc_e {
 	URC_SYS_INIT_STATE_IND,     /**< Indication for module initialization state during boot stage, parameter value as @ref sysinitstate_e */
 	URC_SIM_CARD_STATE_IND,     /**< Indication for SIM card state (state change), parameter value as @ref simstate_e */
 	URC_GSM_NW_STATE_IND,       /**< Indication for GSM network state (state change), parameter value as @ref networkstate_e */
-	URC_EGPRS_NW_STATE_IND = 3,	/**< Indication for EPS Network registration status, parameter value as @ref networkstate_e */
 	URC_GPRS_NW_STATE_IND,      /**< Indication for GPRS network state (state change), parameter value as @ref networkstate_e */
+	URC_EGPRS_NW_STATE_IND = 4,	/**< Indication for EPS Network registration status, parameter value as @ref networkstate_e */
 	URC_CFUN_STATE_IND,         /**< Indication for CFUN state, with parameters as one of @ref cfunstate_e */
 	URC_COMING_CALL_IND,        /**< Indication for coming call with parameter as @ref ril_callinfo_t */
 	URC_CALL_STATE_IND,         /**< Indication for call state (state change), parameter value as @ref callstatus_e */

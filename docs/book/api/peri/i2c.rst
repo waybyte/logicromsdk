@@ -24,4 +24,5 @@ API Reference
 -------------
 
 .. include:: /inc/i2c.inc
+.. include:: /inc/def_i2c.inc
 

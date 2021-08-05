@@ -29,4 +29,5 @@ API Reference
 -------------
 
 .. include:: /inc/spi.inc
+.. include:: /inc/def_spi.inc
 

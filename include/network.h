@@ -134,6 +134,27 @@ unsigned char *network_getlocalip(void);
  */
 const char *network_getcurrapn(void);
 
+/**
+ * Setup Network status LED. Attach GPIO line managed by network
+ * thread for status LED.
+ * 
+ * IO Drive Logic: Positive (1 - High, 0 - Low)
+ * 
+ * LED Timings in milliseconds (On Time/Off Time):
+ * -----------------------------------------------
+ * No Network/No Sim: LED Off
+ * Searching Network: 50/500
+ * GSM/GPRS Registered: 50/1000
+ * Socket Connecting: 500/500
+ * Network Idle: 50/2000
+ * Data Sending: 100/100
+ * Unknow error: 50/50
+ * 
+ * @param gpionum	[in] GPIO Number to use
+ * @return			0 on success, negative value on error
+ */
+int network_setup_statusled(int gpionum);
+
 #ifdef __cplusplus
 }
 #endif

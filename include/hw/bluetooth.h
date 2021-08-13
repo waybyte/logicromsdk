@@ -8,7 +8,7 @@
 
 #ifndef PLATFORM_BC20
 /**
- * @note Bluetooth is only available on GSM platforms.
+ * @note Bluetooth is not available on MT2625 (NB-IoT) Platform.
  */
 
 /**
@@ -17,10 +17,18 @@
 #define BTDEV_NAME_LEN_MAX                     56 /* 18 * 3 + 2 */
 
 /**
+ * Bluetooth Operation mode
+ */
+enum btmode_e {
+	BT_CLASSIC, /**< BT+EDR Classic mode */
+	BT_LE,		/**< Bluetooth Low Energy */
+};
+
+/**
  * Bluetooth error code
  */
 enum bterr_e {
-	BT_ERR_NONE = 0,    /**< No error */
+	BT_OK = 0,    		/**< No error */
 	BT_ERR_ARG = -1,    /**< Invalid argument */
 	BT_ERR_OPFAIL = -2, /**< Fail to perform operation */
 	BT_ERR_BUSY = -3,   /**< Hardware busy */
@@ -28,6 +36,8 @@ enum bterr_e {
 	BT_ERR_SCAN = -5,   /**< BT Scan error */
 	BT_ERR_PAIR = -6,   /**< BT Pair error */
 	BT_ERR_TIMEOUT = -7,/**< BT operation timeout */
+	BT_ERR_NOTSUPP = -8,/**< BT operation not supported */
+	BT_ERR_NOMEM = -9,  /**< No memory */
 };
 
 /**
@@ -58,13 +68,14 @@ struct btinfo_t {
 
 /**
  * Initialize Bluetooth hardware
+ * @param mode			[in] Bluetooth controller mode see @ref btmode_e
  * @param name			[in] Name of device shown to other bluetooth device while searching
  * @param use_btcli		[in] Bluetooth console select (1 to enable, 0 to disable).
  * 							 When enabled, /dev/bthost0 device file will not be available
  * 							 to the application.
  * @return				For return value see @ref bterr_e
  */
-int bt_device_init(const char *name, int use_btcli);
+int bt_device_init(int mode, const char *name, int use_btcli);
 
 /**
  * Turn on/off bluetooth hardware. Bluetooth is enabled by default when device is initialized.

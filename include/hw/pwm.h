@@ -27,7 +27,7 @@ int pwm_init(int ch);
  * @param cycle		PWM Duty cycle
  * @return			0 on success, negative value on error
  */
-int pwm_config(int ch, int freq, int cycle);
+int pwm_config(int ch, unsigned int freq, unsigned int cycle);
 
 /**
  * Start PWM output

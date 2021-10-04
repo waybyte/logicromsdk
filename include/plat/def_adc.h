@@ -29,11 +29,47 @@ enum adcch_e
 	ADC_CH1, /**< ADC channel 1 - Pin 16 */
 	ADC_CH2, /**< ADC channel 2 - Pin 28 */
 	ADC_CH3, /**< ADC channel 3 - Pin 29 */
-#else
+#elif defined(PLATFORM_MC60)
 	ADC_CH0, /**< ADC channel 0 - Pin 6 */
 	ADC_CH1, /**< ADC channel 1 - Pin 47 */
 	ADC_CH2, /**< ADC channel 2 - Pin 28 */
 	ADC_CH3, /**< ADC channel 3 - Pin 29 */
+#else /* RDA8910 */
+	/**
+	 * ADC Channel 0
+	 * Module | Pin
+	 * ------------
+	 * EC600  | 19
+	 * EC200  | 45
+	 * N58    | 89
+	 * N716   | 31
+	 */
+	ADC_CH0,
+	/**
+	 * ADC Channel 1
+	 * Module | Pin
+	 * ------------
+	 * EC600  | 20
+	 * EC200  | 44
+	 * N58    | 88
+	 * N716   | 30
+	 */
+	ADC_CH1,
+	/**
+	 * ADC Channel 2
+	 * Module | Pin
+	 * ------------
+	 * EC600  | 113
+	 * EC200  | 43
+	 */
+	ADC_CH2,
+	/**
+	 * ADC Channel 3
+	 * Module | Pin
+	 * ------------
+	 * EC600  | 114
+	 */
+	ADC_CH3,
 #endif
 };
 

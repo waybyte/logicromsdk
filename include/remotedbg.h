@@ -11,7 +11,7 @@ extern "C" {
 #endif
 
 /**
- * Initialize Remote debug
+ * Initialize and enable Remote debugging
  * This will also add rdbg command to firmware
  * Usage of rdbg:
  * rdbg=[IP],[Port]
@@ -20,8 +20,9 @@ extern "C" {
  *
  * Once connected, remote server will be greeted with device parameter message in following format
  * $RDBG,[Serial Number],[IMEI]#[CR][LF]
+ * and login prompt will be shown for remote console
  */
-void rdbg_init(void);
+void remote_debug_enable(void);
 
 #ifdef __cplusplus
 }

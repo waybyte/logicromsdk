@@ -104,6 +104,23 @@ int spi_hw_transfer(int port, const unsigned char *wrbuf, unsigned char *rdbuf, 
  */
 int spi_hw_free(int port);
 
+#if defined(SOC_RDA8910) || defined(_DOXYGEN_)
+/**
+ * Control SPI HW CS line.
+ * 
+ * This function can be used to control chip select line of
+ * SPI controller (which is not mapped as GPIO) when HW SPI
+ * is used.
+ * 
+ * @note This function is only available on platforms with RDA8910 SoC.
+ * 
+ * @param port				[in] SPI Port Number (@ref spiport_e)
+ * @param level				[in] chip select level (0 - low, 1 - high)
+ * @return					0 on success, negative on error
+ */
+int spi_hw_cscontrol(int port, int level);
+#endif
+
 #ifdef __cplusplus
 }
 #endif

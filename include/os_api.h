@@ -8,6 +8,11 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 /**
  * Main Task ID
  */
@@ -51,10 +56,6 @@ struct osmsg_t {
 	uint32_t param2;	/**< Second parameter */
 	int source_taskid;	/**< Filled automatically by os_get_message() */
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Reset System
@@ -211,7 +212,7 @@ uint32_t os_get_currtaskid(void);
  */
 int os_create_task(os_taskfn_f fn, void *arg, int suspend);
 
-#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
+#if defined(SOC_RDA8910) || defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**
  * Create a new OS task, with extended parameters
  * @note only available on NBIoT Platforms
@@ -230,6 +231,18 @@ int os_create_taskex(os_taskfn_f fn, uint32_t stack, void *arg, int suspend);
  * @return				0 on success, negative value on error
  */
 int os_task_delete(int taskid);
+
+/**
+ * Get OS tick/uptime in milliseconds
+ * @return tick counter in milliseconds
+ */
+uint64_t os_get_tickms(void);
+
+/**
+ * Get OS tick/uptime in microseconds
+ * @return tick counter in microseonds
+ */
+uint64_t os_get_tickus(void);
 #endif
 
 /**
@@ -240,16 +253,16 @@ int os_task_delete(int taskid);
 int os_start_task(int taskid);
 
 /**
- * Disable IRQs
+ * Enter critical section
  * @return				IRQ flags
  */
-unsigned int disable_irqs(void);
+uint32_t os_enter_critical(void);
 
 /**
- * Enable IRQs
- * @param flags			[in] IRQ flags from disable_irqs()
+ * Exit critical section
+ * @param flags			[in] IRQ flags from os_enter_critical()
  */
-void enable_irqs(unsigned int flags);
+void os_exit_critical(uint32_t flags);
 
 #ifdef __cplusplus
 }

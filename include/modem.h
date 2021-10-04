@@ -35,6 +35,14 @@ enum mderror_e
 };
 
 /**
+ * Cell info type
+ */
+enum mdcelltype_e {
+	MD_CELLTYPE_GSM, /**< GSM */
+	MD_CELLTYPE_LTE, /**< LTE */
+};
+
+/**
  * SMS Status
  */
 enum sms_status_e
@@ -75,15 +83,16 @@ struct md_smsinfo_t
  */
 struct __cellinfo_t
 {
-	uint16_t mcc;	 /**< Mobile Country code */
-	uint16_t mnc;	 /**< Mobile Network code */
-	uint32_t lac;	 /**< Location Area code */
-	uint32_t cellid; /**< Cell ID */
-	uint16_t bcch;	 /**< Absolute Radio Frequency Channel Number of Broadcast Control Channel BCCH */
-	uint16_t bsic;	 /**< Base station identity code */
-	int dbm;		 /**< Receive signal level in dBm unit */
-	int16_t c1;		 /**< C1 value */
-	int16_t c2;		 /** C2 value */
+	uint16_t mcc;		/**< Mobile Country code */
+	uint16_t mnc;		/**< Mobile Network code */
+	uint32_t lac;		/**< Location Area code */
+	uint32_t cellid;	/**< Cell ID */
+	uint16_t bcch_pcid; /**< For LTE this represents PCID (Physical Cell Identity);
+							 For GSM, Absolute Radio Frequency Channel Number of Broadcast Control Channel BCCH */
+	uint16_t bsic;		/**< For LTE this value is 0; For GSM, Base station identity code */
+	int signal;			/**< For LTE, RSRP value; For GSM, RSSI value */
+	int16_t c1_rsrq;	/**< For LTE, RSRQ Value; For GSM, C1 value */
+	int16_t c2_srxlev;	/**< For LTE, SRXLEV Value; For GSM, C2 value */
 };
 
 /**
@@ -91,6 +100,7 @@ struct __cellinfo_t
  */
 struct md_cellinfo_t
 {
+	int cell_type;				  /**< Cell type @ref mdcelltype_e */
 	struct __cellinfo_t cell;	  /**< Serving Cell information */
 	int ncell_count;			  /**< Number of valid neighboring cell available in ncell */
 	struct __cellinfo_t ncell[6]; /**< Neighboring cell information */
@@ -256,6 +266,14 @@ int md_nvm_store(int index, const void *data, int len);
  * @return 			success length of actual data is returned, error otherwise (@ref mderror_e)
  */
 int md_nvm_read(int index, void *data, int len);
+
+/**
+ * Read network synced time provided by Network service provider
+ * 
+ * @param datetime	[out] datetime structure to be filled
+ * @return 			success length of actual data is returned, error otherwise (@ref mderror_e)
+ */
+int md_get_networktime(struct tm *datetime);
 
 #ifdef __cplusplus
 }

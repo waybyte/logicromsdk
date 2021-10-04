@@ -143,6 +143,14 @@ int socket_request(int type);
 int socket_setopt(int id, struct sockopt_t *opts);
 
 /**
+ * Clear socket options/configuration
+ * @note socket must be closed before clearing else -EINVAL will be returned
+ * @param id		[in] Socket ID
+ * @return			0 on success, negative value on error
+ */
+int socket_clearopt(int id);
+
+/**
  * Open a socket. socket options must be configured before calling this function.
  * This is a non blocking function, connection status will be returned via status callback
  * @param id		[in] Socket ID
@@ -177,6 +185,7 @@ int socket_getstatus(int id);
 
 /**
  * Set user data associated with socket
+ * @ref sockopt_t::arg
  * @param id		[in] Socket ID
  * @param arg		[in] User data pointer
  * @return			0 on success, negative value on error
@@ -189,6 +198,38 @@ int socket_setuserdata(int id, void *arg);
  * @return			On success returns user data associated
  */
 void *socket_getuserdata(int id);
+
+/**
+ * Set server IP
+ * @param id		[in] Socket ID
+ * @param ip		[in] Server IP or domain name
+ * @return			0 on success, negative value on error
+ */
+int socket_setserverip(int id, const char *ip);
+
+/**
+ * Set server port
+ * @param id		[in] Socket ID
+ * @param port		[in] server port
+ * @return			0 on success, negative value on error
+ */
+int socket_setserverport(int id, uint16_t port);
+
+/**
+ * Enable or disable auto connect
+ * @param id		[in] Socket ID
+ * @param enable	[in] 1 - Enable, 0 - Disable
+ * @return			0 on success, negative value on error
+ */
+int socket_setautoconnect(int id, int enable);
+
+/**
+ * Set socket callbacks
+ * @param id		[in] Socket ID
+ * @param cb		[in] Callbacks, Can be null to disable callbacks
+ * @return			0 on success, negative value on error
+ */
+int socket_setcallback(int id, struct socket_callback_t *cb);
 
 /**
  * Release socket. If socket is not closed it will be closed first.
@@ -213,6 +254,14 @@ int ssl_socket_request(int ssl_version, struct ssl_certs_t *certs);
  * @return				0 on success, negative value on error
  */
 int ssl_socket_setopt(int id, struct ssl_sockopt_t *opts);
+
+/**
+ * Clear SSL socket configuration
+ * @note socket must be closed before calling this function
+ * @param id			[in] Socket ID
+ * @return				0 on success, negative value on error
+ */
+int ssl_socket_clearopt(int id);
 
 /**
  * Open SSL socket connection

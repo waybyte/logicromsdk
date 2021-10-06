@@ -133,6 +133,23 @@ int gpio_setuserdata(int handle, void *arg);
  */
 void *gpio_getuserdata(int handle);
 
+/**
+ * GPIO Fast read
+ * Use with valid IO @a handle only
+ * @param handle	Handle to gpio object returned by @ref gpio_request
+ * @return	input gpio level @ref gpio_level_e
+ */
+int gpio_readfast(int handle);
+
+/**
+ * GPIO Fast write
+ * Use with valid IO @a handle only
+ * @param handle	Handle to gpio object returned by @ref gpio_request
+ * @param value		gpio level to set @ref gpio_level_e
+ * @return		0 on success, negative value on failure
+ */
+int gpio_writefast(int handle, int value);
+
 #ifdef __cplusplus
 }
 #endif

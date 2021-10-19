@@ -54,7 +54,7 @@ static void urc_callback(unsigned int param1, unsigned int param2)
 	case URC_CFUN_STATE_IND:
 		break;
 	case URC_COMING_CALL_IND:
-		debug(DBG_OFF, "Incoming voice call from: %s\n", ((struct callinfo_t *)param2)->phoneNumber);
+		debug(DBG_OFF, "Incoming voice call from: %s\n", ((struct ril_callinfo_t *)param2)->number);
 		/* Take action here, Answer/Hang-up */
 		break;
 	case URC_CALL_STATE_IND:

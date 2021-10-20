@@ -105,7 +105,7 @@ const char *clock_getsourcename(void);
 int clock_get_syncstatus(void);
 
 /**
- * Set ntp server address, default is "siwi.in"
+ * Set ntp server address, default is "service.logicrom.com"
  * @param server	[in] NTP server domain or IP
  * @return		return 0 on success, negative on error
  */

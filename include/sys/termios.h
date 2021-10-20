@@ -77,8 +77,9 @@
  * CBAUDEX range is also included in CBAUD for simplicity.
  * CBAUD is a part of c_cflag field @ref termios::c_cflag
  */
-#define CBAUD      0x1F				/** Use baud rates defined by B0-B38400 macros. */
-#define CBAUDEX    (1u << 4)		/** Use baud rates defined by B57600-B4000000 macros. */
+#define CBAUD       0x1F			/** Use baud rates defined by B0-B38400 macros. */
+#define CBAUDEX     (1u << 4)		/** Use baud rates defined by B57600-B4000000 macros. */
+#define BOTHER      CBAUDEX         /** Custom baud rate */
 #define B0          0   /** Autobaud */
 #define B50         1
 #define B75         2
@@ -96,21 +97,21 @@
 #define B19200     14
 #define B38400     15
 /** CBAUDEX range B57600 - B4000000 */
-#define B57600     16
-#define B115200    17
-#define B230400    18
-#define B460800    19
-#define B500000    20
-#define B576000    21
-#define B921600    22
-#define B1000000   23
-#define B1152000   24
-#define B1500000   25
-#define B2000000   26
-#define B2500000   27
-#define B3000000   28
-#define B3500000   29
-#define B4000000   30
+#define B57600     17
+#define B115200    18
+#define B230400    19
+#define B460800    20
+#define B500000    21
+#define B576000    22
+#define B921600    23
+#define B1000000   24
+#define B1152000   25
+#define B1500000   26
+#define B2000000   27
+#define B2500000   28
+#define B3000000   29
+#define B3500000   30
+#define B4000000   31
 
 /*
  * termios::c_cflag control modes of termios structure @ref termios
@@ -173,6 +174,8 @@ struct termios
     tcflag_t c_cflag;    /**< Control modes */
     tcflag_t c_lflag;    /**< Local modes */
     cc_t     c_cc[NCCS]; /**< Control characters */
+    speed_t  c_ispeed;   /** input baud rate */
+    speed_t  c_ospeed;   /** output baud rate */
 };
 
 #ifdef __cplusplus

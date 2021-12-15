@@ -8,6 +8,11 @@
 
 #include <time.h>
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 /**
  * GPS Module type
  */
@@ -219,5 +224,9 @@ time_t gpsmktime(char *date_in, char *time_in);
  * 							-22 if parameters are invalid.
  */
 int geofence_check(int type, struct point_t *fence, unsigned int corners_radius, struct point_t *point);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_GPSLIB_H_ */

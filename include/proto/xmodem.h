@@ -5,6 +5,10 @@
 #ifndef INC_PROTO_XMODEM_H
 #define INC_PROTO_XMODEM_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * XMODEM Receive
  * @param src		[in] Source serial port device
@@ -22,5 +26,9 @@ int xmodem_receive(const char *src, const char *dest, int is_binary);
  * @return			0 on success, negative on error
  */
 int xmodem_transmit(const char *src, const char *dest, int xmodem_1k);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_PROTO_XMODEM_H */

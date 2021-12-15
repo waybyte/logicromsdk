@@ -6,6 +6,11 @@
 #ifndef INC_HW_BLUETOOTH_H_
 #define INC_HW_BLUETOOTH_H_
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #ifndef PLATFORM_BC20
 /**
  * @note Bluetooth is not available on MT2625 (NB-IoT) Platform.
@@ -189,5 +194,9 @@ void bt_print_devlist(int disp_type);
 int bt_manager_init(void);
 
 #endif /* PLATFORM_BC20 */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_HW_BLUETOOTH_H_ */

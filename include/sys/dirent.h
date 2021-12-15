@@ -12,6 +12,10 @@
 
 #include <sys/types.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @enum _dtype_e
  * File type flags for d_type
@@ -92,6 +96,10 @@ void seekdir(DIR *dirp, long loc);
  * @return 0 on success.  On error, -1 is returned, and errno is set appropriately.
  */
 int closedir(DIR *dirp);
+#endif
+
+#ifdef __cplusplus
+}
 #endif
 
 #endif /* INCLUDE_SYS_DIRENT_H_ */

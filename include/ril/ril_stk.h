@@ -6,6 +6,10 @@
 #ifndef INC_RIL_STK_H_
 #define INC_RIL_STK_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Get SIM toolkit status
  * @return		0 if disabled, 1 if enabled
@@ -31,5 +35,9 @@ int stk_send_envelope(const char *env);
  * @return		RIL return code @ref ril_rc_e
  */
 int stk_send_response(const char *resp);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_RIL_STK_H_ */

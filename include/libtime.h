@@ -66,6 +66,10 @@ struct clocktm_t {
     int reserved;		/**< reserved must be 0 */
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Clock source API */
 /**
  * Register clock sync source, clock is considered invalid by default
@@ -137,5 +141,9 @@ int clock_get_mode(void);
  * @return		return 0 on success, negative on failure
  */
 int clock_sync(struct clocktm_t *timeval);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_LIBTIME_H_ */

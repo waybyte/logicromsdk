@@ -174,8 +174,8 @@ struct termios
     tcflag_t c_cflag;    /**< Control modes */
     tcflag_t c_lflag;    /**< Local modes */
     cc_t     c_cc[NCCS]; /**< Control characters */
-    speed_t  c_ispeed;   /** input baud rate */
-    speed_t  c_ospeed;   /** output baud rate */
+    speed_t  c_ispeed;   /**< input baud rate */
+    speed_t  c_ospeed;   /**< output baud rate */
 };
 
 #ifdef __cplusplus

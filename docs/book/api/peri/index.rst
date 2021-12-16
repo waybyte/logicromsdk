@@ -13,3 +13,4 @@ Peripherals
    USB <usb>
    Bluetooth <bluetooth>
    GPS <gps>
+   IMU Sensor Fusion <imu>

@@ -5,5 +5,5 @@ Storage
    :maxdepth: 1
 
    Filesystems <filesystem>
-   Offline Storage <offline>
-   Parameter Sotrage <param>
+   Data Storage <storage>
+   Parameter Storage <param>

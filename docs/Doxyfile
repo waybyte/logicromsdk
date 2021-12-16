@@ -856,6 +856,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/hw/bluetooth.h \
                          ../include/hw/gpio.h \
                          ../include/hw/i2c.h \
+                         ../include/hw/imu_sensor.h \
                          ../include/hw/pwm.h \
                          ../include/hw/spi.h \
                          ../include/int64str.h \
@@ -864,7 +865,6 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/net/sockets.h \
                          ../include/netdb.h \
                          ../include/network.h \
-                         ../include/offlinelib.h \
                          ../include/opdatabase.h \
                          ../include/os_api.h \
                          ../include/param.h \
@@ -881,6 +881,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/ril/ril.h \
                          ../include/ril/ril_stk.h \
                          ../include/spifs.h \
+                         ../include/storage.h \
                          ../include/sys/dirent.h \
                          ../include/sys/ioctl.h \
                          ../include/sys/socket.h \

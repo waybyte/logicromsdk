@@ -41,13 +41,15 @@ enum storage_action_e {
  * Storage Configuration Structure
  */
 struct storagecfg_t {
-	uint8_t media;			/**< Storage Media @ref storage_media_e */
-	uint8_t parts;			/**< Number of Storage partition */
-	uint8_t mode;			/**< Storage mode @ref storage_mode_e */
-	uint8_t on_full;		/**< Action to be taken when storage is full @ref storage_action_e */
-	uint32_t max_storage;	/**< Maximum number/count of data packets to store */
-	uint32_t resvd_mem;		/**< Amount to reserved memory to keep in storage media, 16Kb minimum */
-	uint16_t packet_sz;		/**< Approximate Average data packet size */
+	uint8_t media;		  /**< Storage Media @ref storage_media_e */
+	uint8_t parts;		  /**< Number of Storage partition */
+	uint8_t mode;		  /**< Storage mode @ref storage_mode_e */
+	uint8_t on_full;	  /**< Action to be taken when storage is full @ref storage_action_e */
+	uint8_t compression;  /**< 1 to enable compression, 0 for no compression */
+	uint8_t reserved;	  /**< reserved for future use */
+	uint16_t packet_sz;	  /**< Approximate Average data packet size */
+	uint32_t max_storage; /**< Maximum number/count of data packets to store */
+	uint32_t resvd_mem;	  /**< Amount to reserved memory to keep in storage media, 16Kb minimum */
 };
 
 /**

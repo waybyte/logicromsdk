@@ -1,7 +1,7 @@
 /*
  * opdatabase.h
  *
- * @note These APIs are only available on GSM Platforms
+ * @note These APIs are only available on GSM & LTE Platforms
  */
 
 #ifndef INCLUDE_OPDATABASE_H_
@@ -14,13 +14,15 @@ extern "C" {
 #endif
 
 #ifndef PLATFORM_BC20
+
 /**
- * Get Operator name
+ * Get Operator name from operator database
  * @param mcc		[in] Mobile country Code
  * @param mnc		[in] Mobile Network Code
- * @return			On success pointer network operator name is returned (Do not free this memory). On error empty string is returned.
+ * @param long_name [in] Select long or short operator name, 1 for Long, 0 for short
+ * @return			On success pointer network operator name is returned. On error empty string is returned.
  */
-const char *get_opname(uint16_t mcc, uint16_t mnc);
+const char *opdb_get_operatorname(uint16_t mcc, uint16_t mnc, int long_name);
 #endif
 
 #ifdef __cplusplus

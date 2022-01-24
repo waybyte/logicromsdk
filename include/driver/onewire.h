@@ -1,5 +1,5 @@
 /*
- * OneWire library based optimized for GSM Module
+ * OneWire library optimized for Wireless Modules
  *
  * This library is based on:
  * https://github.com/PaulStoffregen/OneWire

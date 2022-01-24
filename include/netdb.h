@@ -77,7 +77,6 @@ struct hostent *gethostbyname(const char *name);
 int gethostbyname_r(const char *name, struct hostent *ret, char *buf,
                 size_t buflen, struct hostent **result, int *h_errnop);
 
-#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**
  * Translates the name of a service location (for example, a host name) and/or
  * a service name and returns a set of socket addresses and associated
@@ -86,6 +85,9 @@ int gethostbyname_r(const char *name, struct hostent *ret, char *buf,
  * be freed by calling lwip_freeaddrinfo()!
  * Due to a limitation in @a gethostbyname, only the first address of a host
  * is returned. Also, service names are not supported (only port numbers)!
+ * 
+ * @note This API is not available on GSM platforms
+ * 
  * @param nodename	[in] descriptive name or address string of the host (may be NULL -> local address)
  * @param servname	[in] port number as string of NULL
  * @param hints		[in,out] structure containing input values that set socktype and protocol
@@ -101,10 +103,11 @@ int getaddrinfo(const char *nodename,
  * any additional storage associated with those structures. If the ai_next
  * field of the structure is not null, the entire list of structures is freed.
  *
+ * @note This API is not available on GSM platforms
+ * 
  * @param ai		[in] struct @a addrinfo to free
  */
 void freeaddrinfo(struct addrinfo *ai);
-#endif
 
 #ifdef __cplusplus
 }

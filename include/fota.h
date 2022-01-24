@@ -12,7 +12,7 @@ extern "C" {
 
 /**
  * Start Firmware Update
- * @param			[in] HTTP URL to download firmware
+ * @param in_url	[in] HTTP URL to download firmware
  * @return			0 on success, negative value on error
  */
 int fota_start(const char *in_url);

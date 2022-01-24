@@ -94,9 +94,10 @@ uint32_t ntohl(uint32_t x);
  */
 uint16_t ntohs(uint16_t x);
 
-#if defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**
  * Convert IPv4 and IPv6 addresses from binary to text form
+ * @note unavailable on GSM platform
+ * 
  * @param af		[in] Address family
  * @param src		[in] Source buffer containing binary address
  * @param dst		[out] destination buffer to store converted text
@@ -107,13 +108,14 @@ const char *inet_ntop(int af, const void *src, char *dst, socklen_t size);
 
 /**
  * Convert IPv4 and IPv6 addresses from text to binary form
+ * @note unavailable on GSM platform
+ * 
  * @param af		[in] Address family
  * @param src		[in] points to a character string containing an IPv4/IPv6 network address
  * @param dst		[out] pointer to which to save the address in network order
  * @return
  */
 int inet_pton(int af, const char *src, void *dst);
-#endif
 
 #ifdef __cplusplus
 }

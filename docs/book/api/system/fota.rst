@@ -1,10 +1,10 @@
 Firmware OTA API
 ================
 
-Firmare over-the-air update API.
+Firmware over-the-air update API.
 
 API Reference
 -------------
 
-.. .. include:: /inc/fota.inc
+.. include:: /inc/fota.inc
 

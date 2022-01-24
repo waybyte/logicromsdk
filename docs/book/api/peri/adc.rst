@@ -6,13 +6,29 @@ Analog to Digital Converter
 	<br>
 
 There are 10-bit analog ports available on GSM modules. Input voltage
-range from 0-2.8v gives digial output of 0-1023.
+range from 0-2.8v gives digital output of 0-1023.
 
 However analog ports on NBIoT module are 12-but and input voltage range
-from 0-1.4v with digial output of 0-4095.
+from 0-1.4v with digital output of 0-4095.
 
-ADC Channel Mapping
--------------------
+4G LTE Module ADC Channel Mapping
+---------------------------------
+
++--------------+-----------+-----------+----------+----------+----------+
+| ADC Channel  |  EC600U   |  EC200U   |  N58     |  N716    |  L610    |
++==============+===========+===========+==========+==========+==========+
+| ADC CH 0     |  Pin 19   |  Pin 45   |  Pin 89  |  Pin 31  |  Pin 45  |
++--------------+-----------+-----------+----------+----------+----------+
+| ADC CH 1     |  Pin 20   |  Pin 44   |  Pin 88  |  Pin 30  |  Pin 44  |
++--------------+-----------+-----------+----------+----------+----------+
+| ADC CH 2     |  Pin 133  |  Pin 43   |    --    |    --    |  Pin 43  |
++--------------+-----------+-----------+----------+----------+----------+
+| ADC CH 3     |  Pin 114  |    --     |    --    |    --    |  Pin 43  |
++--------------+-----------+-----------+----------+----------+----------+
+
+
+GSM/NB-IoT Module ADC Channel Mapping
+-------------------------------------
 
 +--------------+------------------+-----------+-----------------+-----------+------------+------------+
 | ADC Channel  |  MC20U Pin       |  M56 Pin  |  MC60 Pin       |  M66 Pin  |  BC20 Pin  |  SIM868    |

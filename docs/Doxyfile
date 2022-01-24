@@ -851,6 +851,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/driver/dht.h \
                          ../include/driver/ds18b20.h \
                          ../include/driver/onewire.h \
+                         ../include/fota.h \
                          ../include/gpslib.h \
                          ../include/hw/adc.h \
                          ../include/hw/bluetooth.h \
@@ -865,6 +866,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/net/sockets.h \
                          ../include/netdb.h \
                          ../include/network.h \
+                         ../include/modem.h \
                          ../include/opdatabase.h \
                          ../include/os_api.h \
                          ../include/param.h \
@@ -873,7 +875,6 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/plat/def_i2c.h \
                          ../include/plat/def_pwm.h \
                          ../include/plat/def_spi.h \
-                         ../include/proto/ftpc.h \
                          ../include/proto/httpc.h \
                          ../include/proto/modbus.h \
                          ../include/proto/ntpc.h \

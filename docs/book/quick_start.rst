@@ -3,13 +3,13 @@ Quick Start Guide
 *****************
 
 This document is intended to help users setup software development environment
-for application development on 4G LTE, GSM and NB-IoT modules using LOGICROM
+for application development on 4G LTE, GSM and NB-IoT modules using Logicrom
 software development kit.
 
 Setting up Development Environment
 ==================================
 
-LOGICROM is supported by both PlatformIO IDE and Arduino IDE with Arduino wiring
+Logicrom is supported by both PlatformIO IDE and Arduino IDE with Arduino wiring
 support. Users can select IDE of their choice though our recommendation is to
 go with PlatformIO.
 
@@ -28,12 +28,12 @@ Quick Installation steps for PlatformIO IDE
 
 1. `Download <https://code.visualstudio.com/>`_ and install official Microsoft Visual Studio Code. PlatformIO IDE is built on top of it.
 2. **Open** VSCode Package Manager.
-3. **Search** for the official platformio ide `extension <https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide>`_
+3. **Search** for the official PlatformIO ide `extension <https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide>`_
 4. *Install** PlatformIO IDE.
 
 .. image:: ../_static/platformio-ide-vscode-pkg-installer.png
 
-Installing LOGICROM Platform
+Installing Logicrom Platform
 ----------------------------
 
 1. Click on "PlatformIO Home" button on the bottom `PlatformIO Toolbar <https://docs.platformio.org/en/latest/integration/ide/vscode.html#ide-vscode-toolbar>`_
@@ -48,13 +48,13 @@ Installing LOGICROM Platform
 
 .. image:: ../_static/platformio-ide-embedded-menu.png
 
-4. Type "Logicrom" in the search box as shown, and click on "LOGICROM Development Platform".
+4. Type "Logicrom" in the search box as shown, and click on "Logicrom Development Platform".
    
 .. image:: ../_static/platformio-ide-logicrom-search.png
 
 5. On Logicrom Platform page, Click install button as shown.
 
-You have successfully installed LOGICROM Platform
+You have successfully installed Logicrom Platform
 
 .. image:: ../_static/platformio-ide-logicrom-finish.png
 
@@ -157,7 +157,7 @@ list as shown below.
 
 .. image:: ../_static/platformio-ide-project-tasks.png
 
-User can add as many configuration as needed, with different boards etc using same source.
+User can add as many configuration as needed, with different boards etc. using same source.
 
 For advanced configuration settings of ``platform.ini`` Please refer official documentation of PlatformIO:
 https://docs.platformio.org/en/latest/projectconf/index.html#projectconf
@@ -170,20 +170,20 @@ More to read about Arduino IDE:
 
 `Arduino IDE <https://www.arduino.cc/en/main/software>`_
 
-Installing LOGICROM Platform
+Installing Logicrom Platform
 ----------------------------
 
-1. Download and Install Arduino IDE from `ardino website <https://www.arduino.cc/>`_
+1. Download and Install Arduino IDE from `Arduino website <https://www.arduino.cc/>`_
 2. Open Arduino IDE, Go to **File** > **Preferences**
-3. Add LOGICROM Boards URL to *Additional Board Manager URLs* and click OK.
+3. Add Logicrom Boards URL to *Additional Board Manager URLs* and click OK.
    ``https://waybyte.github.io/package_logicrom_index.json``
    
 .. image:: ../_static/arduino-ide-prefs.png
 
 4. Go to **Tools** > **Board** > **Board Manager**
-5. In search box, type "logicrom"
-6. Click Install button for *LOGICROM Arduino Boards*.
-7. Select your gsm board from board manager under "LOGICROM Arduino"
+5. In search box, type "Logicrom"
+6. Click Install button for *Logicrom Arduino Boards*.
+7. Select your GSM board from board manager under "Logicrom Arduino"
 
 .. image:: ../_static/arduino-ide-board-manager.png
 
@@ -191,4 +191,4 @@ Support
 =======
 
 Need help in installation or setup?
-or Post issues on our gitup page @ https://github.com/waybyte/platform-logicrom/issues
+or Post issues on our GitHub page @ https://github.com/waybyte/platform-logicrom/issues

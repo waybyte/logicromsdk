@@ -1,7 +1,7 @@
 .. logicromsdk documentation master file, created by
    sphinx-quickstart on Mon May 25 18:39:44 2020.
 
-Welcome to LOGICROM SDK Documentation!
+Welcome to Logicrom SDK Documentation!
 ======================================
 
 .. toctree::

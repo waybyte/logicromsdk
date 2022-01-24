@@ -1,0 +1,118 @@
+{% extends "!layout.html" %}
+{% block extrahead %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="mask-icon" href="https://www.waybyte.in/images/waybyte.svg" color="#042816">
+<link rel="alternate icon" type="image/png" href="https://www.waybyte.in/images/favicon.png">
+<link rel="icon" type="image/svg+xml" href="https://www.waybyte.in/images/waybyte.svg">
+<style>
+body,html{font-family:Nunito,Arial,sans-serif;font-size:1.025rem;height:100%}
+.topnav {
+	overflow: hidden;
+	background-color: #343131;
+}
+
+.topnav a {
+	float: left;
+	display: block;
+	color: #d9d9d9;
+	text-align: center;
+	padding: 1.5rem;
+	text-decoration: none;
+	font-size: 17px;
+	height: 4rem;
+}
+
+.topnav .logo {
+	padding: 5px;
+	width: 300px;
+}
+
+.topnav .logo:hover {
+	background-color: transparent;
+}
+
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnav .icon {
+	display: none;
+	font-size: 30px;
+	padding-top: 15px;
+}
+
+@media screen and (max-width: 600px) {
+	.topnav a {
+		border-bottom: 1px solid #222;
+	}
+	.topnav a:not(:first-child) {
+		display: none;
+	}
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
+	.topnav .logo {
+		width: auto;
+	}
+	.topnav.responsive {position: relative;}
+	.topnav.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+.wy-nav-content {
+    max-width: 1200px !important;
+}
+.wy-nav-side {
+	top: 4rem;
+}
+</style>
+{% endblock %}
+{% block extrabody %}
+<div class="topnav" id="myTopnav">
+	<a class="logo" href="https://www.waybyte.in"><img src="https://www.waybyte.in/images/waybyte-logo.png" width="200px"></a>
+	<a href="https://www.waybyte.in/products/logicrom">Logicrom</a>
+	<a href="https://www.waybyte.in/about">About</a>
+	<a href="https://www.waybyte.in/contact">Contact</a>
+	<a href="https://www.waybyte.in/login">Login</a>
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		<i class="fa fa-bars"></i>
+	</a>
+</div>
+{% endblock %}
+{% block footer %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CLMHTDV889"></script>
+<script>
+	function myFunction() {
+		var x = document.getElementById("myTopnav");
+		if (x.className === "topnav") {
+			x.className += " responsive";
+		} else {
+			x.className = "topnav";
+		}
+	}
+	$(window).scroll(function () {
+		var top = 64 - $(this).scrollTop();
+		if (top < 0)
+			$('.wy-nav-side').css({ 'top': 0 });
+		else
+			$('.wy-nav-side').css({ 'top': top });
+	});
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'G-CLMHTDV889');
+</script>
+{% endblock %}

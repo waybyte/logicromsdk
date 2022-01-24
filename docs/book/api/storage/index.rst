@@ -4,6 +4,6 @@ Storage
 .. toctree::
    :maxdepth: 1
 
-   Filesystems <filesystem>
+   Filesystem <filesystem>
    Data Storage <storage>
    Parameter Storage <param>

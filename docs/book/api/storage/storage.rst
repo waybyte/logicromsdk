@@ -2,7 +2,7 @@ Data Storage Management API
 ===========================
 
 SDK provide simple APIs to manage data storage. The  storage APIs can be
-used to store data on storage media duing unavailability of network or for
+used to store data on storage media during unavailability of network or for
 logging purpose.
 
 API Reference

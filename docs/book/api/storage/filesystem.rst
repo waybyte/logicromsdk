@@ -2,12 +2,12 @@ Filesystems
 ===========
 
 SDK provide in-built filesystem support for various storage device like onboard
-flash, external SPI flash and SD Card. Flash filesystems are optimized and with
+flash, external SPI flash and SD Card. Flash filesystem are optimized and with
 wear leveling support. This prevents storage media from damaging because of
 excessive write/erase operations.
 
 For GSM systems, internal 315KB of flash memory available for storage. There is
-also provision for RAM filesystem with filesize limit of 1KB per file, for
+also provision for RAM filesystem with file size limit of 1KB per file, for
 temporary storage RAM filesystem can be used.
 
 Internal flash is mounted on /fs and ram filesystem is mounted on /ram.

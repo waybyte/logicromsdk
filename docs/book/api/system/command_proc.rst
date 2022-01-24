@@ -47,7 +47,7 @@ application.
 
 Following is the list of Commands with modules.
 
-*TODO: optional commandlist to be added*
+*TODO: optional command list to be added*
 
 Custom commands
 ---------------

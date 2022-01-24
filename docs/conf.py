@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('./_ext'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'logicromsdk'
-copyright = '2021, WAYBYTE Solutions'
+project = 'Logicrom SDK'
+copyright = '2022, WAYBYTE Solutions'
 author = 'Ajay Bhargav'
 
 # -- General configuration ---------------------------------------------------
@@ -50,8 +50,8 @@ primary_domain = 'cpp'
 highlight_language = 'cpp'
 
 # Breathe Configuration
-breathe_projects = { 'logicromsdk': './xml' }
-breathe_default_project = 'logicromsdk'
+breathe_projects = { 'Logicrom SDK': './xml' }
+breathe_default_project = 'Logicrom SDK'
 
 # Exhale Configuration
 exhale_args = {

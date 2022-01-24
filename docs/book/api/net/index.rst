@@ -7,4 +7,5 @@ Network API
    GSM & GPRS API <gsm_gprs>
    RAW Socket API <socket>
    BSD Socket API <bsd_socket>
+   Modem Interface APIs <modem>
    Radio Interface Layer - RIL <ril>

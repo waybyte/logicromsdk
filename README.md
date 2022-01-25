@@ -1,6 +1,6 @@
-# LOGICROM SDK
+# Logicrom SDK for Wireless IoT
 
-Software development kit for LOGICROM Platform
+Software development kit for Logicrom Platform
 
 [![Documentation Status](https://readthedocs.org/projects/logicromsdk/badge/?version=latest)](https://docs.logicrom.com)
 [![Github Issues](https://img.shields.io/github/issues/waybyte/logicromsdk.svg)](http://github.com/waybyte/logicromsdk/issues)

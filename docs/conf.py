@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('./_ext'))
 # -- Project information -----------------------------------------------------
 
 project = 'Logicrom SDK'
-copyright = '2022, WAYBYTE Solutions'
+copyright = 'Waybyte Solutions'
 author = 'Ajay Bhargav'
 
 # -- General configuration ---------------------------------------------------

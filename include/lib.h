@@ -57,7 +57,7 @@ extern "C" {
 typedef void (*urc_callback_f)(unsigned int urc_code, unsigned int urc_param);
 
 /**
- * Initialize LOGICROM SDK library
+ * Initialize Logicrom SDK library
  * @param stdio			[in] STDIO port (e.g. /dev/ttyUSB0), can be NULL if STDIO is not required
  * @param handler		[in] Function pointer for handling unsolicited responses @ref urc_callback_f
  */

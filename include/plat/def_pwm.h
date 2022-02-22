@@ -18,7 +18,7 @@ enum pwm1_prd_e {
 };
 
 /**
- * PWM Channel 1 - Fixed Ontime/Duty cycle in milliseconds
+ * PWM Channel 1 - Fixed On-time/Duty cycle in milliseconds
  * @note: Only for Platform with RDA8910 SoC
  */
 enum pwm1_duty_e {

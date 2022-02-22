@@ -28,12 +28,12 @@ int circbuf_delete(int handle);
  * Store one byte to circular buffer
  * @param handle	[in] Handle to circular buffer
  * @param data		[in] Data byte
- * @return			0 on succes, -1 on error
+ * @return			0 on success, -1 on error
  */
 int circbuf_push_byte(int handle, unsigned char data);
 
 /**
- * Store bufferd data to circular buffer
+ * Store buffered data to circular buffer
  * @param handle	[in] Handle to circular buffer
  * @param data		[in] input data buffer
  * @param len		[in] Length of data in buffer
@@ -87,13 +87,13 @@ int circbuf_isempty(int handle);
 
 /**
  * Get available bytes in buffer
- * @param handle	[in] Handle to cirular buffer
+ * @param handle	[in] Handle to circular buffer
  * @return			number of bytes available or negative value on error
  */
 int circbuf_getcount(int handle);
 
 /**
- * Clear and reset curcular buffer
+ * Clear and reset circular buffer
  * @param handle	[in] Handle to circular buffer
  * @return			Always returns 0
  */

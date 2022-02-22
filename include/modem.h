@@ -15,7 +15,7 @@ extern "C"
 #endif
 
 /**
- * Maximum recvieve SMS size
+ * Maximum receieve SMS size
  */
 #define SMS_RECV_MAX_SZ 160
 #define PH_NUM_MAX_SZ	21
@@ -26,7 +26,7 @@ extern "C"
 enum mderror_e
 {
 	MD_SUCCESS = 0,			   /**< success */
-	MD_ERR_FAILED = -1,		   /**< faiure, unknown cause */
+	MD_ERR_FAILED = -1,		   /**< failure, unknown cause */
 	MD_ERR_TIMEOUT = -2,	   /**< operation timeout */
 	MD_ERR_BUSY = -3,		   /**< modem busy */
 	MD_ERR_INVALID_PARAM = -4, /**< Invalid parameter */
@@ -138,7 +138,7 @@ int md_sms_delete(int index, int mode);
  * Set modem CFUN state
  * 
  * @param cfun		[in] CFUN value to set
- * @param rst		[in] reset after setting cfun value
+ * @param rst		[in] reset after setting CFUN value
  * @return 			0 on success, error otherwise (@ref mderror_e)
  */
 int md_cfun_set(int cfun, int rst);
@@ -152,7 +152,7 @@ int md_cfun_get(void);
 /**
  * Initiate a call
  * This is a non-blocking call, If operation is success
- * Call status will be retured as URC response.
+ * Call status will be returned as URC response.
  * 
  * @param phonenum	[in] Number to call
  * @return 			0 on success, error otherwise (@ref mderror_e)

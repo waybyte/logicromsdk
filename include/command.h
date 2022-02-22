@@ -9,7 +9,7 @@
 
 /**
  * Maximum number of allowed arguments
- * including commmand
+ * including command
  */
 #define CMD_MAX_ARGS 16
 

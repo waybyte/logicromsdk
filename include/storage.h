@@ -106,7 +106,7 @@ int storage_delete(int part, int count);
  * Get storage status
  *
  * @param part			[in] Partition index, starting from 0
- * @return				TRUE if offline is pending, FALSE if not data is avilable
+ * @return				TRUE if offline is pending, FALSE if not data is available
  */
 int storage_available(int part);
 

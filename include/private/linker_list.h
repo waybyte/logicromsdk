@@ -79,7 +79,7 @@
 /* _ll_entry_get_array(array_name)
 
    is used to declare an access variable for the array
-   this macro should be used at flie-scope, as ll_entry_get_array() is invalid there
+   this macro should be used at file-scope, as ll_entry_get_array() is invalid there
 
    example usage:
      _ll_entry_get_array(int, numbers, numberArray);
@@ -141,7 +141,7 @@
 		size; \
 	})
 
-/* ll_entry_get_array_lenght(type, array_name)
+/* ll_entry_get_array_length(type, array_name)
 
    is used to determine the number of elements in an array
 

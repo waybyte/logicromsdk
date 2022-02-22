@@ -153,9 +153,9 @@
 #define TCSAFLUSH  2                /**< Change attributes when output has drained; also flush pending input. */
 
 /* Line Control constants for use with tcflush(): */
-#define TCIFLUSH    1               /**< Flush pending input. Flush untransmitted output. */
-#define TCIOFLUSH   2               /**< Flush both pending input and untransmitted output. */
-#define TCOFLUSH    3               /**< Flush untransmitted output. */
+#define TCIFLUSH    1               /**< Flush pending input. Flush un-transmitted output. */
+#define TCIOFLUSH   2               /**< Flush both pending input and un-transmitted output. */
+#define TCOFLUSH    3               /**< Flush un-transmitted output. */
 
 /* constants for use with tcflow(): */
 #define TCIOFF      0               /**< Transmit a STOP character, intended to suspend input data. */

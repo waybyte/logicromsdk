@@ -94,7 +94,7 @@ struct gpsdata_t {
 	double lng;			/**< Longitude in degree */
 	float altitude;		/**< Altitude value in meters */
 	double odom;		/**< Odometer value in meteres */
-	float hdop,pdop;	/**< Hdop and Pdop values */
+	float hdop,pdop;	/**< HDOP and PDOP values */
 };
 
 /**

@@ -147,7 +147,7 @@ extern "C" {
 #endif
 
 /**
- * Create an endpoint for communnication
+ * Create an endpoint for communication
  * @param domain			[in] Communication domain, Must be AF_INET
  * @param type				[in] Socket type @ref SOCK_STREAM or @ref SOCK_DGRAM
  * @param protocol			[in] Protocol type, 0 for auto-select

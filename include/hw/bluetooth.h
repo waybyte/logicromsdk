@@ -84,7 +84,7 @@ int bt_device_init(int mode, const char *name, int use_btcli);
 
 /**
  * Turn on/off bluetooth hardware. Bluetooth is enabled by default when device is initialized.
- * @param on_off		[in] TRUE (1) to turn on or FLASE (0) to turn off
+ * @param on_off		[in] TRUE (1) to turn on or FALSE (0) to turn off
  * @return				For return value see @ref bterr_e
  */
 int bt_device_power(int on_off);

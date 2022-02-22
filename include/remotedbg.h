@@ -19,7 +19,7 @@ extern "C" {
  * Port is server port to connect
  *
  * Once connected, remote server will be greeted with device parameter message in following format
- * $RDBG,[Serial Number],[IMEI]#[CR][LF]
+ * $RDBG,[Module UID],[IMEI]#[CR][LF]
  * and login prompt will be shown for remote console
  */
 void remote_debug_enable(void);

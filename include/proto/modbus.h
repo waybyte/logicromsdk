@@ -133,7 +133,7 @@ int mb_init(const char *com, int mode, mb_dirctl func);
 /**
  * Configure MODBUS Parameters
  * @param baud		[in] Baudrate value as in termios.h e.g. B9600
- * @param com_para	[in] Communication parameter data bits, partiy and stopbit in ascii format e.g. "8N1", "8E2"
+ * @param com_para	[in] Communication parameter data bits, parity and stopbit in ascii format e.g. "8N1", "8E2"
  * 					Data bits: 8, 7, 6, 5 (not supported on all platforms)
  * 					Parity: N - None, E - Even, O - Odd Parity
  * 					Stop Bits: 1 or 2

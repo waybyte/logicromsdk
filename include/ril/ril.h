@@ -62,7 +62,7 @@ enum networkstate_e {
 enum cfunstate_e {
 	CFUN_STATE_0 = 0,/**< Minimal functionality */
 	CFUN_STATE_1 = 1,/**< Full functionality */
-	CFUN_STATE_4 = 4 /**< Disable phone from both transmit ting and receiv ing RF signals */
+	CFUN_STATE_4 = 4 /**< Disable phone from both transmit ting and receive ing RF signals */
 };
 
 /**
@@ -104,8 +104,8 @@ enum sysurc_e {
 	URC_NEW_SMS_IND,            /**< Indication for new short message, parameter value as index of incoming SMS */
 	URC_MODULE_VOLTAGE_IND,     /**< Indication for abnormal voltage of module supply power, parameter value as @ref vbattind_e */
 	URC_ALARM_RING_IND,		    /**< Indication for clock alarm. */
-	URC_STKPCI_RSP_IND,			/**< Indication for un-handled STKPCI responses, Only when QSTK is enabled, Parameter value is incoming +STKPCI response as null terminated string */
-	URC_RRC_STATUS_IND,			/**< 4GLTE & NBIoT RRC Status update */
+	URC_STKPCI_RSP_IND,			/**< Indication for un-handled STKPCI responses, Only when SIM Toolkit is enabled, Parameter value is incoming +STKPCI response as null terminated string */
+	URC_RRC_STATUS_IND,			/**< 4G LTE & NBIoT RRC Status update */
 	URC_SYS_END = 100,
 	/*
 	 * System URC definition end
@@ -192,7 +192,7 @@ extern ril_recvcb_f cb_rcvCoreData;
  * @param arg			[in] User argument passed to callback function
  * @param timeout		[in] Timeout for command execution
  * @param wait			[in] Wait for RIL to be available (TRUE) or not (FALSE).
- * 							 If wait is false, function returns immideatly if RIL is
+ * 							 If wait is false, function returns immediately if RIL is
  * 							 unavailable.
  * 							 If true function will wait for RIL availability until
  * 							 timeout occurs.

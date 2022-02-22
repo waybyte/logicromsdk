@@ -137,7 +137,7 @@ int socket_request(int type);
 /**
  * Set socket options
  * @param id		[in] Socket ID
- * @param opts		[in] socket option sturcture see @ref sockopt_t
+ * @param opts		[in] socket option structure see @ref sockopt_t
  * @return			0 on success, negative value on error
  */
 int socket_setopt(int id, struct sockopt_t *opts);

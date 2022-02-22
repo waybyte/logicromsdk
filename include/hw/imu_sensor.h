@@ -1,7 +1,7 @@
 /**
  * @file imu_sensor.h
  * @author Ajay Bhargav
- * @brief IMU Sensor fuson library
+ * @brief IMU Sensor fusion library
  * 
  */
 
@@ -73,7 +73,7 @@ typedef void (*imu_eventcb_f)(int event);
 /**
  * @brief IMU configuration structure
  * 
- * accleration threshold values provided are in unit of g
+ * acceleration threshold values provided are in unit of g
  * e.g. a value of 0.5 is 0.5g = 9.8 x 0.5 = 4.9m/s2
  * 
  * when configuration is not provided, below are the default threshold values
@@ -90,10 +90,10 @@ struct imuconf_t {
 	float static_threshold;		   /**< acceleration value below which sensor is considered static */
 	float motion_detect_threshold; /**< acceleration greater than or equal to this generates motion active event */
 	float harsh_accel_threshold;   /**< acceleration threshold for harsh acceleration */
-	float harsh_break_threshold;   /**< deacceleration threshold for harsh breaking event */
+	float harsh_break_threshold;   /**< deceleration threshold for harsh breaking event */
 	float harsh_turn_threshold;	   /**< acceleration threshold while turning */
 	float tilt_angle;			   /**< Tilt threshold angle in degree */
-	float alpha_coff;			   /**< Alpha cofficient, currently not used */
+	float alpha_coff;			   /**< Alpha coefficient, currently not used */
 	int sample_ms;				   /**< Data sample rate in miliseconds. lower the better, 20ms is optimal. */
 };
 
@@ -250,7 +250,7 @@ int imu_get_linearaccel(float *ax, float *ay, float *az);
 
 /**
  * @brief Get acceleration magnitude without gravity component with direction
- * posivity value represents acceleration and negative value represent
+ * positivity value represents acceleration and negative value represent
  * deceleration.
  * 
  * @param force Value of force magnitude in unit of g

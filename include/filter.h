@@ -1,8 +1,6 @@
 /**
  * @file filter.h
- * @author Ajay Bhargav
  * @brief Filter library to use with ADC
- * 
  */
 
 #ifndef INC_FILTER_H_

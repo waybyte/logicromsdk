@@ -100,7 +100,7 @@ int gpio_setdir(int handle, int dir);
  * GPIO driver provide slow trigger option without debounce support to check and confirm
  * active trigger. On active trigger, callback function is called with state of gpio.
  * Triggers are only possible on gpio configured as inputs.
- * If input level changes after first transition is detected and deounce time,
+ * If input level changes after first transition is detected and debounce time,
  * internal debounce timer is reset for resampling of IO state.
  * @param handle		Handle to gpio object returned by @ref gpio_request
  * @param fn			Callback function of type @ref gpio_callback_f

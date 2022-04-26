@@ -7,6 +7,8 @@
 #define INC_GPSLIB_H_
 
 #include <time.h>
+#include <hw/gnss.h>
+#include <gpsdriver.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -14,16 +16,21 @@ extern "C"
 #endif
 
 /**
- * GPS Module type
+ * @brief Default harsh breaking/deceleration value - 0.55g
  */
-enum gpstype_e {
-	GPS_TYPE_ANY,	   /**< GPS module that is not known to library */
-	GPS_TYPE_SIRF,	   /**< SIRF Star III GPS module */
-	GPS_TYPE_MTK,	   /**< GPS/GNSS module based on Mediatek chipset */
-	GPS_TYPE_MTKIRNSS, /**< IRNSS Module from MTK */
-	GPS_TYPE_STIRNSS,  /**< GNSS module with IRNSS support based on STA80xx chipset (e.g. L89) */
-	GPS_TYPE_UNICORE,  /**< Default value for BC20 as onboard GNSS module */
-};
+#define DEF_HARSHBREAK 0.55
+/**
+ * @brief Default Harsh acceleration value - 0.43g
+ */
+#define DEF_OVERACCEL 0.43
+/**
+ * @brief Default harsh turning speed - 30Km/h
+ */
+#define DEF_HARSHTURN 30
+/**
+ * @brief Default overspeed limit - 80Km/h
+ */
+#define DEF_SPEEDLIMIT 80
 
 /**
  * Geo-fence type
@@ -101,7 +108,6 @@ struct gpsdata_t {
  * GPS Initial configuration structure
  */
 struct gpsconfig_t {
-	int type;			/**< GPS type @ref gpstype_e, For MT2503 GPS use @ref GPS_TYPE_MTK */
 	int baud;			/**< GPS Baudrate */
 	float speedlimit;	/**< Over-speed limit in Km/h */
 	float harshturn;	/**< Harsh Turning speed limit in Km/h */
@@ -127,7 +133,9 @@ struct gpsconfig_t {
 };
 
 /**
- * Initialize GPS library and start GPS data handler task
+ * Initialize GPS library and start GPS data handler task\n
+ * It is recommended to set GPS driver before calling this function.
+ * 
  * @param port			[in] device file where GPS is connected, e.g. /dev/ttyS1
  * @param config		[in] GPS initial configuration, see @ref gpsconfig_t
  * @return				0 on success, negative value on failure
@@ -143,14 +151,13 @@ int gpslib_init(char *port, struct gpsconfig_t *config);
  * @param cmd		[in] GPS command without $ and CRC
  * @return			0 on success, negative value on failure
  */
-int gps_sendcmd(const char *cmd);
+int gps_send_command(const char *cmd);
 
 /**
  * Reconfigure GPS module. This function may be called if application
  * performs a hardware or software reset to GPS module.
- * @param type		[in] GPS type, see @ref gpstype_e
  */
-void gpslib_reconfig(int type);
+void gpslib_reconfig(void);
 
 /**
  * Get current GPS data structure

@@ -55,49 +55,6 @@ struct dirent {
  */
 typedef void DIR;
 
-#ifdef _DOXYGEN_
-/**
- * @brief Open a directory
- * @param name	[in] Directory path to open
- * @return a pointer to the directory stream.  On error, NULL is returned, and errno is set appropriately.
- */
-DIR *opendir(const char *name);
-
-/**
- * @brief Read a directory
- * @param dirp	[in] directory stream provided by @ref opendir
- * @return On success, a pointer to a dirent structure. (This structure may be statically allocated; do not attempt to free it.)
- */
-struct dirent *readdir(DIR *dirp);
-
-/**
- * @brief return current location in directory stream. This function may not supported by all filesystem drivers
- * @param dirp	[in] directory stream provided by @ref opendir
- * @return On success, function returns the current location in the directory stream.  On error, -1 is returned, and errno is set appropriately
- */
-long telldir(DIR *dirp);
-
-/**
- * @brief reset directory stream. This function may not supported by all filesystem drivers
- * @param dirp	[in] directory stream provided by @ref opendir
- */
-void rewinddir(DIR *dirp);
-
-/**
- * @brief set the position of the next @ref readdir call in the directory stream. This function may not supported by all filesystem drivers
- * @param dirp	[in] directory stream provided by @ref opendir
- * @param loc	[in] a value returned by a previous call to @ref telldir
- */
-void seekdir(DIR *dirp, long loc);
-
-/**
- * @brief Close a directory
- * @param dirp	[in] directory stream provided by @ref opendir
- * @return 0 on success.  On error, -1 is returned, and errno is set appropriately.
- */
-int closedir(DIR *dirp);
-#endif
-
 #ifdef __cplusplus
 }
 #endif

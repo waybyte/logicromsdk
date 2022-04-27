@@ -48,10 +48,14 @@ enum gnssreset_e {
  * 
  */
 struct gpsdriver_t {
-	const char *name; /** Driver Name */
-	int command_checksum; /** Command require checksum? 1 - yes, 0 - no */
-	const char ** const response_ident; /** List of module specific response identifier */
-	int response_ident_count; /** count of \ref gpsdriver_t::response_ident */
+	/** Driver Name */
+	const char *name;
+	/** Command require checksum? 1 - yes, 0 - no */
+	int command_checksum;
+	/** List of module specific response identifier */
+	const char ** const response_ident;
+	/** count of @ref response_ident */
+	int response_ident_count;
 	/**
 	 * @brief Perform software reset, NULL if not implemented
 	 * 
@@ -62,7 +66,7 @@ struct gpsdriver_t {
 	/**
 	 * @brief Configure GNSS module, NULL if not implemented
 	 * 
-	 * @param msg_type bitwise ORed value of gnssmsg_e, for messages to be enabled
+	 * @param msg_type bitwise ORed value of @ref gnssmsg_e, for messages to be enabled
 	 * @param rate_ms output datarate in ms, currently unused (1000ms default)
 	 * @param op_mode Operation mode to configure GNSS module for Normal or slow motion operation
 	 * @return status, 0 for success
@@ -76,7 +80,7 @@ struct gpsdriver_t {
 	 */
 	int (*setup_baud)(unsigned int baud);
 	/**
-	 * @brief callback function for module specific reponse identifiers @ref gpsdriver_t::response_ident\n
+	 * @brief callback function for module specific reponse identifiers @var response_ident
 	 * NULL if not implemented
 	 * 
 	 * @param msg response (without checksum)
@@ -87,12 +91,14 @@ struct gpsdriver_t {
 };
 
 /**
- * @brief Set GPS driver to CASIC type\n
+ * @brief Set GPS driver for chipset with CASIC GNSS recevier protocol e.g. AT6558
  * 
- * This driver is used in following GNSS modules or as integrated GNSS\n
- *   1. Neoway N58 LTE Cat.1\n
- *   2. Neoway G2\n
- *   3. Neoway G7A\n
+ * This driver is used in following GNSS modules or as integrated GNSS
+ * 
+ *   1. Neoway N58 LTE Cat.1
+ *   2. Neoway G2
+ *   3. Neoway G7A
+ *   4. AT6558
  * 
  * @return 0 on success
  */
@@ -106,8 +112,10 @@ int gps_set_driver_casic(void);
 int gps_set_driver_l89r2(void);
 
 /**
- * @brief Set GPS driver to module using MT3333 or MT3339 chipset\n 
- * This driver can be used for following GNSS/GSM Modules\n 
+ * @brief Set GPS driver to module using MT3333 or MT3339 chipset
+ * 
+ * This driver can be used for following GNSS/GSM Modules
+ * 
  *   1. Quectel L86
  *   2. Quectel MC60
  *   3. Quectel MC20
@@ -124,7 +132,8 @@ int gps_set_driver_mt333x(void);
 int gps_set_driver_sirf3(void);
 
 /**
- * @brief GPS driver for STA8090 chipset\n
+ * @brief GPS driver for STA8090 chipset
+ * 
  * This driver can be used for Quectel L89 IRNSS module.
  * 
  * @note Please do not confuse with L89 and L89R2, check datasheet
@@ -135,7 +144,8 @@ int gps_set_driver_sirf3(void);
 int gps_set_driver_stirnss(void);
 
 /**
- * @brief GPS Driver for uc6226 uc6228 chipset\n 
+ * @brief GPS Driver for uc6226 uc6228 chipset
+ * 
  * This driver can be used for following modules:
  * 
  *   1. Quectel L76C

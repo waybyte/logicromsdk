@@ -6,6 +6,10 @@
 #ifndef INC_HTTPC_H_
 #define INC_HTTPC_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Indicates data is a header
  */
@@ -63,7 +67,7 @@ struct http_filemeta_t {
 	char *filepath; /**< Complete file path on storage media (255 max) */
 	long timestamp; /**< File creation UNIX timestamp */
 	char *info; /**< Other supplementary Info e.g. location info etc, This information is sent to server with HTTP form key "info" (127 max) */
-	int filetype; /**< MIME type to upload http_filetype_e for more information */
+	int filetype; /**< MIME type to upload @ref http_mimetype_e for more information */
 };
 
 /**
@@ -94,7 +98,7 @@ struct _httpc_post_t {
 	const char *header;					/**< Custom headers */
 	const unsigned char *submit_data;	/**< Post data */
 	int submit_len;						/**< Length of post data */
-	int mime;							/**< MIME type http_mimetype_e */
+	int mime;							/**< MIME type @ref http_mimetype_e */
 	struct ssl_certs_t *certs;			/**< SSL Client certificate */
 	int recv_headers;					/**< if TRUE, HTTP response headers are also stored in response buffer */
 	char *resp_buffer;					/**< Pointer to response buffer */
@@ -107,7 +111,7 @@ struct _httpc_post_t {
 struct _httpc_up_t {
 	const char *url;					/**< Client URL */
 	const char *header;					/**< Custom headers */
-	struct http_filemeta_t *meta;		/**< Upload file information http_filemeta_t */
+	struct http_filemeta_t *meta;		/**< Upload file information @ref http_filemeta_t */
 	struct ssl_certs_t *certs;			/**< SSL Client certificates */
 	char *respbuf;						/**< Pointer to response buffer */
 	int buflen;							/**< Length of response buffer */
@@ -117,17 +121,13 @@ struct _httpc_up_t {
  * HTTP Client argument
  */
 typedef union httpc_arg_t {
-	struct _httpc_get_t get;			/**< HTTP Get _httpc_get_t for httpc_get */
-	struct _httpc_post_t post;			/**< HTTP Post _httpc_post_t for httpc_submit */
-	struct _httpc_up_t upload;			/**< HTTP Upload _httpc_up_t for httpc_upload */
+	struct _httpc_get_t get;			/**< Get argument structure for httpc_get() */
+	struct _httpc_post_t post;			/**< Post argument structure for httpc_submit() */
+	struct _httpc_up_t upload;			/**< Upload argument structure for httpc_upload() */
 } httpc_arg;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
- * Open a client
+ * Open a new client
  * @return	On success, returns handle to http client, negative value on error
  */
 int httpc_client_open(void);
@@ -142,7 +142,7 @@ int httpc_client_close(int client);
 /**
  * Perform HTTP Get
  * @param client		[in] Client handle
- * @param arg			[in] HTTP client argument httpc_arg_t
+ * @param arg			[in] HTTP client argument @ref httpc_arg_t
  * @return				0 on success, If server response is not 2xx then server error code is returned, if any operation issue negative error code will be returned
  */
 int httpc_get(int client, httpc_arg *arg);
@@ -151,15 +151,15 @@ int httpc_get(int client, httpc_arg *arg);
  * Perform HTTP Post, Put or Delete
  * @param client		[in] Client handle
  * @param method		[in] HTTP Method httpc_method_e
- * @param arg			[in] HTTP client argument httpc_arg_t
+ * @param arg			[in] HTTP client argument @ref httpc_arg_t
  * @return				0 on success, If server response is not 2xx then server error code is returned, if any operation issue negative error code will be returned
  */
 int httpc_submit(int client, int method, httpc_arg *arg);
 
 /**
- * HTTP file upload. This function will perform a POST with "multipart/form-data" mime on the provided URL. Its a special case of httpc_submit
+ * HTTP file upload. This function will perform a POST with "multipart/form-data" mime on the provided URL. Its a special case of httpc_submit()
  * @param url			[in] URL to post
- * @param meta			[in] File information structure http_filemeta_t
+ * @param meta			[in] File information structure @ref http_filemeta_t
  * @param respbuf		[out] Response data buffer pointer
  * @param buflen		[out] size of response data, and returns actual data stored in response buffer
  * @return				0 on success, If server response is not 2xx then server error code is returned, if any operation issue negative error code will be returned
@@ -170,7 +170,7 @@ int httpc_upload(const char *url, struct http_filemeta_t *meta, char *respbuf, i
  * HTTP file download to local storage
  * @param url			[in] URL to download
  * @param filename		[in] path to filename where download file will be saved
- * @param httpc_cb		[in] Callback function called after download is finished see http_download_cb
+ * @param httpc_cb		[in] Callback function called after download is finished see @ref http_download_cb
  * @return				0 on success, If server response is not 2xx then server error code is returned, if any operation issue negative error code will be returned
  */
 int httpc_download(const char *url, char *filename, http_download_cb httpc_cb);

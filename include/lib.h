@@ -14,7 +14,7 @@ extern "C" {
  * Library URC events
  */
 enum {
-	URC_FILE_DOWNLOAD_STATUS = 500,/**< File download status event see @ref wget_init */
+	URC_FILE_DOWNLOAD_STATUS = 500,/**< File download status event @see wget_init() */
 	URC_FOTA_STARTED,              /**< FOTA start event */
 	URC_FOTA_FINISHED,             /**< FOTA file download finished */
 	URC_FOTA_FAILED,               /**< FOTA failed */
@@ -63,7 +63,7 @@ enum loglevel_e {
 
 /**
  * Unsolicited response handler callback
- * @param urc_code			URC code
+ * @param urc_code			URC code @ref sysurc_e
  * @param urc_param			URC parameter
  */
 typedef void (*urc_callback_f)(unsigned int urc_code, unsigned int urc_param);
@@ -102,8 +102,12 @@ void system_gettz(char *tz, int size);
 
 /**
  * Debug printf with debug level.
- * Can be used to print messages at specific loglevel
- * e.g. debug(DBG_INFO, "Hello\n");
+ * 
+ * Can be used to print messages at specific loglevel\n
+ * e.g.
+ * 
+ * 		debug(DBG_INFO, "Hello\n");
+ * 
  * Message will print if loglevel is set to 1
  *
  * @param level		[in] Debug level

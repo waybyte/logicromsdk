@@ -30,6 +30,7 @@
 
 /**
  * Set ASYNC IO operation
+ * 
  * TODO: Unimplemented
  */
 #define FIOASYNC	0x5452

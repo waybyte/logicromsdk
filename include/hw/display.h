@@ -17,10 +17,10 @@ extern "C"
  * @brief Display Controller Layers
  */
 enum disp_layer_e {
-	DISPLAY_LAYER0, 	/** base/bottom layer */
-	DISPLAY_LAYER1, 	/** Middle layer */
-	DISPLAY_LAYER2,		/** Top layer */
-	DISPLAY_LAYER_VIDEO,/** Video layer, shown above all layers */
+	DISPLAY_LAYER0, 	/**< Base/bottom layer */
+	DISPLAY_LAYER1, 	/**< Middle layer */
+	DISPLAY_LAYER2,		/**< Top layer */
+	DISPLAY_LAYER_VIDEO,/**< Video layer, shown above all graphics layers */
 };
 
 /**
@@ -46,25 +46,25 @@ enum lcd_spi_linemode_e {
 };
 
 /**
- * @brief direction transform
+ * @brief Direction transform
  */
 enum lcd_dir_e {
-    LCD_DIR_NORMAL,							/** normal direction */
-    LCD_DIR_YINV,							/** Y is inverted */
-    LCD_DIR_XINV,							/** X is inverted */
-    LCD_DIR_YINV_XINV,						/** both Y and X are inverted */
-    LCD_DIR_EXCHG,							/** X-Y are swapped */
-    LCD_DIR_EXCHG_YINV,						/** X-Y are swapped, Y is inverted */
-    LCD_DIR_EXCHG_XINV,						/** X-Y are swapped, X is inverted */
-    LCD_DIR_EXCHG_XINV_YINV,				/** X-Y are swapped, both X and Y are inverted */
-    LCD_DIR_ROTATE_0 = LCD_DIR_NORMAL,		/** alias for rotate 0 degree */
-    LCD_DIR_ROTATE_90 = LCD_DIR_EXCHG_XINV,	/** alias for rotate 90 degree */
-    LCD_DIR_ROTATE_180 = LCD_DIR_YINV_XINV,	/** alias for rotate 180 degree */
-    LCD_DIR_ROTATE_270 = LCD_DIR_EXCHG_YINV,/** alias for rotate 270 degree */
+    LCD_DIR_NORMAL,							/**< normal direction */
+    LCD_DIR_YINV,							/**< Y is inverted */
+    LCD_DIR_XINV,							/**< X is inverted */
+    LCD_DIR_YINV_XINV,						/**< both Y and X are inverted */
+    LCD_DIR_EXCHG,							/**< X-Y are swapped */
+    LCD_DIR_EXCHG_YINV,						/**< X-Y are swapped, Y is inverted */
+    LCD_DIR_EXCHG_XINV,						/**< X-Y are swapped, X is inverted */
+    LCD_DIR_EXCHG_XINV_YINV,				/**< X-Y are swapped, both X and Y are inverted */
+    LCD_DIR_ROTATE_0 = LCD_DIR_NORMAL,		/**< alias for rotate 0 degree */
+    LCD_DIR_ROTATE_90 = LCD_DIR_EXCHG_XINV,	/**< alias for rotate 90 degree */
+    LCD_DIR_ROTATE_180 = LCD_DIR_YINV_XINV,	/**< alias for rotate 180 degree */
+    LCD_DIR_ROTATE_270 = LCD_DIR_EXCHG_YINV,/**< alias for rotate 270 degree */
 };
 
 /**
- * @brief input buffer color format
+ * @brief Input buffer color format
  * 
  * RGB565 and ARGB8888 format for layer0, 1 and 2
  * YUV formats are for video layer
@@ -83,7 +83,7 @@ enum disp_infmt_e {
 };
 
 /**
- * @brief an area
+ * @brief An area
  *
  * Area with (w == 0 || h == 0) is nul or invalid area.
  */
@@ -100,11 +100,11 @@ struct lcd_area_t {
  */
 struct lcd_ops_t {
 	/**
-	 * @brief initialization
+	 * @brief Initialization
 	 */
 	void (*init)(void);
 	/**
-	 * @brief setup lcd controller area for display data transfer
+	 * @brief Setup lcd controller area for display data transfer
 	 * 
 	 * @param x0 top left corner x coordinate
 	 * @param y0 top left corner y coordinate
@@ -215,6 +215,8 @@ int display_layer_enable(int layer, uint8_t en);
 
 /**
  * @brief Delete a display layer
+ * 
+ * @note Base Layer 0 cannot be deleted
  * 
  * @param layer Layer number @ref disp_layer_e
  * @return 0 for success, negative for error

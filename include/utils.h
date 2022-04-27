@@ -57,9 +57,14 @@ int print_buffer(unsigned long addr, const void* data, unsigned int width, unsig
 
 /**
  * Enable load command line utility to load file on device via Xmodem
+ * 
  * Load command usage:
- * Load [/path/to/file]
- * e.g. load /fs/test.txt
+ * 
+ *     #~ Load [/path/to/file]
+ * 
+ * e.g.
+ * 
+ *     #~ load /fs/test.txt
  *
  * @return				Always returns 0
  */
@@ -67,14 +72,20 @@ int load_init(void);
 
 /**
  * Enable wget command line utility to download file from web
- * File download status will be returned via URC response (URC_FILE_DOWNLOAD_STATUS)
- * to URC response handler function
- * @see logicrom_init()
- * @see urc_handler_f
+ * 
+ * File download status will be returned via URC response: @ref URC_FILE_DOWNLOAD_STATUS
+ * to URC response handler function.
+ * 
+ * @see logicrom_init(), urc_handler_f
  *
  * Wget command usage:
- * wget [/path/to/file] [URL]
- * e.g. wget /fs/test.txt http://example.com/test.txt
+ * 
+ *     #~ wget [/path/to/file] [URL]
+ * 
+ * e.g.
+ * 
+ *     #~ wget /fs/test.txt http://example.com/test.txt
+ * 
  *
  * @return				Always returns 0
  */

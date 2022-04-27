@@ -76,18 +76,19 @@ typedef void (*imu_eventcb_f)(int event);
 /**
  * @brief IMU configuration structure
  * 
- * acceleration threshold values provided are in unit of g
+ * acceleration threshold values provided are in unit of g\n
  * e.g. a value of 0.5 is 0.5g = 9.8 x 0.5 = 4.9m/s2
  * 
- * when configuration is not provided, below are the default threshold values
- * static_threshold = 0.01g
- * motion_detect_threshold = 0.02g
- * harsh_accel_threshold = 0.43g
- * harsh_break_threshold = 0.55g
- * harsh_turn_threshold = 0.47g
- * tilt_angle = 45 degrees
- * alpha_coff = 0.4
- * sample_ms = 20ms
+ * when configuration is not provided, below are the default threshold values\n
+ * 
+ * 		static_threshold = 0.01g
+ * 		motion_detect_threshold = 0.02g
+ * 		harsh_accel_threshold = 0.43g
+ * 		harsh_break_threshold = 0.55g
+ * 		harsh_turn_threshold = 0.47g
+ * 		tilt_angle = 45 degrees
+ * 		alpha_coff = 0.4
+ * 		sample_ms = 20ms
  */
 struct imuconf_t {
 	float static_threshold;		   /**< acceleration value below which sensor is considered static */
@@ -108,7 +109,7 @@ struct imuconf_t {
  * 
  */
 struct imu_sensor_t {
-	int capability; /**< Sensor capability @see SENSOR_CAP_ACCEL @see SENSOR_CAP_GYRO @see SENSOR_CAP_MAG  */
+	int capability; /**< Sensor capability: @ref SENSOR_CAP_ACCEL, @ref SENSOR_CAP_GYRO, @ref SENSOR_CAP_MAG  */
 
 	/**
 	 * @brief Sensor initialization callback
@@ -315,14 +316,18 @@ int imu_calibrate_position(void);
 /**
  * @brief Set library debug level to print sensor values
  * 
- * @b Level @b 0: No debug prints (default)\n
+ * @b Level @b 0: No debug prints (default)
+ * 
  * @b Level @b 1: Prints acceleration and Euler angles in following format\n
- * 	IMU: samplerate, accx, accy, accz, acc magnitude, average acceleration, yaw, pitch, roll\n
+ * 	IMU: samplerate, accx, accy, accz, acc magnitude, average acceleration, yaw, pitch, roll
+ * 
  * @b Level @b 2: Prints raw acceleration data and acceleration data in real frame of reference\n
  * in following format\n
- * 	IMU: samplerate, accx, accy, accz, acc_realx, acc_realy, acc_realz\n
+ * 	IMU: samplerate, accx, accy, accz, acc_realx, acc_realy, acc_realz
+ * 
  * @b Level @b 3: Prints gryo data in degree/s\n
  * 	IMU: samplerate, gyrox, gyroy, gyroz\n
+ * 
  * @b Level @b 4: Print Quaternion value for teapot demo data in following format\n
  * 	IMU: samplerate, w, x, y, z\n
  * 

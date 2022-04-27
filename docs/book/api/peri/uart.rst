@@ -13,3 +13,5 @@ Each device file supports standard system calls for IO operations.
 Serial port parameters can be accessed by standard termios API (similar to
 linux).
 
+Reference:
+    :doc:`Termios Systemcall Support <../system/syscall/termios>` 

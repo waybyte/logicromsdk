@@ -2,6 +2,7 @@
 # pip install --user -r requirements.txt
 #
 Sphinx
-breathe==4.18.1
+jinja2<3.1
+breathe
 sphinx-rtd-theme
 sphinx-notfound-page

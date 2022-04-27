@@ -3,5 +3,12 @@ System Call Support
 
 List of supported system calls.
 
-*TODO: Add list functions supported*
+.. toctree::
+   :maxdepth: 1
 
+    Standard IO <syscall/stdio>
+    Directory <syscall/dirent>
+    Fileystem <syscall/statvfs>
+    Termios <syscall/termios>
+    IO Control <syscall/ioctl>
+    Time <syscall/time>

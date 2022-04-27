@@ -8,16 +8,16 @@
 
 #include "../include/task_timer.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Timer function callback
  * @param id		Timer ID
  * @param arg		User data argument supplied during registration
  */
 typedef void (*timercb_f)(int id, void *arg);
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Register a task independent timer

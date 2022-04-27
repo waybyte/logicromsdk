@@ -9,6 +9,10 @@
 #ifndef INC_DRIVER_DHT_H
 #define INC_DRIVER_DHT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define DHT_LIB_VERSION "0.1.29"
 
 /**
@@ -39,10 +43,6 @@ enum dht_err_e {
  * DHT44 read
  */
 #define dht_read44(p,h,t)	dht_read(p,h,t)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * DHT11 Read function

@@ -8,6 +8,10 @@
 
 #include <plat/def_spi.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * SPI Modes to configure clock polarity and clock phase.
  *
@@ -35,10 +39,6 @@ enum spi_cspol_e {
 	SPI_CSPOL_LOW, /**< Chip select is active low (default) */
 	SPI_CSPOL_HIGH,/**< Chip select is active high */
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Initialize SPI Hardware and setup pinmux

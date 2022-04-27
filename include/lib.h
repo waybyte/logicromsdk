@@ -6,6 +6,10 @@
 #ifndef INCLUDE_LIB_H_
 #define INCLUDE_LIB_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Library URC events
  */
@@ -31,10 +35,6 @@ enum loglevel_e {
 	DBG_USER_START = DBG_LIB_END,/**< Start of Application log levels */
 };
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #ifndef _DOXYGEN_
 #ifndef TRUE
 #define TRUE 1
@@ -46,6 +46,18 @@ extern "C" {
 
 #ifndef NULL
 #define NULL ((void *)0)
+#endif
+
+#ifndef true
+#define true 1
+#endif
+
+#ifndef false
+#define false 0
+#endif
+
+#ifndef null
+#define null ((void *)0)
 #endif
 #endif
 
@@ -92,7 +104,7 @@ void system_gettz(char *tz, int size);
  * Debug printf with debug level.
  * Can be used to print messages at specific loglevel
  * e.g. debug(DBG_INFO, "Hello\n");
- * Message will be printing if loglevel is set to 1
+ * Message will print if loglevel is set to 1
  *
  * @param level		[in] Debug level
  * @param fmt		[in] String format

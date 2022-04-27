@@ -8,6 +8,10 @@
 
 #include <inttypes.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Sensor type
  */
@@ -17,10 +21,6 @@ enum senstype_e {
 	DS18B20,    /**< Sensor type DS18B20 */
 	DS1822,     /**< Sensor type DS1822 */
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Perform a one wire search for DS18x20 Sensor

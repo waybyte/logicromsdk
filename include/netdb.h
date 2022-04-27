@@ -8,6 +8,10 @@
 
 #include <stddef.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Maximum hostname length
  */
@@ -41,10 +45,6 @@ struct addrinfo {
     char             *ai_canonname;  /* Canonical name of service location. */
     struct addrinfo  *ai_next;       /* Pointer to next in list. */
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * errno value can be any of following:

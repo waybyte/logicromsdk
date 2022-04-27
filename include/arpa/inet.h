@@ -10,6 +10,10 @@
 
 #include <sys/types.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Address to accept any incoming messages.  */
 #define INADDR_ANY			((in_addr_t) 0x00000000)
 /* Address to send to all hosts.  */
@@ -39,10 +43,6 @@ struct in6_addr {
 	} un;
 #define s6_addr un.u8_addr
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Convert IPv4 numbers-and-dots notation into binary data in network byte order.

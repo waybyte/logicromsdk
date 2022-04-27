@@ -113,7 +113,7 @@ struct modbus_t {
 
 /**
  * MODBUS direction control callback function
- * @param dir		Direction request flag @see _mb_dir
+ * @param dir		Direction request flag @ref _mb_dir
  */
 typedef void (*mb_dirctl)(int dir);
 
@@ -124,7 +124,7 @@ extern "C" {
 /**
  * Initialize MODBUS
  * @param com		[in] UART device file (e.g. /dev/ttyS1)
- * @param mode		[in] Operation mode @see _mb_mode
+ * @param mode		[in] Operation mode @ref _mb_mode
  * @param func		[in] Direction control callback function
  * @return			For return value see @ref mb_err_e
  */
@@ -133,9 +133,9 @@ int mb_init(const char *com, int mode, mb_dirctl func);
 /**
  * Configure MODBUS Parameters
  * @param baud		[in] Baudrate value as in termios.h e.g. B9600
- * @param com_para	[in] Communication parameter data bits, parity and stopbit in ascii format e.g. "8N1", "8E2"
- * 					Data bits: 8, 7, 6, 5 (not supported on all platforms)
- * 					Parity: N - None, E - Even, O - Odd Parity
+ * @param com_para	[in] Communication parameter data bits, parity and stopbit in ascii format e.g. "8N1", "8E2"\n
+ * 					Data bits: 8, 7, 6, 5 (not supported on all platforms)\n
+ * 					Parity: N - None, E - Even, O - Odd Parity\n
  * 					Stop Bits: 1 or 2
  * @return			For return value see @ref mb_err_e
  */

@@ -248,7 +248,7 @@ uint64_t os_get_tickus(void);
 #endif
 
 /**
- * Start a task created by @ref os_task_create()
+ * Start a suspended task created by @ref os_task_create()
  * @param taskid		[in] Task ID
  * @return				0 on success, negative value on error
  */

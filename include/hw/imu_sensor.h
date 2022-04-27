@@ -1,12 +1,15 @@
 /**
  * @file imu_sensor.h
- * @author Ajay Bhargav
  * @brief IMU Sensor fusion library
  * 
  */
 
 #ifndef INC_HW_IMU_SENSOR_H_
 #define INC_HW_IMU_SENSOR_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * Sensor has accelerometer
@@ -343,5 +346,9 @@ int imu_add_gpssensor(void);
  * @return return 0 on success, -1 on failure
  */
 int imu_gps_motionassist(int enable);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_HW_IMU_SENSOR_H_ */

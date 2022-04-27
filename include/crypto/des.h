@@ -6,6 +6,10 @@
 #ifndef INCLUDE_CRYPTO_DES_H_
 #define INCLUDE_CRYPTO_DES_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @name op_mode
  */
@@ -21,10 +25,6 @@ typedef struct
     unsigned long sk[32];       /*!<  DES subkeys       */
 }
 des_context;
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * @brief          DES key schedule (56-bit, encryption)

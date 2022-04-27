@@ -6,6 +6,10 @@
 #ifndef INCLUDE_NET_SOCKETS_H_
 #define INCLUDE_NET_SOCKETS_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define SOC_WRITE_TO_DEFAULT	45
 
 /**
@@ -121,10 +125,6 @@ struct ssl_certs_t {
 	const void *privatekey;	/**< filename/buffer containing private key (Only PEM format supported) */
 	int privatekey_len;		/**< Length of private key in case buffer is provided */
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /* Normal Socket */
 /**

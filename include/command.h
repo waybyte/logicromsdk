@@ -7,6 +7,10 @@
 
 #include "private/linker_list.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Maximum number of allowed arguments
  * including command
@@ -111,10 +115,6 @@ typedef struct {
  * @param arg		User argument
  */
 typedef void (*commandproc_cb)(int result, struct cmdinfo_t *info, void *arg);
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Execute command buffer

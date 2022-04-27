@@ -6,6 +6,10 @@
 #ifndef INC_LIBTIME_H_
 #define INC_LIBTIME_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define CLKSYNC_SECONDS(x)			x
 #define CLKSYNC_MINUTE(x)			(x * 60)
 
@@ -65,10 +69,6 @@ struct clocktm_t {
     int second;			/**< Second 0 to 59 */
     int reserved;		/**< reserved must be 0 */
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /* Clock source API */
 /**

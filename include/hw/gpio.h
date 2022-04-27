@@ -8,6 +8,10 @@
 
 #include <plat/def_gpio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * GPIO Callback function prototype
  * @param handle
@@ -38,7 +42,7 @@ enum gpio_conf_e {
 	GPIO_FLAG_DEFLOW	= 0x00,	/**< Set default state to low during @ref gpio_request */
 	GPIO_FLAG_PULLUP	= 0x04,	/**< Enable weak pullup */
 	GPIO_FLAG_PULLDOWN	= 0x08,	/**< Enable weak pulldown */
-	GPIO_FLAG_PULLSTRG	= 0x10,	/**< This flag when combined with @ref GPIO_FLAG_PULLUP/@ref GPIO_FLAG_PULLDOWN enables strong pull-up/pull-down respectively. */
+	GPIO_FLAG_PULLSTRG	= 0x10,	/**< This flag when combined with @ref GPIO_FLAG_PULLUP or @ref GPIO_FLAG_PULLDOWN enables strong pull-up/pull-down respectively. */
 };
 
 /**
@@ -50,10 +54,6 @@ enum gpio_trigger_e {
 	GPIO_TRIG_HIGH,   /**< Trigger Low -> High level transition */
 	GPIO_TRIG_BOTH    /**< Trigger on change of either level */
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Request a GPIO

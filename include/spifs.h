@@ -8,6 +8,10 @@
 
 #include <hw/spi.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * SPI Flash status
  */
@@ -16,10 +20,6 @@ enum sfstat_e {
 	SF_STAT_ENABLED,   /**< SPI Flash enabled but not mounted (Filesystem mount issue, Try spifs_enable() again */
 	SF_STAT_MOUNTED,   /**< SPI Flash enabled and filesystem is mounted successfully */
 };
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Enable SPI Flash and mount LFS filesystem

@@ -6,6 +6,10 @@
 #ifndef INCLUDE_PARAM_H_
 #define INCLUDE_PARAM_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Shorthand macro for parameter saving
  */
@@ -20,10 +24,6 @@
  * Shorthand macro for remove/reset a parameter
  */
 #define PARAM_RESET(x)			param_reset(#x)
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Save parameter to memory

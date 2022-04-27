@@ -6,16 +6,16 @@
 #ifndef INCLUDE_TASK_TIMER_H_
 #define INCLUDE_TASK_TIMER_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Timer callback function type
  * @param id		Timer ID
  * @param arg		User data argument supplied during registration
  */
 typedef void (*timer_callback_f)(int id, void *arg);
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * Register a task timer. Task timers can only be created/controlled from parent task.

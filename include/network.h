@@ -130,7 +130,7 @@ unsigned char *network_getlocalip(void);
 
 /**
  * Get currently used APN
- * @return			currently used APN (Do not free the buffer)
+ * @return			currently used APN
  */
 const char *network_getcurrapn(void);
 

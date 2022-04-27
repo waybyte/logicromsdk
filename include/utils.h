@@ -69,7 +69,7 @@ int load_init(void);
  * Enable wget command line utility to download file from web
  * File download status will be returned via URC response (URC_FILE_DOWNLOAD_STATUS)
  * to URC response handler function
- * @see logicrom_init
+ * @see logicrom_init()
  * @see urc_handler_f
  *
  * Wget command usage:

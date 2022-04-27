@@ -12,5 +12,6 @@ Peripherals
    UART <uart>
    USB <usb>
    Bluetooth <bluetooth>
+   Display Controller <display>
    GPS <gps>
    IMU Sensor Fusion <imu>

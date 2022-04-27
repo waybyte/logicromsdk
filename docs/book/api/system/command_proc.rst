@@ -7,7 +7,8 @@ User authentication and command autocomplete etc.
 By default SDK provide system commands and linux like core utility commands.
 
 Available commands
-^^^^^^^^^^^^^^^^^^
+------------------
+
 +-------------------+--------------------------------------------------------+
 | Command           | Description                                            |
 +===================+========================================================+
@@ -42,6 +43,7 @@ Available commands
 
 Optional Commands
 ^^^^^^^^^^^^^^^^^
+
 Some commands are available only when a module is used or enabled by the
 application.
 
@@ -50,8 +52,10 @@ Following is the list of Commands with modules.
 *TODO: optional command list to be added*
 
 Custom commands
----------------
+^^^^^^^^^^^^^^^
+
 Command processor APIs can be used to add new commands to the system.
+
 
 Command Processor API Reference
 -------------------------------

@@ -20,7 +20,11 @@ SPI Flash memory can be enabled and will be mounted on /sf.
 
 See application example for more information.
 
-SPI Flash
-=========
+See Also
+--------
 
-.. include:: /inc/spifs.inc
+:doc:`Supported Standard IO system calls <../system/syscall/stdio>`
+
+:doc:`SD/MMC Driver API <../peri/sdmmc>`
+
+:doc:`SPI Flash Driver API <../peri/spifs>`

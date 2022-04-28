@@ -14,4 +14,6 @@ Peripherals
    Bluetooth <bluetooth>
    Display Controller <display>
    GPS <gps>
+   SD/MMC <sdmmc>
+   SPI Flash <spifs>
    IMU Sensor Fusion <imu>

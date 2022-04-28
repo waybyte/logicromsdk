@@ -900,6 +900,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/hw/i2c.h \
                          ../include/hw/imu_sensor.h \
                          ../include/hw/pwm.h \
+                         ../include/hw/sdmmc.h \
                          ../include/hw/spi.h \
                          ../include/int64str.h \
                          ../include/lib.h \

@@ -73,6 +73,7 @@ enum pwmch_e
 	 * N58    | 39
 	 * N716   | 38
 	 * L610   | 135
+	 * EG915  | 20
 	 */
 	PWM_CH0,
 	/**
@@ -87,6 +88,7 @@ enum pwmch_e
 	 * N58    | NA
 	 * N716   | 67
 	 * L610   | 5
+	 * EG915  | 21
 	 */
 	PWM_CH1,
 #endif

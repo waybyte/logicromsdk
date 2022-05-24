@@ -26,11 +26,13 @@ Method is patch method fine tune. The default method is "diff":
     <pacflash id="AP" flash="SFL1" blocksize="0x10000" bundleblock="0" method="diff"/>
 	<pacflash id="APPIMG" flash="SFL1" blocksize="0x10000" bundleblock="0" method="diff"/>
     <!-- The default modem image ID is "PS". It is a SFFS image. -->
-    <pacsffs id="PS" ebsize="0x10000" pbsize="0x200" mount="/modem" method="diff">
+    <pacsffs id="PS" ebsize="0x10000" pbsize="0x200" mount="/modem" method="diff" savespace="y">
         <!--
             <file name="nvm/audio_calib.bin" method="ignore"/>
         -->
         <file name="nvm/bt_config.bin" method="ignore"/>
+        <file name="nvm/lrom_code.bin" method="ignore"/>
+        <file name="nvm/lrom_proxy.bin" method="ignore"/>
         <file name="nvm/customer.bin" method="ignore"/>
     </pacsffs>
     <!--
@@ -73,7 +75,7 @@ Method is patch method fine tune. The default method is "diff":
             <cleanrunning onchange="any"/>
         </nvitem>
         <nvitem id="0x26c" runningnv="/modemnvm/rf_nv.bin">
-            <cleanrunning onchange="always"/>
+            <cleanrunning onchange="any"/>
         </nvitem>
         <nvitem id="0x277" runningnv="/modemnvm/cfw_nv.bin">
             <cleanrunning onchange="0x277"/>
@@ -86,12 +88,6 @@ Method is patch method fine tune. The default method is "diff":
         </nvitem>
         <nvitem id="0x27a" runningnv="/modemnvm/audio_codec_nv.bin">
             <cleanrunning onchange="0x27a"/>
-        </nvitem>
-        <nvitem id="0x27e" runningnv="/modemnvm/customer.bin">
-            <cleanrunning onchange="never"/>
-        </nvitem>
-        <nvitem id="0x280" runningnv="/modemnvm/lrom_code.bin">
-            <cleanrunning onchange="never"/>
         </nvitem>
     </pacnv>
     <paccpio id="PREPACK" method="diff">

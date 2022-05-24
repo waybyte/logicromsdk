@@ -8,4 +8,4 @@ Network API
    RAW Socket API <socket>
    BSD Socket API <bsd_socket>
    Modem Interface APIs <modem>
-   Radio Interface Layer - RIL <ril>
+   Radio Interface Layer (RIL) <ril>

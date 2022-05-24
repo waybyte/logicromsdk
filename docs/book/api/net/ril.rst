@@ -1,5 +1,9 @@
 Radio Interface Layer - RIL
 ===========================
 
-.. include:: /inc/ril.inc
+.. toctree::
+   :maxdepth: 1
+
+    RIL API <ril/ril>
+    SIM Toolkit Interface <ril/stk>
 

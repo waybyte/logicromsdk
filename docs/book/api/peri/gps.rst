@@ -1,9 +1,6 @@
 GPS Library
 ===========
 
-.. toctree::
-   :maxdepth: 2
-
 Logicrom gps library does all the heavy lifting and makes it easy to use
 and interface any GNSS module. Features of gps library:
 
@@ -53,19 +50,9 @@ Following are the supported chipset or modules:
    * Quectel EC200UCN-AA LTE Cat.1 Module
 
 
-GPS Library API
----------------
+.. toctree::
+   :maxdepth: 1
 
-.. include:: /inc/gpslib.inc
-
-GPS Driver Interface API
-------------------------
-
-.. include:: /inc/gpsdriver.inc
-
-GNSS Hardware API
------------------
-
-.. note:: For Neoway N58 and Quectel EC200U modules only.
-
-.. include:: /inc/gnss.inc
+   GNSS Hardware <gnss/gnss_hardware>
+   GPS Library <gnss/gps_lib>
+   GPS Driver <gnss/gps_driver>

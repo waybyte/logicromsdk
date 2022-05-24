@@ -1,5 +1,5 @@
-OS API
-======
+Multitasking API
+======================
 
 API Reference
 -------------

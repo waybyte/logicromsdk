@@ -6,7 +6,7 @@
 #ifndef INCLUDE_TIMER_H_
 #define INCLUDE_TIMER_H_
 
-#include "../include/task_timer.h"
+#include "task_timer.h"
 
 #ifdef __cplusplus
 extern "C" {

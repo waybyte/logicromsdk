@@ -20,7 +20,7 @@ extern "C" {
 /**
  * Register OneWire bus
  * @param pin		[in] IO pin number @ref gpioname_e
- * @return			On success, returns handle to OneWire Bus object. On error returns negative value.
+ * @return			On success, returns handle to OneWire Bus object. 0 on error (no memory)
  */
 int OneWire(uint8_t pin);
 
@@ -154,7 +154,9 @@ uint8_t ow_crc8(const uint8_t *addr, uint8_t len);
 
 /**
  *  Compute the 1-Wire CRC16 and compare it against the received CRC.
+ * 
  *  Example usage (reading a DS2408):
+ * 
  *  	// Put everything in a buffer so we can compute the CRC easily.
  *  	uint8_t buf[13];
  *  	buf[0] = 0xF0;    // Read PIO Registers

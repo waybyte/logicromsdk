@@ -21,10 +21,21 @@ int adc_config(int ch);
 
 /**
  * Read ADC Channel
+ * 
+ * @note 8910 has 12-bit ADC, whereas MT6261 has 10-bit ADC resolution
+ * 
  * @param ch	[in] ADC Channel to read @ref adcch_e
- * @return		12-bit ADC value, If ADC channel is not configured prior to calling this function, return value is unreliable.
+ * @return		ADC raw value, If ADC channel is not configured prior to calling this function, return value is unreliable.
  */
 unsigned int adc_read(int ch);
+
+/**
+ * @brief Read adc channel value in mV
+ * 
+ * @param ch    [in] ADC Channel to read @ref adcch_e
+ * @return      ADC value in millivolts, If ADC channel is not configured prior to calling this function, return value is unreliable.
+ */
+unsigned int adc_read_mv(int ch);
 
 #ifdef __cplusplus
 }

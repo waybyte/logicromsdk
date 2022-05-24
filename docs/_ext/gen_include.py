@@ -142,8 +142,10 @@ def generate_directives(header_file_path, xml_directory_path):
     rst_output += "\n"
     if not api_name.startswith("_"):
         rst_output += get_rst_header("Header File")
-        rst_output += "* :header_src_file:`" + header_file_path + "`\n"
-        rst_output += "\n"
+        rst_output += "Source: :header_src_file:`" + header_file_path + "`\n"
+        rst_output += "\n\n"
+        rst_output += ".. code-block:: c\n\n"
+        rst_output += "\t#include <" + header_file_path[8:] + ">\n\n"
 
     try:
         import xml.etree.cElementTree as ET

@@ -28,7 +28,7 @@ enum loglevel_e {
 	/* Library Debug levels */
 	DBG_OFF = 0,                 /**< Default loglevel, equivalent to printf */
 	DBG_INFO,                    /**< Log level info */
-	DBG_NETWORK,                 /**< Network layer debug level */
+	DBG_VERBOSE,                 /**< Log level verbose for more information */
 
 	/* User application Debug levels must start at DBG_USER_START */
 	DBG_LIB_END = 24,
@@ -62,7 +62,7 @@ enum loglevel_e {
 #endif
 
 /**
- * Unsolicited response handler callback
+ * Unsolicited response code handler callback
  * @param urc_code			URC code @ref sysurc_e
  * @param urc_param			URC parameter
  */

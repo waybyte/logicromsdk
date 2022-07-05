@@ -85,15 +85,16 @@ void sys_setsleep(int type);
 void os_task_sleep(unsigned int ms);
 
 /**
- * Get message from task external queue
+ * Get message from task message queue
  * @param msg		[in] Pointer to OS message structure @ref osmsg_t
  * @return			0 on success, negative value on error
  */
 int os_message_get(struct osmsg_t *msg);
 
 /**
- * Send message to a task external queue, Maximum number of messages are 30
+ * Send message to a task message queue, Maximum number of messages are 30
  * @note on GSM Platform, an assert is raised if more than 30 messages are sent to task queue.
+ *
  * @param dest_taskid	[in] Destination task id
  * @param message		[in] Message ID
  * @param param1		[in] Parameter 1

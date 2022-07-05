@@ -9,7 +9,10 @@
 #define INC_MODBUS_H_
 
 #include <stdint.h>
-#include <termios.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * Modbus Error codes
@@ -117,10 +120,6 @@ struct modbus_t {
  */
 typedef void (*mb_dirctl)(int dir);
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
  * Initialize MODBUS
  * @param com		[in] UART device file (e.g. /dev/ttyS1)
@@ -132,14 +131,14 @@ int mb_init(const char *com, int mode, mb_dirctl func);
 
 /**
  * Configure MODBUS Parameters
- * @param baud		[in] Baudrate value as in termios.h e.g. B9600
+ * @param baud		[in] Baudrate value
  * @param com_para	[in] Communication parameter data bits, parity and stopbit in ascii format e.g. "8N1", "8E2"\n
  * 					Data bits: 8, 7, 6, 5 (not supported on all platforms)\n
  * 					Parity: N - None, E - Even, O - Odd Parity\n
  * 					Stop Bits: 1 or 2
  * @return			For return value see @ref mb_err_e
  */
-int mb_config(speed_t baud, const char *com_para);
+int mb_config(unsigned int baud, const char *com_para);
 
 /**
  * Perform a MODBUS request

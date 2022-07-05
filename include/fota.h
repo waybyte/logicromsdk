@@ -23,6 +23,16 @@ int fota_start(const char *in_url);
  */
 int fota_in_progress(void);
 
+/**
+ * @brief Register with Logicrom FOTA server for automatic firmware
+ * updates via Device management console.
+ *
+ * @param code		Firmware code to identify application
+ * @param ver		current firmware version
+ * @return			return 0 on success, negative value on failure
+ */
+int logicrom_fota_register(const char *code, const char *ver);
+
 #ifdef __cplusplus
 }
 #endif

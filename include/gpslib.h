@@ -207,7 +207,7 @@ int gps_getstatus(void);
  * @return			On success, returns actual number of bytes written or -1 on failure
  * 					errno will be set on failure.
  */
-int gps_uart_write(unsigned char *buf, int len);
+int gps_uart_write(const void *buf, int len);
 
 /**
  * Convert GPS string date time to seconds since Epoch.

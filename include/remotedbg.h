@@ -20,7 +20,7 @@ extern "C" {
  *
  * Once connected, remote server will be greeted with device parameter message in following format
  * $RDBG,[Module UID],[IMEI]#[CR][LF]
- * and login prompt will be shown for remote console
+ * and followed by a login prompt.
  */
 void remote_debug_enable(void);
 

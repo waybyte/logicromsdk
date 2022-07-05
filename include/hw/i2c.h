@@ -38,7 +38,7 @@ int i2c_hw_setspeed(int port, int speed_khz);
  * @param len			[in] Length of data to send (must be less than or equal to 8)
  * @return				Length of bytes written on success, negative value on error
  */
-int i2c_hw_write(int port, unsigned char address, const unsigned char *buffer, int len);
+int i2c_hw_write(int port, unsigned char address, const void *buffer, int len);
 
 /**
  * Master read data from I2C slave device
@@ -48,7 +48,7 @@ int i2c_hw_write(int port, unsigned char address, const unsigned char *buffer, i
  * @param len			[in] No. of bytes to read
  * @return				Length of data read from slave on success, negative value on error
  */
-int i2c_hw_read(int port, unsigned char address, unsigned char *buffer, int len);
+int i2c_hw_read(int port, unsigned char address, void *buffer, int len);
 
 /**
  * Write and Read operation with repeated start.
@@ -63,7 +63,7 @@ int i2c_hw_read(int port, unsigned char address, unsigned char *buffer, int len)
  * @param rdlen			[in] No. of bytes to read
  * @return				Length of data read from slave on success, negative value on error
  */
-int i2c_hw_writeread(int port, unsigned char address, const unsigned char *wrbuf, int wrlen, unsigned char *rdbuf, int rdlen);
+int i2c_hw_writeread(int port, unsigned char address, const void *wrbuf, int wrlen, void *rdbuf, int rdlen);
 
 /**
  * De-Init I2C bus and release GPIO

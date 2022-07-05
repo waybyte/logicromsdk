@@ -45,9 +45,9 @@ extern "C" {
  * 
  */
 enum imusentype_e {
-	SEN_TYPE_ACCEL, /**< Accelerometer */
-	SEN_TYPE_GYRO,  /**< Gyroscope */
-	SEN_TYPE_MAG,   /**< Magnetometer */
+	SENSOR_TYPE_ACCEL, /**< Accelerometer */
+	SENSOR_TYPE_GYRO,  /**< Gyroscope */
+	SENSOR_TYPE_MAG,   /**< Magnetometer */
 };
 
 /**
@@ -81,8 +81,8 @@ typedef void (*imu_eventcb_f)(int event);
  * 
  * when configuration is not provided, below are the default threshold values\n
  * 
- * 		static_threshold = 0.01g
- * 		motion_detect_threshold = 0.02g
+ * 		static_threshold = 0.02g
+ * 		motion_detect_threshold = 0.05g
  * 		harsh_accel_threshold = 0.43g
  * 		harsh_break_threshold = 0.55g
  * 		harsh_turn_threshold = 0.47g
@@ -201,11 +201,11 @@ struct imu_sensor_t {
 /**
  * @brief Initialize IMU library
  * 
- * @param config IMU configuration structure (@ref imuconf_t), can be null for default configuration
- * @param callback Event callback function, can be null if callback not required
+ * @param config IMU configuration structure (@ref imuconf_t), can be NULL for default configuration
+ * @param callback Event callback function, can be set to NULL to disable events
  * @return return 0 on success, -1 on failure
  */
-int imu_init(struct imuconf_t *config, imu_eventcb_f callback);
+int imu_lib_init(struct imuconf_t *config, imu_eventcb_f callback);
 
 /**
  * @brief Add new sensor to sensor fusion library
@@ -216,12 +216,28 @@ int imu_init(struct imuconf_t *config, imu_eventcb_f callback);
 int imu_add_sensor(const struct imu_sensor_t *sensor);
 
 /**
+ * @brief Init config structure with default values
+ * 
+ * @param config structure pointer to initialize
+ * @return return 0 on success, -1 on failure
+ */
+int imu_initconfig(struct imuconf_t *config);
+
+/**
  * @brief Change/set IMU configuration
  * 
  * @param config configuration structure, can be null to load default configuration
  * @return return 0 on success, -1 on failure
  */
 int imu_setconfig(struct imuconf_t *config);
+
+/**
+ * @brief Get current IMU configuration
+ * 
+ * @param config pointer to configuration structure to be filled
+ * @return return 0 on success, -1 on failure
+ */
+int imu_getconfig(struct imuconf_t *config);
 
 /**
  * @brief Change/Set event callback function
@@ -253,9 +269,7 @@ int imu_get_accel(float *ax, float *ay, float *az);
 int imu_get_linearaccel(float *ax, float *ay, float *az);
 
 /**
- * @brief Get acceleration magnitude without gravity component with direction
- * positivity value represents acceleration and negative value represent
- * deceleration.
+ * @brief Get acceleration magnitude without gravity component.
  * 
  * @param force Value of force magnitude in unit of g
  * @return return 0 on success, -1 on failure
@@ -298,6 +312,13 @@ int imu_is_ready(void);
 int imu_is_motionactive(void);
 
 /**
+ * @brief Get Tilt status
+ * 
+ * @return returns 1 when motion active and 0 otherwise
+ */
+int imu_is_tiltactive(void);
+
+/**
  * @brief This function initiates sensor calibration
  * 
  * @param handle Sensor handle returned by imu_add_sensor()
@@ -307,7 +328,7 @@ int imu_calibrate_sensor(int handle);
 
 /**
  * @brief This function sets zero position of sensor placement, used for detection
- * of tilt, motion etc. Once set zero position is stored inside flash memory.
+ * of tilt, motion etc. Once set, zero position is stored inside flash memory.
  * 
  * @return return 0 on success, -1 on failure
  */
@@ -336,6 +357,13 @@ int imu_calibrate_position(void);
 void imu_set_debuglevel(int level);
 
 /**
+ * @brief Get current debug level
+ * 
+ * @return debug level
+ */
+int imu_get_debuglevel(void);
+
+/**
  * @brief Add GPS as sensor
  * If system uses GPS then imu library can use gps to validate some events
  * 
@@ -351,6 +379,24 @@ int imu_add_gpssensor(void);
  * @return return 0 on success, -1 on failure
  */
 int imu_gps_motionassist(int enable);
+
+/**
+ * @brief Enable library test mode
+ * 
+ * In test mode, GPS sensor (if enabled) will be disabled and
+ * events will be generated without any external dependency to
+ * test IMU library.
+ * 
+ * @param enable 1 to enable, 0 to disable
+ */
+void imu_set_testmode(int enable);
+
+/**
+ * @brief Get test mode status
+ * 
+ * @return returns 0 if disabled, 1 if enabled
+ */
+int imu_get_testmode(void);
 
 #ifdef __cplusplus
 }

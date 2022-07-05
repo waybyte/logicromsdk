@@ -95,7 +95,7 @@ int spi_hw_setcsmode(int port, int cs_pol);
  * @param length			[in] Length of data to read/write
  * @return					Length of data read/write on success, negative on error
  */
-int spi_hw_transfer(int port, const unsigned char *wrbuf, unsigned char *rdbuf, int length);
+int spi_hw_transfer(int port, const void *wrbuf, void *rdbuf, int length);
 
 /**
  * Release SPI hardware

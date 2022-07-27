@@ -5,6 +5,46 @@ GPIO API
 
 	<br>
 
+Logicrom provide access to complete GPIO available on wireless modules which are
+generally not available with standard vendor SDK.
+
+Example Usage
+-------------
+
+.. code-block:: c
+
+	#include <hw/gpio.h>
+
+	/* GPIO Configure as output */
+	int handle = gpio_request(GPIO_0, GPIO_FLAG_OUTPUT | GPIO_FLAG_DEFHIGH);
+
+	/* GPIO Write */
+	gpio_write(handle, GPIO_LEVEL_HIGH);
+
+	/* Fast GPIO access */
+	gpio_writefast(handle, GPIO_LEVEL_LOW);
+
+	/* Change direction */
+	gpio_setdir(handle, GPIO_FLAG_INPUT | GPIO_FLAG_PULLUP);
+
+	/* GPIO Read */
+	level = gpio_read(handle);
+
+	/* Fast GPIO read */
+	level = gpio_readfast(handle);
+
+	/* GPIO input trigger */
+	gpio_trigger_enable(handle, gpio_trigger_callback, 500, GPIO_TRIG_BOTH);
+
+
+Application Example
+-------------------
+
+.. raw:: html
+
+	<p><i class="fa fa-github"></i> <a href="https://github.com/waybyte/example-gpio" target="_blank">waybyte/example-gpio</a></p>
+
+
 4G LTE Module GPIO Mapping
 --------------------------
 
@@ -108,14 +148,16 @@ GPIO API
 | GPIO_23_ALT|  Pin 121  |  Pin 127  |  Pin 72  |  Pin 14  |  Pin 127 |  Pin 42   |
 +------------+-----------+-----------+----------+----------+----------+-----------+
 
-.. note:: Only one pin can be configured at a time for GPIO function between GPIO_x and GPIO_x_ALT
+.. note:: Only one pin can be configured at a time for GPIO function between GPIO_x and GPIO_x_ALT.
+	For example, if GPIO_0_ALT is configured as GPIO, GPIO_1 pin cannot be used as GPIO.
+
 
 GSM/NB-IoT Module GPIO Mapping
 ------------------------------
 
 +------------+------------------+-----------+-----------------+-----------+------------+------------+
 | GPIO Name  |  MC20U Pin       |  M56 Pin  |  MC60 Pin       |  M66 Pin  |  BC20 Pin  |  SIM868    |
-|            |  |br| S20U Pin   |           |  |br| MC20 Pin  |           |            |  Pin       |
+|            |                  |           |  |br| MC20 Pin  |           |            |  Pin       |
 +============+==================+===========+=================+===========+============+============+
 | GPIO_0     |  Pin 47          |  Pin 12   |  Pin 47         |  Pin 16   |  Pin 2     |  Pin 1     |
 +------------+------------------+-----------+-----------------+-----------+------------+------------+
@@ -221,6 +263,7 @@ GSM/NB-IoT Module GPIO Mapping
 +------------+------------------+-----------+-----------------+-----------+------------+------------+
 | GPIO_51    |  --              |  Pin 31   |  --             |  --       |  --        |  --        |
 +------------+------------------+-----------+-----------------+-----------+------------+------------+
+
 
 API Reference
 -------------

@@ -50,6 +50,17 @@ Following are the supported chipset or modules:
    * Quectel EC200UCN-AA LTE Cat.1 Module
 
 
+Application Example
+-------------------
+
+.. raw:: html
+
+	<p><i class="fa fa-github"></i> <a href="https://github.com/waybyte/example-gps" target="_blank">waybyte/example-gps</a></p>
+
+
+API Reference
+-------------
+
 .. toctree::
    :maxdepth: 1
 

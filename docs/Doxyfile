@@ -904,6 +904,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/hw/spi.h \
                          ../include/int64str.h \
                          ../include/lib.h \
+                         ../include/libtime.h \
                          ../include/msgq.h \
                          ../include/net/sockets.h \
                          ../include/netdb.h \

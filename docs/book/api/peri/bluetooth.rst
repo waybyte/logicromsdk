@@ -1,7 +1,12 @@
 Bluetooth
 =========
 
-MT2503 chipset supports BT3.0 with EDR can work in BT host and client mode.
+On RDA8910 chipset, BT 4.2 dual mode is available. However Logicrom currently only
+support BLE mode of operation as GATT server for Bluetooth CLI operation. More
+features will be added in future release.
+
+On MT2503/MT6261 chipset, BT3.0 with EDR can work in BT host and client mode. No BLE
+is available.
 
 Currently only SPP profile is supported by SDK.
 
@@ -13,6 +18,30 @@ then host operation file will not be available for application.
 For client mode of operation device files are created under /dev/btclient/
 after Bluetooth device search is performed. Application can initiate pairing
 and standard io operation can then be performed via system calls.
+
+
+Example Usage
+-------------
+
+.. code-block:: c
+
+    #include <hw/bluetooth.h>
+
+    /*
+     * For 4G Modules
+     * 
+     * Initialize BT in BLE mode, with CLI enable
+     */
+    bt_device_init(BT_LE, "Custom Name", TRUE);
+
+    /*
+     * For 2G Modules
+     * 
+     * Initialize BT in classic mode with CLI enable
+     */
+    bt_device_init(BT_CLASSIC, "Custom Name", TRUE);
+
+
 
 API Reference
 -------------

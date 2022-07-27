@@ -11,6 +11,30 @@ range from 0-2.8v gives digital output of 0-1023.
 However analog ports on NBIoT module are 12-but and input voltage range
 from 0-1.4v with digital output of 0-4095.
 
+Example Usage
+-------------
+
+.. code-block:: c
+
+	#include <hw/adc.h>
+
+	/* init ADC */
+	adc_config(ADC_CH0);
+
+	/* ADC Read raw */
+	raw_value = adc_read(ADC_CH0);
+
+	/* ADC Read voltage in millivolts */
+	mv_value = adc_read_mv(ADC_CH0);
+
+Application Example
+-------------------
+
+.. raw:: html
+
+	<p><i class="fa fa-github"></i> <a href="https://github.com/waybyte/example-adc" target="_blank">waybyte/example-adc</a></p>
+
+
 4G LTE Module ADC Channel Mapping
 ---------------------------------
 
@@ -32,7 +56,7 @@ GSM/NB-IoT Module ADC Channel Mapping
 
 +--------------+------------------+-----------+-----------------+-----------+------------+------------+
 | ADC Channel  |  MC20U Pin       |  M56 Pin  |  MC60 Pin       |  M66 Pin  |  BC20 Pin  |  SIM868    |
-|              |  |br| S20U Pin   |           |  |br| MC20 Pin  |           |            |  Pin       |
+|              |                  |           |  |br| MC20 Pin  |           |            |  Pin       |
 +==============+==================+===========+=================+===========+============+============+
 | ADC CH 0     |  Pin 6           |  Pin 61   |  Pin 6          |  Pin 9    |  Pin 6     |  Pin 38    |
 +--------------+------------------+-----------+-----------------+-----------+------------+------------+

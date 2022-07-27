@@ -1,8 +1,8 @@
-Command Processor and Console
-=============================
+Command Processor and Command Line Interface
+============================================
 
-SDK provide in-built command processor and console with many features like
-User authentication and command autocomplete etc.
+Logicrom SDK provide in-built command processor and CLI with many features like
+user authentication and command autocomplete etc.
 
 By default SDK provide system commands and linux like core utility commands.
 
@@ -55,6 +55,52 @@ Custom commands
 ^^^^^^^^^^^^^^^
 
 Command processor APIs can be used to add new commands to the system.
+
+
+Command Delimiters
+------------------
+
+Command and argument on console are seperated using following delimiters:
+
+* Comma (,)
+* Space ( )
+
+Command and only first parameter can also be seperated by an equal (=) symbol. So following
+formats for comamnd is valid on console
+
+.. code-block:: bash
+
+	$ command=parameter
+	$ command parameter
+	$ command,parameter
+	# multi parameter commands
+	$ command=param1,param2
+	$ command=param1 param2
+	$ command param1 param2
+	$ command,param1,param2
+
+Parameter Escaping
+^^^^^^^^^^^^^^^^^^
+
+To escape parameter with comma a quote can be used. For example:
+
+.. code-block:: bash
+
+	$ command="param1,continued",param2
+
+To escape quote, a backslash can be used:
+
+.. code-block:: bash
+
+	$ command="param1,continued with a \"quote\"",param2
+
+
+Application Example
+-------------------
+
+.. raw:: html
+
+	<p><i class="fa fa-github"></i> <a href="https://github.com/waybyte/example-console" target="_blank">waybyte/example-console</a></p>
 
 
 Command Processor API Reference

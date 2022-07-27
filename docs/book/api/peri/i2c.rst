@@ -4,6 +4,43 @@ I2C
 
 	<br>
 
+I2C driver provide access to hardware I2C bus controller and currently only support
+bus communication in master mode.
+
+.. note:: MT2503/MT6261 has a buffer limitation of maximum 8 byte read/write in single
+	transaction. Writing more than 8 byte require multiple read/write operation.
+
+I2C Driver Usage
+----------------
+
+.. code-block:: c
+
+	#include <hw/i2c.h>
+
+	/* initialize I2C port */
+	i2c_hw_init(I2C_PORT_0, 100);
+
+	/* i2c write */
+	i2c_hw_write(I2C_PORT_0, 0x20, write_buf, length);
+
+	/* i2c read */
+	i2c_hw_read(I2C_PORT_0, 0x20, read_buf, length);
+
+	/* i2c write then read */
+	i2c_hw_writeread(I2C_PORT_0, 0x20, write_buf, wr_len, read_buf, rd_len);
+
+	/* release i2c bus */
+	i2c_hw_free(I2C_PORT_0);
+
+
+Application Example
+-------------------
+
+.. raw:: html
+
+	<p><i class="fa fa-github"></i> <a href="https://github.com/waybyte/example-i2c" target="_blank">waybyte/example-i2c</a></p>
+
+
 4G LTE Module I2C Port Mapping
 ------------------------------
 
@@ -37,14 +74,14 @@ GSM/NB-IoT Module I2C Port Mapping
 GSM (MT2503, MT6261) and NB-IoT (MT2625) chipset supported modules expose only one
 I2C port. Following is the pin mapping for SCL and SDA:
 
-+---------+------------------+-----------+-----------------+-----------+------------+------------+
-| I2C Pin |  MC20U Pin       |  M56 Pin  |  MC60 Pin       |  M66 Pin  |  BC20 Pin  |  SIM868    |
-|         |  |br| S20U Pin   |           |  |br| MC20 Pin  |           |            |  Pin       |
-+=========+==================+===========+=================+===========+============+============+
-| SCL     |  Pin 35          |  Pin 24   |  Pin 35         |  Pin 20   |  Pin 58    |  Pin 65    |
-+---------+------------------+-----------+-----------------+-----------+------------+------------+
-| SDA     |  Pin 36          |  Pin 23   |  Pin 36         |  Pin 21   |  Pin 63    |  Pin 64    |
-+---------+------------------+-----------+-----------------+-----------+------------+------------+
++---------+-----------+-------------------+-----------+------------+------------+
+| I2C Pin |  M56 Pin  |  MC60 Pin         |  M66 Pin  |  BC20 Pin  |  SIM868    |
+|         |           |  |br| MC20(U) Pin |           |            |  Pin       |
++=========+===========+===================+===========+============+============+
+| SCL     |  Pin 24   |  Pin 35           |  Pin 20   |  Pin 58    |  Pin 65    |
++---------+-----------+-------------------+-----------+------------+------------+
+| SDA     |  Pin 23   |  Pin 36           |  Pin 21   |  Pin 63    |  Pin 64    |
++---------+-----------+-------------------+-----------+------------+------------+
 
 
 API Reference

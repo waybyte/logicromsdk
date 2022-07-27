@@ -121,6 +121,24 @@ int spi_hw_free(int port);
 int spi_hw_cscontrol(int port, int level);
 #endif
 
+/**
+ * @brief Acquire SPI hardware access lock.
+ * 
+ * This is only a provisional lock for resource access.
+ * 
+ * @param port				[in] SPI Port Number (@ref spiport_e)
+ * @return 0 on success, negative value on error
+ */
+int spi_hw_lock(int port);
+
+/**
+ * @brief Release SPI hardware access lock
+ * 
+ * @param port				[in] SPI Port Number (@ref spiport_e)
+ * @return 0 on success, negative value on error
+ */
+int spi_hw_unlock(int port);
+
 #ifdef __cplusplus
 }
 #endif

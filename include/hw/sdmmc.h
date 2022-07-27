@@ -30,6 +30,8 @@ enum cardtype_e {
  * 
  * On success, SD card is mounted on VFS at path: "/sd"
  * 
+ * @note Only supported on 4G Modules
+ * 
  * @param type card type @ref cardtype_e
  * @return 0 on success, negative on error 
  */
@@ -37,6 +39,8 @@ int sdmmc_mount(uint8_t type);
 
 /**
  * @brief Unmount SD card
+ * 
+ * @note Only supported on 4G Modules
  * 
  * @return 0 on success, negative on error
  */

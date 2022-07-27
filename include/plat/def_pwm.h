@@ -4,7 +4,7 @@
 #if defined(SOC_RDA8910) || defined(_DOXYGEN_)
 /**
  * PWM Channel 1 - Fixed Period in milliseconds
- * @note: Only for Platform with RDA8910 SoC
+ * @note Only for Platform with RDA8910 SoC
  */
 enum pwm1_prd_e {
 	PWM1_PRD_125MS,
@@ -19,7 +19,7 @@ enum pwm1_prd_e {
 
 /**
  * PWM Channel 1 - Fixed On-time/Duty cycle in milliseconds
- * @note: Only for Platform with RDA8910 SoC
+ * @note Only for Platform with RDA8910 SoC
  */
 enum pwm1_duty_e {
     PWM1_DUTY_UNDEFINE,

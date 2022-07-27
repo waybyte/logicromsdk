@@ -59,8 +59,7 @@ enum gpio_trigger_e {
  * Request a GPIO
  * @param ioname	name of GPIO from @ref gpioname_e
  * @param flags		ORed list of gpio initialization flags @ref gpio_conf_e
- * @return			On success returns handle which can be used with other gpio APIs
- * on failure negative error code is returned
+ * @return			On success returns gpio handle, on failure (when no memory/already used) 0 is returned
  */
 int gpio_request(unsigned int ioname, int flags);
 
@@ -106,7 +105,7 @@ int gpio_setdir(int handle, int dir);
  * 
  * @param handle		Handle to gpio object returned by @ref gpio_request
  * @param fn			Callback function of type @ref gpio_callback_f
- * @param trigger_time	Debounce time or trigger delay
+ * @param trigger_time	Debounce time or trigger delay in milliseconds
  * @param flags			Type of trigger requested @ref gpio_trigger_e
  * @return				0 on success, negative error code on failure
  */

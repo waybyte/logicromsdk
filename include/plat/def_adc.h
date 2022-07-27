@@ -13,7 +13,7 @@ enum adcch_e
 	ADC_CH3, /**< ADC channel 3 - Pin 2 */
 	ADC_CH4, /**< ADC channel 4 - Pin 13 */
 	ADC_CH5, /**< ADC channel 5 - Pin 33 */
-#elif defined(PLATFORM_S20U)
+#elif defined(PLATFORM_MC20U)
 	ADC_CH0, /**< ADC channel 0 - Pin 6 */
 	ADC_CH1, /**< ADC channel 1 - Pin 47 */
 	ADC_CH2, /**< ADC channel 2 - Pin 66 */

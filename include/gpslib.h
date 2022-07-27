@@ -230,7 +230,7 @@ time_t gpsmktime(char *date_in, char *time_in);
  * 							False (0) if point is outside geofence
  * 							-22 if parameters are invalid.
  */
-int geofence_check(int type, struct point_t *fence, unsigned int corners_radius, struct point_t *point);
+int geofence_check(int type, const struct point_t *fence, unsigned int corners_radius, const struct point_t *point);
 
 #ifdef __cplusplus
 }

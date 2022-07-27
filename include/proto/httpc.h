@@ -6,14 +6,11 @@
 #ifndef INC_HTTPC_H_
 #define INC_HTTPC_H_
 
+#include <sys/time.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-/**
- * Indicates data is a header
- */
-#define HTTP_RECV_HEADER	2000
 
 /**
  * Default HTTP client
@@ -35,6 +32,7 @@ enum http_mimetype_e {
 	HTTP_MIME_TYPE_WAV,    /**< For MIME type audio/wav */
 	HTTP_MIME_TYPE_MPEG,   /**< For MIME type audio/mpeg */
 	HTTP_MIME_TYPE_FORM,   /**< For MIME type application/x-www-form-urlencoded */
+	HTTP_MIME_TYPE_CUSTOM, /**< For user defined MIME type, must be supplied via custom header argument */
 };
 
 /**
@@ -48,26 +46,15 @@ enum httpup_status_e {
 };
 
 /**
- * HTTP supported methods
- *
- * Basic support for accessing REST API
- */
-enum httpc_method_e {
-	HTTP_METHOD_GET,  /**< HTTP Method GET */
-	HTTP_METHOD_POST, /**< HTTP Method POST */
-	HTTP_METHOD_PUT,  /**< HTTP Method PUT */
-	HTTP_METHOD_DELETE/**< HTTP Method DELETE */
-};
-
-/**
  * HTTP File Upload information structure
  */
 struct http_filemeta_t {
-	char *filename; /**< File name (63 char max) to be uploaded with */
-	char *filepath; /**< Complete file path on storage media (255 max) */
-	long timestamp; /**< File creation UNIX timestamp */
-	char *info; /**< Other supplementary Info e.g. location info etc, This information is sent to server with HTTP form key "info" (127 max) */
-	int filetype; /**< MIME type to upload @ref http_mimetype_e for more information */
+	const char *filename; /**< File name (63 char max) to be uploaded with */
+	const char *filepath; /**< Complete file path on storage media (255 max) */
+	time_t timestamp;     /**< UNIX timestamp to send to server */
+	const char *info;     /**< Other supplementary Info e.g. location info etc, This information is sent to server with HTTP form key "info" (127 max) */
+	uint8_t mime_type;    /**< MIME type to upload @ref http_mimetype_e for more information */
+	const char *mime;     /**< File mime type when mime_type is set to @ref HTTP_MIME_TYPE_CUSTOM, e.g. "text/csv", NULL otherwise */
 };
 
 /**
@@ -79,52 +66,47 @@ struct http_filemeta_t {
 typedef void (*http_download_cb)(unsigned int dl_size, unsigned int reserved, int error);
 
 /**
- * HTTP Client get argument
+ * HTTP Client request argument
  */
-struct _httpc_get_t {
-	const char *url;				/**< Client URL */
-	const char *headers;			/**< Custom headers */
-	struct ssl_certs_t *certs;		/**< SSL client certificates */
-	int recv_headers;				/**< if TRUE, HTTP response headers are also stored in response buffer */
-	char *resp_buffer;				/**< Pointer to response buffer */
-	int buflen;						/**< Length of response buffer */
-};
-
-/**
- * HTTP Client post argument
- */
-struct _httpc_post_t {
+struct httparg_t {
 	const char *url;					/**< Client URL */
-	const char *header;					/**< Custom headers */
-	const unsigned char *submit_data;	/**< Post data */
-	int submit_len;						/**< Length of post data */
-	int mime;							/**< MIME type @ref http_mimetype_e */
+	const char *headers;				/**< Custom headers, can be NULL. if used then header must end with CRLF (\\r\\n) */
 	struct ssl_certs_t *certs;			/**< SSL Client certificate */
-	int recv_headers;					/**< if TRUE, HTTP response headers are also stored in response buffer */
+	const void *submit_data;			/**< Data to send as request body */
+	uint16_t submit_len;				/**< Length of data to send */
+	uint8_t mime;						/**< MIME type @ref http_mimetype_e */
+	uint8_t recv_headers;				/**< if TRUE, HTTP response headers are also stored in response buffer */
 	char *resp_buffer;					/**< Pointer to response buffer */
-	int buflen;							/**< Length of response buffer */
+	uint16_t buflen;					/**< Length of response buffer */
+	uint16_t timeout;					/**< Timeout in seconds for Read/Write in HTTP and READ in HTTPS, 0 for default 45 sec */
 };
 
 /**
  * HTTP Client upload argument
  */
-struct _httpc_up_t {
+struct httpupload_t {
 	const char *url;					/**< Client URL */
-	const char *header;					/**< Custom headers */
-	struct http_filemeta_t *meta;		/**< Upload file information @ref http_filemeta_t */
-	struct ssl_certs_t *certs;			/**< SSL Client certificates */
-	char *respbuf;						/**< Pointer to response buffer */
-	int buflen;							/**< Length of response buffer */
+	const char *headers;				/**< Custom headers, can be NULL. if used then header must end with CRLF (\\r\\n) */
+	const struct http_filemeta_t *meta;	/**< Upload file information @ref http_filemeta_t */
+	const struct ssl_certs_t *certs;	/**< SSL Client certificates */
+	int recv_headers;					/**< if TRUE, HTTP response headers are also stored in response buffer */
+	char *resp_buffer;					/**< Pointer to response buffer */
+	uint16_t buflen;					/**< Length of response buffer */
+	uint16_t timeout;					/**< Timeout in seconds for Read/Write in HTTP and READ in HTTPS, 0 for default 45 sec */
 };
 
 /**
- * HTTP Client argument
+ * HTTP Client download argument
+ * 
  */
-typedef union httpc_arg_t {
-	struct _httpc_get_t get;			/**< Get argument structure for httpc_get() */
-	struct _httpc_post_t post;			/**< Post argument structure for httpc_submit() */
-	struct _httpc_up_t upload;			/**< Upload argument structure for httpc_upload() */
-} httpc_arg;
+struct httpdownload_t {
+	const char *url;					/**< Client URL */
+	const char *headers;				/**< Custom headers, can be NULL. if used then header must end with CRLF (\\r\\n) */
+	const char *filepath;				/**< Complete file path on storage media (255 max) */
+	const struct ssl_certs_t *certs;	/**< SSL Client certificates */
+	http_download_cb callback;			/**< Callback function called after download is finished see @ref http_download_cb */
+	uint16_t timeout;					/**< Timeout in seconds for Read/Write in HTTP and READ in HTTPS, 0 for default 45 sec */
+};
 
 /**
  * Open a new client
@@ -140,40 +122,29 @@ int httpc_client_open(void);
 int httpc_client_close(int client);
 
 /**
- * Perform HTTP Get
+ * Perform HTTP Request
  * @param client		[in] Client handle
- * @param arg			[in] HTTP client argument @ref httpc_arg_t
+ * @param method		[in] HTTP Method e.g. "GET", "POST", "PUT" etc.
+ * @param arg			[in] HTTP client argument @ref httparg_t
  * @return				0 on success, If server response is not 2xx then server error code is returned, if any operation issue negative error code will be returned
  */
-int httpc_get(int client, httpc_arg *arg);
-
-/**
- * Perform HTTP Post, Put or Delete
- * @param client		[in] Client handle
- * @param method		[in] HTTP Method httpc_method_e
- * @param arg			[in] HTTP client argument @ref httpc_arg_t
- * @return				0 on success, If server response is not 2xx then server error code is returned, if any operation issue negative error code will be returned
- */
-int httpc_submit(int client, int method, httpc_arg *arg);
+int httpc_submit(int client, const char *method, struct httparg_t *arg);
 
 /**
  * HTTP file upload. This function will perform a POST with "multipart/form-data" mime on the provided URL. Its a special case of httpc_submit()
- * @param url			[in] URL to post
- * @param meta			[in] File information structure @ref http_filemeta_t
- * @param respbuf		[out] Response data buffer pointer
- * @param buflen		[out] size of response data, and returns actual data stored in response buffer
+ * @param client		[in] Client handle
+ * @param arg			[in] HTTP Upload request information struction @ref httpupload_t
  * @return				0 on success, If server response is not 2xx then server error code is returned, if any operation issue negative error code will be returned
  */
-int httpc_upload(const char *url, struct http_filemeta_t *meta, char *respbuf, int *buflen);
+int httpc_upload(int client, struct httpupload_t *arg);
 
 /**
  * HTTP file download to local storage
- * @param url			[in] URL to download
- * @param filename		[in] path to filename where download file will be saved
- * @param httpc_cb		[in] Callback function called after download is finished see @ref http_download_cb
+ * @param client		[in] Client handle
+ * @param arg			[in] HTTP download request information struction @ref httpdownload_t
  * @return				0 on success, If server response is not 2xx then server error code is returned, if any operation issue negative error code will be returned
  */
-int httpc_download(const char *url, char *filename, http_download_cb httpc_cb);
+int httpc_download(int client, struct httpdownload_t *arg);
 
 /**
  * Enable or disable HTTP client keep-alive function.

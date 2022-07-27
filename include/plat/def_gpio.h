@@ -60,7 +60,7 @@ enum gpioname_e
 	GPIO_49, /**< Pin 81 */
 	GPIO_50, /**< Pin 82 */
 	GPIO_51, /**< Pin 31 */
-#elif defined(PLATFORM_S20U)
+#elif defined(PLATFORM_MC20U)
 	GPIO_0,	 /**< Pin 47 */
 	GPIO_1,	 /**< Pin 37 */
 	GPIO_2,	 /**< Pin 35 */

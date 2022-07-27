@@ -33,7 +33,7 @@ Method is patch method fine tune. The default method is "diff":
         <file name="nvm/bt_config.bin" method="ignore"/>
         <file name="nvm/lrom_code.bin" method="ignore"/>
         <file name="nvm/lrom_proxy.bin" method="ignore"/>
-        <file name="nvm/customer.bin" method="ignore"/>
+        <file name="nvm/lrom_customer.bin" method="ignore"/>
     </pacsffs>
     <!--
         NV will be updated inside modem image. The following are only

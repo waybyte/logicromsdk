@@ -451,7 +451,7 @@
  * This is the total size, minus various reserved size, for example loadable
  * app image reserved size.
  */
-#define CONFIG_APP_RAM_SIZE 0x2c0000
+#define CONFIG_APP_RAM_SIZE 0x340000
 
 /**
  * PSRAM or DDR offset for app image from NOR flash
@@ -459,12 +459,12 @@
  * When loading app image from NOR flash, the reserved size is only for
  * data andd bss sections of loadable app image.
  */
-#define CONFIG_APP_FLASHIMG_RAM_OFFSET 0xec0000
+#define CONFIG_APP_FLASHIMG_RAM_OFFSET 0xf40000
 
 /**
  * PSRAM or DDR size for app image from NOR flash
  */
-#define CONFIG_APP_FLASHIMG_RAM_SIZE 0x100000
+#define CONFIG_APP_FLASHIMG_RAM_SIZE 0x80000
 
 /**
  * PSRAM or DDR offset for app image from RAM
@@ -522,7 +522,7 @@
  * data size plus blue screen stack size. For ARM v8M, it is just the blue
  * screen data size.
  */
-#define CONFIG_BLUE_SCREEN_SIZE 0x400
+#define CONFIG_BLUE_SCREEN_SIZE 0x600
 
 /**
  * whether to enable blue screen backup
@@ -542,7 +542,12 @@
 /**
  * blue screen core stack dump size
  */
-#define CONFIG_BSCORE_STACK_SIZE 0x800
+#define CONFIG_BSCORE_STACK_SIZE 0xE00
+
+/**
+ * blue screen core cp stack dump size
+ */
+#define CONFIG_BSCORE_CP_STACK_SIZE 0x600
 
 /**
  * blue screen core profile size
@@ -788,6 +793,11 @@
 /* #undef CONFIG_PSRAM_LP_HALF_SLEEP */
 
 /**
+ * whether to check cp images signature
+ */
+#define CONFIG_CPBIN_SIGCHECK
+
+/**
  * force pull up for tst_h in iomux (8910)
  */
 /* #undef CONFIG_TST_H_GROUND */
@@ -848,6 +858,11 @@
  * whether GSM is supported
  */
 #define CONFIG_GSM_SUPPORT
+
+/**
+ * RF config use detlanv (8910FV)
+ */
+/* #undef CONFIG_RF_DELTANV_8910FV */
 
 /**
  * whether NBIOT is supported
@@ -932,12 +947,12 @@
 /**
  * whether gpio is used for Vbat_RF switch
  */
-#define CONFIG_GPIO_USED_FOR_VBAT_RF_SWITCH
+/* #undef CONFIG_GPIO_USED_FOR_VBAT_RF_SWITCH */
 
 /**
  * Used gpio x as Vbat_RF swtich
  */
-#define CONFIG_GPIO_X_USED_FOR_VBAT_RF 10
+#define CONFIG_GPIO_X_USED_FOR_VBAT_RF 8
 
 /**
  * whether to enable sys_wdt
@@ -953,5 +968,20 @@
  * sys_wdt feed interval
  */
 #define CONFIG_SYS_WDT_FEED_INTERVAL 5000
+
+/**
+ * unity output to uart
+ */
+#define CONFIG_UNITY_OUTPUT_UART
+
+/**
+ * unity unit test uart
+ */
+#define CONFIG_UNITY_UART_NAME DRV_NAME_UART1
+
+/**
+ * unity unit test uart baud rate
+ */
+#define CONFIG_UNITY_UART_BAUD 115200
 
 #endif

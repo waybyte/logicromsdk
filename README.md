@@ -56,3 +56,18 @@ DFOTA is also supported for LTE modules
 [^3]: LCD is work in progress.
 
 [^4]: Please backup calibration during first flash via Maui Meta tool (google is your friend).
+
+
+# License & Credits
+
+[LittleFS](https://github.com/ARMmbed/littlefs) library written by ARM Limited and released under the [BSD 3-clause license](https://github.com/ARMmbed/littlefs/blob/master/LICENSE.md).
+
+[Int64String](https://github.com/djGrrr/Int64String) library written by djGrrr and released under the [MIT     license](https://github.com/djGrrr/Int64String/blob/master/LICENSE).
+
+[PicoHTTPParser](https://github.com/h2o/picohttpparser) library written by Kazuho Oku, Tokuhiro Matsuno, Daisuke Murase, Shigeo Mitsunari and released under the MIT license.
+
+[heatshrink](https://github.com/atomicobject/heatshrink) library written by Scott Vokes and released under the [ISC license](https://github.com/atomicobject/heatshrink/blob/master/LICENSE).
+
+[SimpleKalmanFilter](https://github.com/denyssene/SimpleKalmanFilter) library written by Denys Sene and released under the [MIT license](https://github.com/denyssene/SimpleKalmanFilter/blob/master/LICENSE).
+
+[OneWire](https://github.com/PaulStoffregen/OneWire) library originally written by Jim Studt and later maintained by Paul Stoffregen, is released uder [custom license](https://github.com/PaulStoffregen/OneWire/blob/master/OneWire.cpp).

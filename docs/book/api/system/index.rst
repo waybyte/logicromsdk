@@ -10,4 +10,5 @@ System
    System Calls <syscall>
    FOTA API <fota>
    Command Processor & Command Line Interface <command_proc>
+   Remote Console/Debugging <rdbg>
    Message Queue <messageq>

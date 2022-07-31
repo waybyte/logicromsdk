@@ -2,6 +2,7 @@
 
 Software development kit for Logicrom Platform
 
+[![PlatformIO Registry](https://badges.registry.platformio.org/packages/waybyte/tool/framework-logicromsdk.svg)](https://registry.platformio.org/tools/waybyte/framework-logicromsdk)
 [![Documentation Status](https://readthedocs.org/projects/logicromsdk/badge/?version=latest)](https://docs.logicrom.com)
 [![Github Issues](https://img.shields.io/github/issues/waybyte/logicromsdk.svg)](http://github.com/waybyte/logicromsdk/issues)
 [![Github Releases](https://img.shields.io/github/release/waybyte/logicromsdk.svg)](https://github.com/waybyte/logicromsdk/releases)
@@ -45,7 +46,7 @@ DFOTA is also supported for LTE modules
 | Quectel MC60 | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &#8212; | &cross; |
 | Quectel MC20 | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &#8212; | &cross; |
 | Quectel M56| &check; | &check; | &#8212; | &check; | &check; | &check; | &check; | &check; | &cross; |
-| Quectel MC20U| &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
+| Quectel MC20UCB| &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
 | SIMCOM SIM868[^4]| &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
 
 

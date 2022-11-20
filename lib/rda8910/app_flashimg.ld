@@ -56,6 +56,7 @@ strtoll = _strtoll;
 strtoul = _strtoul;
 strtoull = _strtoll;
 strtok_r = _strtok_r;
+__strtok_r = ___strtok_r;
 _strtol_r = __strtol_r;
 _strtoll_r = __strtoll_r;
 _strtoul_r = __strtoul_r;

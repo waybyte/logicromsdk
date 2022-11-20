@@ -26,6 +26,16 @@ enum _net_state {
 };
 
 /**
+ * @brief Network type
+ * 
+ */
+enum nettype_e {
+	NET_TYPE_UNKNOWN,
+	NET_TYPE_GSM,
+	NET_TYPE_LTE,
+};
+
+/**
  * Network parameter structure
  */
 struct netparam_t {
@@ -133,6 +143,13 @@ unsigned char *network_getlocalip(void);
  * @return			currently used APN
  */
 const char *network_getcurrapn(void);
+
+/**
+ * Get current network type GSM/LTE
+ * 
+ * @return network type value @ref nettype_e
+ */
+uint8_t network_gettype(void);
 
 /**
  * Setup Network status LED. Attach GPIO line managed by network

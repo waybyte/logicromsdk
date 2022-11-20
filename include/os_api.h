@@ -204,23 +204,25 @@ uint32_t os_task_getid(void);
 /**
  * Create a new OS task, Maximum 10 tasks can be created
  * @param fn			[in] Task function of type os_taskfn_f
+ * @param name			[in] Task name, cannot be NULL
  * @param arg			[in] Argument to task function
  * @param suspend		[in] TRUE will suspend the task on creation, FALSE otherwise. Suspended task can be started later by calling os_start_task()
  * @return				On success task ID is returned, -1 on error.
  */
-int os_task_create(os_taskfn_f fn, void *arg, int suspend);
+int os_task_create(os_taskfn_f fn, const char *name, void *arg, int suspend);
 
 #if defined(SOC_RDA8910) || defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**
  * Create a new OS task, with extended parameters
  * @note only available on NBIoT Platforms
  * @param fn			[in] Task function of type os_taskfn_f
+ * @param name			[in] Task name, cannot be NULL
  * @param stack			[in] Task stack size in bytes
  * @param arg			[in] Argument to task function
  * @param suspend		[in] TRUE will suspend the task on creation, FALSE otherwise. Suspended task can be started later by calling os_start_task()
  * @return				On success task ID is returned, -1 on error.
  */
-int os_task_create_ex(os_taskfn_f fn, uint32_t stack, void *arg, int suspend);
+int os_task_create_ex(os_taskfn_f fn, const char *name, uint32_t stack, void *arg, int suspend);
 
 /**
  * Start a task created by @ref os_task_create() /@ref os_task_create_ex()

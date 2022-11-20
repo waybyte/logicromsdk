@@ -80,6 +80,24 @@ enum gpsparam_e {
 };
 
 /**
+ * GPS Motion assistance type
+ */
+enum gpsmatype_t {
+	GPS_MOTIONASSIST_TYPE_NONE,        /**< Motion assistance disabled */
+	GPS_MOTIONASSIST_TYPE_IGNITION,    /**< Motion assistance set to ignition */
+	GPS_MOTIONASSIST_TYPE_MOTIONSENSE, /**< Motion assistance set to motion sensor */
+};
+
+/**
+ * GPS Motion assistance event generated from assistance source
+ */
+enum gpsmaevent_t {
+	MOTIONASSIST_EVENT_IGN_ON,        /**< Ignition on event */
+	MOTIONASSIST_EVENT_IGN_OFF,       /**< Ignition off event */
+	MOTIONASSIST_EVENT_MOTION_DETECT, /**< Motion detected event */
+};
+
+/**
  * GPS point structure
  */
 struct point_t {
@@ -231,6 +249,23 @@ time_t gpsmktime(char *date_in, char *time_in);
  * 							-22 if parameters are invalid.
  */
 int geofence_check(int type, const struct point_t *fence, unsigned int corners_radius, const struct point_t *point);
+
+/**
+ * @brief Add motion detect assistance to GPS algorithm
+ * 
+ * @param type Motion detect type @ref gpsmatype_t
+ * @return return 0 on success
+ */
+int gps_motionassist_config(int type);
+
+/**
+ * @brief Inform GPS algorithm about event generated from assistance source
+ * set using gps_motionassist_config()
+ * 
+ * @param event Motion detect event @ref gpsmaevent_t
+ * @return return 0 on success
+ */
+int gps_motionassist(int event);
 
 #ifdef __cplusplus
 }

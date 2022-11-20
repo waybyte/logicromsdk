@@ -68,7 +68,7 @@ int storage_init(const struct storagecfg_t *cfg);
  * @param len			[in] Length of data in buffer
  * @return				0 on success, negative value on error
  */
-int storage_save(int part, void *buffer, int len);
+int storage_save(int part, const void *buffer, int len);
 
 /**
  * Read data from storage partition

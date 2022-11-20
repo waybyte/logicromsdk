@@ -57,6 +57,15 @@ enum networkstate_e {
 };
 
 /**
+ * Network Mode value
+ */
+enum networkmode_e {
+	NW_MODE_UNKNOWN,	/**< Unknown mode */
+	NW_MODE_GSM,		/**< GSM Mode */
+	NW_MODE_LTE,		/**< LTE Mode */
+};
+
+/**
  * Phone functionality state
  */
 enum cfunstate_e {
@@ -106,6 +115,7 @@ enum sysurc_e {
 	URC_ALARM_RING_IND,		    /**< Indication for clock alarm. */
 	URC_STKPCI_RSP_IND,			/**< Indication for un-handled STKPCI responses, Only when SIM Toolkit is enabled, Parameter value is incoming +STKPCI response as null terminated string */
 	URC_RRC_STATUS_IND,			/**< 4G LTE & NBIoT RRC Status update */
+	URL_NW_MODE_CHANGE_IND,		/**< Indication for change of network mode, only available on 4G LTE modules */
 	URC_SYS_END = 100,
 	/*
 	 * System URC definition end

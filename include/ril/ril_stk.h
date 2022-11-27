@@ -36,15 +36,16 @@ int stk_status(void);
 
 /**
  * Enable/Disable SIM toolkit
+ * @param en    1 to enable, 0 to disable
  * @return		RIL return code @ref ril_rc_e
  */
-int stk_enable(void);
+int stk_enable(int en);
 
 /**
  * @brief Get current proactive command and qualifier ID
  * 
- * @param cmd   current TLK command id (@ref stk_cmd_e) (hex)
- * @param qual  Qualifier value (hex) (optional)
+ * @param cmd   current TLK command id (@ref stk_cmd_e)
+ * @param qual  Qualifier value (optional)
  * @return      RIL return code @ref ril_rc_e
  */
 int stk_get_currcommand(uint8_t *cmd, uint8_t *qual);
@@ -52,7 +53,7 @@ int stk_get_currcommand(uint8_t *cmd, uint8_t *qual);
 /**
  * Send envelope command (AT+STKENV) to open menu items
  * 
- * @param menu_id	Menu ID to open (hex)
+ * @param menu_id	Menu ID to open
  * @return		    RIL return code @ref ril_rc_e
  */
 int stk_open_menu(uint8_t menu_id);
@@ -60,7 +61,7 @@ int stk_open_menu(uint8_t menu_id);
 /**
  * Select menu item (AT+STKR)
  * 
- * @param item_id	Item id from menu (hex)
+ * @param item_id	Item id from menu
  * @return		    RIL return code @ref ril_rc_e
  */
 int stk_select_item(uint8_t item_id);

@@ -34,6 +34,25 @@ enum adcch_e
 	ADC_CH1, /**< ADC channel 1 - Pin 47 */
 	ADC_CH2, /**< ADC channel 2 - Pin 28 */
 	ADC_CH3, /**< ADC channel 3 - Pin 29 */
+#elif defined(SOC_RDA8955)
+	/**
+	 * ADC Channel 0
+	 * Module | Pin
+	 * ------------
+	 * M590   | 16
+	 * MC65   | 6
+	 * A9     | 15
+	 */
+	ADC_CH0,
+	/**
+	 * ADC Channel 1
+	 * Module | Pin
+	 * ------------
+	 * M590   | 17
+	 * MC65   | 47
+	 * A9     | 16
+	 */
+	ADC_CH1,
 #else /* RDA8910 */
 	/**
 	 * ADC Channel 0

@@ -16,27 +16,44 @@ enum pwm1_prd_e {
 	PWM1_PRD_2500MS,
 	PWM1_PRD_3000MS,
 };
+#elif defined(SOC_RDA8955)
+/**
+ * PWM Channel 1 - Fixed Period in milliseconds
+ * @note Only for Platform with RDA8955 SoC
+ */
+enum pwm1_prd_e {
+	PWM1_PRD_125MS,
+	PWM1_PRD_250MS,
+	PWM1_PRD_500MS,
+	PWM1_PRD_750MS,
+	PWM1_PRD_1000MS,
+	PWM1_PRD_1250MS,
+	PWM1_PRD_1500MS,
+	PWM1_PRD_1750MS,
+};
+#endif
 
+#if defined(SOC_RDA8910) || defined(SOC_RDA8955) || defined(_DOXYGEN_)
 /**
  * PWM Channel 1 - Fixed On-time/Duty cycle in milliseconds
- * @note Only for Platform with RDA8910 SoC
+ * @note Only for Platform with RDA8910 or RDA8955 SoC
  */
 enum pwm1_duty_e {
     PWM1_DUTY_UNDEFINE,
     PWM1_DUTY_15_6MS,
     PWM1_DUTY_31_2MS,
-    PWM1_DUTY_46_8MS,
-    PWM1_DUTY_62MS,
-    PWM1_DUTY_78MS,
-    PWM1_DUTY_94MS,
+    PWM1_DUTY_46_9MS,
+    PWM1_DUTY_62_5MS,
+    PWM1_DUTY_78_1MS,
+    PWM1_DUTY_93_7MS,
     PWM1_DUTY_110MS,
     PWM1_DUTY_125MS,
-    PWM1_DUTY_140MS,
+    PWM1_DUTY_141MS,
     PWM1_DUTY_156MS,
     PWM1_DUTY_172MS,
-    PWM1_DUTY_188MS,
-    PWM1_DUTY_200MS,
-    PWM1_DUTY_218MS,
+    PWM1_DUTY_187MS,
+    PWM1_DUTY_203MS,
+    PWM1_DUTY_219MS,
     PWM1_DUTY_234MS
 };
 #endif
@@ -62,6 +79,29 @@ enum pwmch_e
 #elif defined(PLATFORM_MC60)
 	PWM_CH0, /**< PWM Channel 0 - Pin 47 */
 	PWM_CH1, /**< PWM Channel 1 - Pin 28 */
+#elif defined(SOC_RDA8955)
+	/**
+	 * PWM Channel 0
+	 * This channel supports variable frequency and duty cycle
+	 * Module | Pin
+	 * ------------
+	 * M590   | 58
+	 * MC65   | 25
+	 * A9     | 50
+	 */
+	PWM_CH0,
+	/**
+	 * PWM Channel 1
+	 * This channel supports fixed frequency and duty cycle.
+	 * Please refer @ref pwm1_prd_e and @ref pwm1_duty_e
+	 * for possible values
+	 * Module | Pin
+	 * ------------
+	 * M590   | 59
+	 * MC65   | 24
+	 * A9     | 49
+	 */
+	PWM_CH1,
 #else
 	/**
 	 * PWM Channel 0

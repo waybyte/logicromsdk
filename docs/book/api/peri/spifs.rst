@@ -1,7 +1,7 @@
 SPI Flash Fileystem API
 =======================
 
-SPI Flash when enabled is mounted on VFS path "/sf" with LittleFS filesystem.
+SPI Flash when enabled is mounted on VFS path ``/sf`` with LittleFS filesystem.
 
 Chip Select Selection
 ^^^^^^^^^^^^^^^^^^^^^

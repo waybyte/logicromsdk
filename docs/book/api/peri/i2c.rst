@@ -71,6 +71,31 @@ I2C Port 1
 GSM/NB-IoT Module I2C Port Mapping
 ----------------------------------
 
+RDA8955 based modules provide two I2C ports. Following is the pin mapping:
+
+I2C Port 0
+^^^^^^^^^^
+
++---------+------------+------------+----------+
+| I2C Pin |  M590 Pin  |  MC65 Pin  |  A9 Pin  |
++=========+============+============+==========+
+| SCL     |  Pin 23    |  Pin 56    |  Pin 1   |
++---------+------------+------------+----------+
+| SDA     |  Pin 24    |  Pin 65    |  Pin 2   |
++---------+------------+------------+----------+
+
+I2C Port 1
+^^^^^^^^^^
+
++---------+----------+----------+--------+
+| I2C Pin | M590 Pin | MC65 Pin | A9 Pin |
++=========+==========+==========+========+
+| SCL     | Pin 60   | Pin 35   | Pin 48 |
++---------+----------+----------+--------+
+| SDA     | Pin 61   | Pin 36   | Pin 47 |
++---------+----------+----------+--------+
+
+
 GSM (MT2503, MT6261) and NB-IoT (MT2625) chipset supported modules expose only one
 I2C port. Following is the pin mapping for SCL and SDA:
 

@@ -1,15 +1,17 @@
 USB
 ===
 
-MT2503 chipset provide USB 1.1 interface with CDC(ACM) profile. USB port
-can be used to interface device with a USB host for communication.
+2G GSM modules (MT2503/MT6261/RDA8955) provide USB 1.1 interface with CDC(ACM) profile.
+USB port can be used to interface device with a USB host for communication.
 
 Only Following GSM module provide USB Access:
 
 1. MC20U
 2. SIM868
+3. M590
+4. A9
 
-USB serial port is registered as a device file /dev/ttyUSB0 which supports
+USB serial port is registered as a device file ``/dev/ttyUSB0`` which supports
 standard system calls for IO operations and termios API for serial port
 parameter controls.
 

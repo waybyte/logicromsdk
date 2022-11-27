@@ -1,10 +1,11 @@
 SD/MMC Driver
 =============
 
-Following API only apply to 4G modems, On 2G modems SD card is mounted
-automatically if detected on power-up.
+Following API only apply to RDA8910 and RDA8955 based modems, On 2G modems
+based on MT2503/MT6261 SD card is mounted automatically if detected during
+power-up.
 
-Once card is mounted, it is available on VFS path "/sd". All standard file
+Once card is mounted, it is available on VFS path ``/sd``. All standard file
 IO operations (open, close, read, write etc.) can be performed.
 
 Example use
@@ -23,12 +24,13 @@ Example use
     /* To Unmount card */
     sdmmc_unmount();
 
+
 Read More
 ---------
 
-    Standard IO <syscall/stdio>
-    Directory <syscall/dirent>
-    Fileystem <syscall/statvfs>
+    Standard IO <../system/syscall/stdio>
+    Directory <../system/syscall/dirent>
+    Fileystem <../system/syscall/statvfs>
 
 
 API Reference

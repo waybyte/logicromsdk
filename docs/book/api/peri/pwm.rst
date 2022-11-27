@@ -9,7 +9,7 @@ PWM
 4G LTE Module PWM Channel Mapping
 ---------------------------------
 
-.. note:: PWM Channel 1 on RD8910 based modules has limited configurable period and duty cycle.
+.. note:: PWM Channel 1 on RDA8910 and RDA8955 based modules has limited configurable period and duty cycle.
 
 +--------------+-----------+-----------+----------+----------+----------+----------+
 | PWM Channel  |  EC600U   |  EC200U   |  N58     |  N716    |  L610    |  EG915U  |
@@ -22,6 +22,21 @@ PWM
 
 GSM/NB-IoT Module PWM Channel Mapping
 -------------------------------------
+
+RDA8955 based modules
+^^^^^^^^^^^^^^^^^^^^^
+
++--------------+------------+------------+----------+
+| PWM Channel  |  M590 Pin  |  MC65 Pin  |  A9 Pin  |
++==============+============+============+==========+
+| PWM CH 0     |  Pin 58    |  Pin 25    |  Pin 50  |
++--------------+------------+------------+----------+
+| PWM CH 1     |  Pin 59    |  Pin 24    |  Pin 49  |
++--------------+------------+------------+----------+
+
+
+MT2503/MT6261/MT2625 based modules
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +--------------+-----------+-------------------+-----------+------------+------------+
 | PWM Channel  |  M56 Pin  |  MC60 Pin         |  M66 Pin  |  BC20 Pin  |  SIM868    |

@@ -4,6 +4,10 @@
 Welcome to Logicrom SDK Documentation!
 ======================================
 
+Logicrom Software Development Kit is a framework for Wireless IoT development
+on 4G LTE Cat.1 (RDA8910), GSM (MT2503/MT6261/RDA8955) and NBIoT (MT2625)
+chipsets/modules.
+
 .. toctree::
    :maxdepth: 3
 

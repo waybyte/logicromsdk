@@ -12,8 +12,8 @@ RDA8910 provide 2 ports.
 Chip Select Control
 -------------------
 
-MT2503/MT6261
-^^^^^^^^^^^^^
+MT2503/MT6261/RDA8955
+^^^^^^^^^^^^^^^^^^^^^
 
 Chip select (CS) line on GSM module doubles as GPIO. SPI driver provide option to
 let SPI controller Control CS line per transaction basis or CS line can be controlled
@@ -104,8 +104,27 @@ SPI Port 1
 GSM/NB-IoT Module SPI Port Mapping
 ----------------------------------
 
-GSM (MT2503, MT6261) and NB-IoT (MT2625) chipset supported modules expose only one
-I2C port. Following is the pin mapping for SPI Port 0.
+GSM (MT2503, MT6261, RDA8955) and NB-IoT (MT2625) chipset supported modules expose only one
+SPI port. Following is the pin mapping for SPI Port 0.
+
+RDA8955 based modules
+^^^^^^^^^^^^^^^^^^^^^
+
++---------+------------+------------+----------+
+| I2C Pin |  M590 Pin  |  MC65 Pin  |  A9 Pin  |
++=========+============+============+==========+
+| MISO    |  Pin 31    |  Pin 11    |  Pin 4   |
++---------+------------+------------+----------+
+| MOSI    |  Pin 32    |  Pin 10    |  Pin 5   |
++---------+------------+------------+----------+
+| CLK     |  Pin 35    |  Pin 8     |  Pin 8   |
++---------+------------+------------+----------+
+| CS      |  Pin 34    |  Pin 7     |  Pin 7   |
++---------+------------+------------+----------+
+
+
+MT2503/MT6261/MT2625 based modules
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------+-----------+-------------------+-----------+------------+------------+
 | SPI Pin |  M56 Pin  |  MC60 Pin         |  M66 Pin  |  BC20 Pin  |  SIM868    |

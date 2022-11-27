@@ -5,7 +5,7 @@ Display Driver API
 
 	<br>
 
-.. note:: Display driver is currently only available on 4G platforms
+.. note:: Display driver is currently only available on modules based on RDA8910 and RDA8955.
 
 Application Example
 -------------------

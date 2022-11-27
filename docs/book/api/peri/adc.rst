@@ -5,8 +5,10 @@ Analog to Digital Converter
 
 	<br>
 
-There are 10-bit analog ports available on GSM modules. Input voltage
-range from 0-2.8v gives digital output of 0-1023.
+There are 10-bit analog ports available on GSM modules based on MT6261 or
+MT2503. Input voltage range from 0-2.8v gives digital output of 0-1023. On
+RDA8955 based modules, Input voltage range is from 0-1.8v gives digital
+output of 0 - 1023.
 
 However analog ports on NBIoT module are 12-but and input voltage range
 from 0-1.4v with digital output of 0-4095.
@@ -53,6 +55,21 @@ Application Example
 
 GSM/NB-IoT Module ADC Channel Mapping
 -------------------------------------
+
+RDA8955 based modules
+^^^^^^^^^^^^^^^^^^^^^
+
++--------------+------------+------------+----------+
+| ADC Channel  |  M590 Pin  |  MC65 Pin  |  A9 Pin  |
++==============+============+============+==========+
+| ADC CH 0     |  Pin 16    |  Pin 6     |  Pin 15  |
++--------------+------------+------------+----------+
+| ADC CH 1     |  Pin 17    |  Pin 47    |  Pin 16  |
++--------------+------------+------------+----------+
+
+
+MT2503/MT6261/MT2625 based modules
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +--------------+------------------+-----------+-----------------+-----------+------------+------------+
 | ADC Channel  |  MC20U Pin       |  M56 Pin  |  MC60 Pin       |  M66 Pin  |  BC20 Pin  |  SIM868    |

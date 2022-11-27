@@ -8,20 +8,22 @@ UART
 The UART devices are registered on VFS as device files accessible via startard IO system calls
 and termios API.
 
-UART devices are registed under /dev/ttySx, where x is uart number starting from 0.
+UART devices are registed under ``/dev/ttySx``, where x is uart number starting from 0.
 
 On both MT6261/MT2503 based GSM modules and RDA8910 based 4G LTE modules, three hardware uart
-interfaces are available. On devices with on-board GNSS, 2 UARTs are exposed on external pins
+interfaces are available. On RDA8955 based modules two hardware UARTs are available.
+
+On devices with on-board GNSS (SIM868/N58-CA/EC200U), 2 UARTs are exposed on external pins
 whereas 1 UART is connected to GNSS as a dedicated interface.
 
 On modules like MC60/MC20, GNSS port is also exposed on outside pins which provides freedom to
 select any UART port to be connected to GNSS module.
 
-The three UART device files are:
+So if module has three physical UART interface, the three UART device files will be:
 
-* /dev/ttyS0
-* /dev/ttyS1
-* /dev/ttyS2
+* ``/dev/ttyS0``
+* ``/dev/ttyS1``
+* ``/dev/ttyS2``
 
 Each device file supports standard system calls for IO operations (open, read, write, close etc.)
 
@@ -84,6 +86,25 @@ Application Example
 
 GSM Module Pin Mapping
 ----------------------
+
+RDA8955 based modules
+^^^^^^^^^^^^^^^^^^^^^
+
++---------------+-----------+-----------+----------+
+| UART Function |  M590     |  MC65     |  A9      |
++===============+===========+===========+==========+
+| UART0 TXD     |  Pin 8    |  Pin 34   |  Pin 54  |
++---------------+-----------+-----------+----------+
+| UART0 RXD     |  Pin 7    |  Pin 33   |  Pin 53  |
++---------------+-----------+-----------+----------+
+| UART1 TXD     |  Pin 58   |  Pin 25   |  Pin 50  |
++---------------+-----------+-----------+----------+
+| UART1 RXD     |  Pin 59   |  Pin 24   |  Pin 49  |
++---------------+-----------+-----------+----------+
+
+
+MT2503/MT6261/MT2625 based modules
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------------+------------------+-----------+-----------------+-----------+------------+
 | UART Function |  MC20 Pin        |  M56 Pin  |  MC60 Pin       |  M66 Pin  |  SIM868    |

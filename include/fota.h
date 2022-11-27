@@ -55,6 +55,21 @@ int fota_in_progress(void);
  */
 int logicrom_fota_register(const char *code, const char *ver);
 
+/**
+ * @brief Set fota check interval
+ * 
+ * @param hours interval value in hours
+ * @return return 0 on success, negative value on error
+ */
+int fota_set_interval(int hours);
+
+/**
+ * @brief Get current fota check interval
+ * 
+ * @return return fota interval in hours
+ */
+int fota_get_interval(void);
+
 #ifdef __cplusplus
 }
 #endif

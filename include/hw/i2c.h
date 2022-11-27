@@ -16,7 +16,7 @@ extern "C" {
  * Initialize I2C hardware and setup pin-mux.
  * Please check hardware guide for I2C pin details.
  * @param port			[in] I2C Port (@ref i2cport_e)
- * @param speed_khz		[in] I2C Speed in Khz (must be < 400)
+ * @param speed_khz		[in] I2C Speed in Khz (<= 400)
  * @return				0 on success, negative value on error
  */
 int i2c_hw_init(int port, int speed_khz);
@@ -24,7 +24,7 @@ int i2c_hw_init(int port, int speed_khz);
 /**
  * Set I2C master clock speed
  * @param port			[in] I2C Port (@ref i2cport_e)
- * @param speed_khz		[in] I2C Speed in Khz (must be < 400)
+ * @param speed_khz		[in] I2C Speed in Khz (<= 400)
  * @return				0 on success, negative value on error
  */
 int i2c_hw_setspeed(int port, int speed_khz);

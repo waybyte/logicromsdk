@@ -105,11 +105,11 @@ struct gpsdriver_t {
 int gps_set_driver_casic(void);
 
 /**
- * @brief Set GPS driver to Quectel L89H R2.0 GNSS/IRNSS Module
+ * @brief Set GPS driver to Quectel L89HA R2.0 GNSS/IRNSS Module
  * 
  * @return 0 on success
  */
-int gps_set_driver_l89r2(void);
+int gps_set_driver_l89ha(void);
 
 /**
  * @brief Set GPS driver to module using MT3333 or MT3339 chipset

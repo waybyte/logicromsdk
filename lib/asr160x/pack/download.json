@@ -1,0 +1,53 @@
+[
+   {
+      "command" : "require",
+      "group" : "0",
+      "name" : "product",
+      "value" : "arom-tiny"
+   },
+   {
+      "command" : "require",
+      "group" : "0",
+      "name" : "version",
+      "value" : "0.5"
+   },
+   {
+      "command" : "require",
+      "group" : "0",
+      "name" : "version-bootrom",
+      "value" : "2020.07.30"
+   },
+   {
+      "command" : "progress",
+      "group" : "0",
+      "name" : "weight",
+      "value" : 0
+   },
+   {
+      "command" : "call",
+      "group" : "0",
+      "image" : "preboot.img"
+   },
+   {
+      "command" : "call",
+      "group" : "0",
+      "image" : "flasher.img"
+   },
+   {
+      "command" : "partition",
+      "group" : "0",
+      "image" : "flashinfo.bin"
+   },
+   {
+      "command" : "partition",
+      "group" : "0",
+      "image" : "partition.bin"
+   },
+   {
+      "command" : "flash",
+      "group" : "1",
+      "image" : "app.bin",
+      "partition" : "user_app",
+      "weight" : 0
+   }
+]

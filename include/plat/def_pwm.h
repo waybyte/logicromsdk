@@ -102,6 +102,17 @@ enum pwmch_e
 	 * A9     | 49
 	 */
 	PWM_CH1,
+#elif defined(SOC_ASR160X)
+	PWM_CH0_IO8,
+	PWM_CH0_IO31,
+	PWM_CH1_IO9,
+	PWM_CH1_IO32,
+	PWM_CH2_IO6,
+	PWM_CH2_IO8,
+	PWM_CH2_IO10,
+	PWM_CH3_IO7,
+	PWM_CH3_IO9,
+	PWM_CH3_IO11,
 #else
 	/**
 	 * PWM Channel 0

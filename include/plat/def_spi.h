@@ -52,7 +52,7 @@ enum spiport_e {
 	 * 
 	 */
 	SPI_PORT_0,
-#if defined(SOC_RDA8910) || defined(_DOXYGEN_)
+#if defined(SOC_RDA8910) || defined(SOC_ASR160X) || defined(_DOXYGEN_)
 	/**
 	 * @brief SPI Port 1
 	 * 

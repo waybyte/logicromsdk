@@ -23,7 +23,7 @@ extern "C" {
  * @return			0 on success, negative value on error
  */
 int aes_cbc_decrypt(uint8_t* out, const uint8_t* in, size_t inSz,
-		const uint8_t* key, const uint8_t* iv);
+		const uint8_t* key, uint8_t* iv);
 
 /**
  * Encrypt a data buffer
@@ -35,7 +35,7 @@ int aes_cbc_decrypt(uint8_t* out, const uint8_t* in, size_t inSz,
  * @return			0 on success, negative value on error
  */
 int aes_cbc_encrypt(uint8_t* out, const uint8_t* in, size_t inSz,
-		const uint8_t* key, const uint8_t* iv);
+		const uint8_t* key, uint8_t* iv);
 
 #ifdef __cplusplus
 }

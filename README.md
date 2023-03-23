@@ -9,61 +9,57 @@ Software development kit for Logicrom Platform
 
 
 ## Installation Guide
- - [PlatformIO IDE](https://github.com/waybyte/logicromsdk/blob/master/docs/book/quick_start.rst#platformio-ide)
- - [Arduino IDE](https://github.com/waybyte/logicromsdk/blob/master/docs/book/quick_start.rst#arduino-ide)
+ - [PlatformIO IDE](https://docs.logicrom.com/en/latest/book/quick_start/setup_platformio.html)
+ - [Arduino IDE](https://docs.logicrom.com/en/latest/book/quick_start/setup_arduino.html)
 
 ## Resources
 
 * [Documentation](https://docs.logicrom.com) - Logicrom SDK documentation for latest version
+* [SDK Examples](https://docs.logicrom.com/en/latest/book/example.html)
 
 # Supported Modules
-## 4G LTE Cat.1 Modules
 
-| Module Name  | Networking | BLE[^1] | GPS | GPIO | ADC | I2C | SPI | USB | LCD | Camera |
-|--------------|------------|---------|-----|------|-----|-----|-----|-----|-----|--------|
-| Neoway N58  | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
-| Neoway N716 | &check; | &check; | &#8212; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
-| Quectel EC200U | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
-| Quectel EC600U | &check; | &check; | &#8212; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
-| Quectel EG915U  | &check; | &check; | &#8212; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
-| Fibocom L610  | &check; | &check; | &#8212; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
+| Name              | Vendor   | SoC/Chipset | Supported Peripherals                              | APP RAM / ROM   |
+|-------------------|----------|-------------|----------------------------------------------------|-----------------|
+| EC200U-XX-YY [^1] | Quectel  | RDA8910     |  UART, USB, SPI, I2C, ADC, LCD, BT [^2], GNSS [^3] | 500 KB / 1 MB   |
+| EC600U-XX-YY [^1] | Quectel  | RDA8910     |                                                    | 500 KB / 1 MB   |
+| EC600U-XX-YY [^1] | Quectel  | RDA8910     |                                                    | 500 KB / 1 MB   |
+| EG915U-XX-YY [^1] | Quectel  | RDA8910     |                                                    | 500 KB / 1 MB   |
+| N58-CA            | Neoway   | RDA8910     |                                                    | 500 KB / 1 MB   |
+| N716-CA           | Neoway   | RDA8910     |                                                    | 500 KB / 1 MB   |
+| EC100N-XX-XX      | Quectel  | ASR1603     |  UART, USB, SPI, I2C, ADC                          | 512 KB / 1 MB   |
+| EC200N-CN-AA      | Quectel  | ASR1603     |                                                    | 512 KB / 512 KB |
+| EC600N-CN-AA      | Quectel  | ASR1603     |                                                    | 512 KB / 1 MB   |
+| EG912Y-EU-YY      | Quectel  | ASR1603     |                                                    | 512 KB / 1 MB   |
+| EG915N-EU-YY      | Quectel  | ASR1603     |                                                    | 512 KB / 512 KB |
+| EC100Y-CN-YY      | Quectel  | ASR1601     |  UART, USB, SPI, I2C, ADC                          | 512 KB / 512 KB |
+| EC100S-CN-YY      | Quectel  | ASR1601     |                                                    | 512 KB / 1 MB   |
+| EC600S-CN-YY      | Quectel  | ASR1601     |                                                    | 512 KB / 1 MB   |
+| AC7670C           | SIMCOM   | ASR1601     |                                                    | 512 KB / 1 MB   |
+| MC20, MC60, MC20U | Quectel  | MT2503      |  UART, USB, SPI, I2C, ADC, GNSS                    | 94 KB / 256 KB  |
+| SIM868[^4]        | SIMCOM   | MT2503      |                                                    | 94 KB / 256 KB  |
+| M66, M26, M56     | Quectel  | MT6261      |  UART, USB, SPI, I2C, ADC                          | 94 KB / 256 KB  |
+| SIM800[^4]        | SIMCOM   | MT6261      |                                                    | 94 KB / 256 KB  |
+| MC65              | Quectel  | RDA8955     |  UART, USB, SPI, I2C, ADC, GNSS [^3], LCD          | 1 MB / 576 KB   |
+| M590              | Neoway   | RDA8955     |                                                    | 1 MB / 576 KB   |
+| A9, A9G           | AiThinker| RDA8955     |                                                    | 1 MB / 576 KB   |
 
-DFOTA is also supported for LTE modules
+[^1]: XX can be CN/AU/EU, YY can be AA/AB/AC
 
-## NB-IoT Modules[^2]
+[^2]: Currely only GATT Server supported and used for console purpose only
 
-| Module Name  | Networking | GPS | GPIO | ADC | I2C | SPI | USB |
-|--------------|------------|-----|------|-----|-----|-----|-----|
-| Quectel BC66 | &check; | &#8212; | &check; | &check; | &check; | &check; | &check; |
-| Quectel BC20 | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+[^3]: Supported on module with GNSS
 
-## GSM Modules
+[^4]: IMEI need to be configured when core is flashed for first time, use AT+EGMR=1,7,"imei"
 
-| Module Name  | Networking | BT | GPS | GPIO | ADC | I2C | SPI | USB | LCD[^3] |
-|--------------|------------|----|-----|------|-----|-----|-----|-----|---------|
-| Quectel M66  | &check; | &check; | &#8212; | &check; | &check; | &check; | &check; | &#8212; | &cross; |
-| Quectel M66DS| &check; | &check; | &#8212; | &check; | &check; | &check; | &check; | &#8212; | &cross; |
-| Quectel MC60 | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &#8212; | &cross; |
-| Quectel MC20 | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &#8212; | &cross; |
-| Quectel M56| &check; | &check; | &#8212; | &check; | &check; | &check; | &check; | &check; | &cross; |
-| Quectel MC20UCB| &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
-| SIMCOM SIM868[^4]| &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &cross; |
-
-
-[^1]: Currely only GATT Server supported and used for console purpose only.
-
-[^2]: Updates to come
-
-[^3]: LCD is work in progress.
-
-[^4]: Please backup calibration during first flash via Maui Meta tool (google is your friend).
+> DFOTA is also supported for LTE modules
 
 
 # License & Credits
 
 [LittleFS](https://github.com/ARMmbed/littlefs) library written by ARM Limited and released under the [BSD 3-clause license](https://github.com/ARMmbed/littlefs/blob/master/LICENSE.md).
 
-[Int64String](https://github.com/djGrrr/Int64String) library written by djGrrr and released under the [MIT     license](https://github.com/djGrrr/Int64String/blob/master/LICENSE).
+[Int64String](https://github.com/djGrrr/Int64String) library written by djGrrr and released under the [MIT license](https://github.com/djGrrr/Int64String/blob/master/LICENSE).
 
 [PicoHTTPParser](https://github.com/h2o/picohttpparser) library written by Kazuho Oku, Tokuhiro Matsuno, Daisuke Murase, Shigeo Mitsunari and released under the MIT license.
 

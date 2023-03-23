@@ -12,19 +12,19 @@ RDA8910 provide 2 ports.
 Chip Select Control
 -------------------
 
-MT2503/MT6261/RDA8955
-^^^^^^^^^^^^^^^^^^^^^
+MT2503, MT6261, RDA8955
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Chip select (CS) line on GSM module doubles as GPIO. SPI driver provide option to
-let SPI controller Control CS line per transaction basis or CS line can be controlled
-by application using GPIO APIs.
+Chip select (CS) line on GSM module doubles as GPIO. SPI driver provide option
+to let SPI controller Control CS line per transaction basis or CS line can be
+controlled by application using GPIO APIs.
 
 RDA8910
 ^^^^^^^
 
-SPI controller on LTE module has dedicated CS line which cannot be used as GPIO, However
-driver provide API to manually control the CS pin when its not configured to be controlled
-by SPI controller.
+SPI controller on LTE module has dedicated CS line which cannot be used as
+GPIO, However driver provide API to manually control the CS pin when its not
+configuredto be controlled by SPI controller.
 
 Example Usage
 -------------

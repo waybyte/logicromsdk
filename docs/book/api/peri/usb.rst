@@ -1,8 +1,9 @@
 USB
 ===
 
-2G GSM modules (MT2503/MT6261/RDA8955) provide USB 1.1 interface with CDC(ACM) profile.
-USB port can be used to interface device with a USB host for communication.
+2G GSM modules (MT2503, MT6261, RDA8955) provide USB 1.1 interface with
+CDC(ACM) profile. USB port can be used to interface device with a USB host
+for communication.
 
 Only Following GSM module provide USB Access:
 

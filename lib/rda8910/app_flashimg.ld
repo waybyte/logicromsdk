@@ -133,7 +133,6 @@ SECTIONS {
 
     .text ALIGNMENT : {
         __text_start = .;
-		KEEP(*(.appinit));
         *(DEF_RO)
         KEEP(*(.eh_frame*))
         __text_end = .;

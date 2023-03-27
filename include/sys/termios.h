@@ -80,7 +80,9 @@
 #define CBAUD       0x1F			/** Use baud rates defined by B0-B38400 macros. */
 #define CBAUDEX     (1u << 4)		/** Use baud rates defined by B57600-B4000000 macros. */
 #define BOTHER      CBAUDEX         /** Custom baud rate */
+#ifndef ARDUINO
 #define B0          0   /** Autobaud */
+#endif
 #define B50         1
 #define B75         2
 #ifndef ARDUINO

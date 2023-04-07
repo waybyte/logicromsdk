@@ -58,6 +58,18 @@ struct http_filemeta_t {
 };
 
 /**
+ * SSL client certificates
+ */
+struct http_certs_t {
+	const char *rootca;		/**< buffer containing Root CA */
+	int rootca_len;			/**< Length of Root CA buffer (with null) */
+	const char *cert;		/**< buffer containing certificate */
+	int cert_len;			/**< Length of certificate buffer (with null) */
+	const char *privatekey;	/**< buffer containing private key */
+	int privatekey_len;		/**< Length of private key buffer (with null) */
+};
+
+/**
  * HTTP download finished callback
  * @param dl_size		Download size
  * @param reserved		reserved
@@ -71,7 +83,7 @@ typedef void (*http_download_cb)(unsigned int dl_size, unsigned int reserved, in
 struct httparg_t {
 	const char *url;					/**< Client URL */
 	const char *headers;				/**< Custom headers, can be NULL. if used then header must end with CRLF (\\r\\n) */
-	struct ssl_certs_t *certs;			/**< SSL Client certificate */
+	struct http_certs_t *certs;			/**< SSL Client certificate */
 	const void *submit_data;			/**< Data to send as request body */
 	uint16_t submit_len;				/**< Length of data to send */
 	uint8_t mime;						/**< MIME type @ref http_mimetype_e */
@@ -88,7 +100,7 @@ struct httpupload_t {
 	const char *url;					/**< Client URL */
 	const char *headers;				/**< Custom headers, can be NULL. if used then header must end with CRLF (\\r\\n) */
 	const struct http_filemeta_t *meta;	/**< Upload file information @ref http_filemeta_t */
-	const struct ssl_certs_t *certs;	/**< SSL Client certificates */
+	const struct http_certs_t *certs;	/**< SSL Client certificates */
 	int recv_headers;					/**< if TRUE, HTTP response headers are also stored in response buffer */
 	char *resp_buffer;					/**< Pointer to response buffer */
 	uint16_t buflen;					/**< Length of response buffer */
@@ -103,7 +115,7 @@ struct httpdownload_t {
 	const char *url;					/**< Client URL */
 	const char *headers;				/**< Custom headers, can be NULL. if used then header must end with CRLF (\\r\\n) */
 	const char *filepath;				/**< Complete file path on storage media (255 max) */
-	const struct ssl_certs_t *certs;	/**< SSL Client certificates */
+	const struct http_certs_t *certs;	/**< SSL Client certificates */
 	http_download_cb callback;			/**< Callback function called after download is finished see @ref http_download_cb */
 	uint16_t timeout;					/**< Timeout in seconds for Read/Write in HTTP and READ in HTTPS, 0 for default 45 sec */
 };

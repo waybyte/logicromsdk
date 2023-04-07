@@ -6,6 +6,8 @@
 #ifndef INCLUDE_NET_SOCKETS_H_
 #define INCLUDE_NET_SOCKETS_H_
 
+#include <stdint.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,25 +42,6 @@ enum sock_events_e {
 	SOCK_EV_WRITE_FAILED, /**< TCP socket write failed. Either write timeout has occurred or network error. */
 	SOCK_EV_READ_FAILED,  /**< TCP socket read failed. */
 	SOCK_EV_GPRS_FAILED,  /**< GPRS bearer failed. */
-};
-
-/**
- * SSL version
- */
-enum ssl_ver_e {
-	SSL_VER_DEFAULT,              /**< Default SSL version (TLS 1.2) */
-	TLS_VER_1V2 = SSL_VER_DEFAULT,/**< TLS v1.2 */
-	TLS_VER_1V1,                  /**< TLS v1.1 */
-	TLS_VER_1V0,                  /**< TLS v1.0 */
-	SSL_VER_3V0,                  /**< SSL v3 */
-};
-
-/**
- * SSL certificate input type
- */
-enum ssl_type_e {
-	SSL_TYPE_BUFFER,/**< certificate provided as a buffer */
-	SSL_TYPE_FILE   /**< certificate provided as a filename */
 };
 
 /**
@@ -110,20 +93,20 @@ struct sockopt_t {
 struct ssl_sockopt_t {
 	char server_ip[100];	/**< IP/Domain name of server */
 	int port;				/**< SSL server port */
-	int (*status_callback)(int sockid, int status);	/**< SSL socket status callback */
 	void *arg;				/**< user data to associate with socket */
+	uint32_t timeout;		/**< SSL handshake timeout in seconds, 0 for default timeout */
 };
 
 /**
  * SSL client certificates
  */
 struct ssl_certs_t {
-	int cert_type;			/**< Input type see @ref ssl_type_e */
-	const void *cert;		/**< filename/buffer containing certificate (Only PEM format supported) */
-	int cert_len;			/**< Length of certificate in case buffer is provided */
-	int pkey_type;			/**< Input type see @ref ssl_type_e */
-	const void *privatekey;	/**< filename/buffer containing private key (Only PEM format supported) */
-	int privatekey_len;		/**< Length of private key in case buffer is provided */
+	const char *rootca;		/**< buffer containing Root CA */
+	int rootca_len;			/**< Length of Root CA buffer (with null) */
+	const char *cert;		/**< buffer containing certificate */
+	int cert_len;			/**< Length of certificate buffer (with null) */
+	const char *privatekey;	/**< buffer containing private key */
+	int privatekey_len;		/**< Length of private key buffer (with null) */
 };
 
 /* Normal Socket */
@@ -241,11 +224,10 @@ int socket_free(int id);
 /* SSL Sockets */
 /**
  * Request an SSL socket.
- * @param ssl_version	[in] SSL version @ref ssl_ver_e
  * @param certs			[in] SSL client certificate and private key. NULL if not used
  * @return				On success SSL socket ID is returned, On error negative value is returned
  */
-int ssl_socket_request(int ssl_version, struct ssl_certs_t *certs);
+int ssl_socket_request(struct ssl_certs_t *certs);
 
 /**
  * Configure SSL socket

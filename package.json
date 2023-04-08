@@ -1,7 +1,7 @@
 {
 	"name": "framework-logicromsdk",
-	"version": "0.9.8",
-	"description": "Logicrom Software Development Kit is a framework for Wireless IoT development on 4G LTE Cat.1 (RDA8910), GSM (MT2503/MT6261/RDA8955) and NBIoT (MT2625) chipsets/modules.",
+	"version": "0.9.9",
+	"description": "Logicrom Software Development Kit is a framework for Wireless IoT development on 4G LTE Cat.1 (RDA8910, ASR1601, ASR1603), GSM (MT2503, MT6261, RDA8955) and NBIoT (MT2625) chipsets/modules.",
 	"keywords": [
 		"framework",
 		"logicrom",
@@ -10,6 +10,8 @@
 		"MT2503",
 		"MT2625",
 		"RDA8955",
+		"ASR1601",
+		"ASR1603",
 		"Quectel",
 		"SIMCOM",
 		"Neoway",

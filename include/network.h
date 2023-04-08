@@ -159,8 +159,8 @@ uint8_t network_gettype(void);
  * 
  * LED Timings in milliseconds (On Time/Off Time):
  * -----------------------------------------------
- * No Network/No Sim: LED Off
- * Searching Network: 50/500
+ * No Sim: 250/3000
+ * No Network/Searching: 50/500
  * GSM/GPRS Registered: 50/1000
  * Socket Connecting: 500/500
  * Network Idle: 50/2000

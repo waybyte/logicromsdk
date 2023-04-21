@@ -13,7 +13,7 @@ Logicrom is supported on 4G LTE Cat.1 modules and 2G GSM modules. Select a
 module of your choice from the list provided on the main page.
 
 Download the core firmware for selected module from our github page here:
-https://github.com/waybyte/example-os
+https://github.com/waybyte/logicrom_core
 
 If you do not find your module on the list, Do let us know we will try to
 add it to the list.

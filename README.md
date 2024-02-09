@@ -1,6 +1,6 @@
-# Logicrom SDK for Wireless IoT
+# Logicrom OpenCPU SDK for Wireless IoT
 
-Software development kit for Logicrom Platform
+OpenCPU Software development kit for Logicrom IoT Platform
 
 [![PlatformIO Registry](https://badges.registry.platformio.org/packages/waybyte/tool/framework-logicromsdk.svg)](https://registry.platformio.org/tools/waybyte/framework-logicromsdk)
 [![Documentation Status](https://readthedocs.org/projects/logicromsdk/badge/?version=latest)](https://docs.logicrom.com)
@@ -14,7 +14,7 @@ Software development kit for Logicrom Platform
 
 ## Resources
 
-* [Documentation](https://docs.logicrom.com) - Logicrom SDK documentation for latest version
+* [Documentation](https://docs.logicrom.com) - Logicrom OpenCPU SDK documentation for latest version
 * [SDK Examples](https://docs.logicrom.com/en/latest/book/example.html)
 
 # Supported Modules
@@ -52,19 +52,10 @@ Software development kit for Logicrom Platform
 
 [^4]: IMEI need to be configured when core is flashed for first time, use AT+EGMR=1,7,"imei"
 
-> DFOTA is also supported for LTE modules
+> DFOTA is supported for LTE modules and RDA8955 chipset
 
 
 # License & Credits
 
-[LittleFS](https://github.com/ARMmbed/littlefs) library written by ARM Limited and released under the [BSD 3-clause license](https://github.com/ARMmbed/littlefs/blob/master/LICENSE.md).
+For complete list of third-party library licenses used in Logicrom OpenCPU SDK visit: [Copyright & Licenses](https://docs.logicrom.com/en/latest/book/COPYRIGHT.html)
 
-[Int64String](https://github.com/djGrrr/Int64String) library written by djGrrr and released under the [MIT license](https://github.com/djGrrr/Int64String/blob/master/LICENSE).
-
-[PicoHTTPParser](https://github.com/h2o/picohttpparser) library written by Kazuho Oku, Tokuhiro Matsuno, Daisuke Murase, Shigeo Mitsunari and released under the MIT license.
-
-[heatshrink](https://github.com/atomicobject/heatshrink) library written by Scott Vokes and released under the [ISC license](https://github.com/atomicobject/heatshrink/blob/master/LICENSE).
-
-[SimpleKalmanFilter](https://github.com/denyssene/SimpleKalmanFilter) library written by Denys Sene and released under the [MIT license](https://github.com/denyssene/SimpleKalmanFilter/blob/master/LICENSE).
-
-[OneWire](https://github.com/PaulStoffregen/OneWire) library originally written by Jim Studt and later maintained by Paul Stoffregen, is released uder [custom license](https://github.com/PaulStoffregen/OneWire/blob/master/OneWire.cpp).

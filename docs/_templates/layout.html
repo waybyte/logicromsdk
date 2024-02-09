@@ -80,6 +80,12 @@ body,html{font-family:Nunito,Arial,sans-serif;font-size:1.025rem;height:100%}
 .wy-nav-side {
 	top: 4rem;
 }
+.no-margin {
+	margin-bottom: 0 !important;
+}
+.auto-width > img {
+	width: auto !important;
+}
 </style>
 {% endblock %}
 {% block extrabody %}
@@ -97,6 +103,7 @@ body,html{font-family:Nunito,Arial,sans-serif;font-size:1.025rem;height:100%}
 {% block footer %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLMHTDV889"></script>
+<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js" type="text/javascript"></script>
 <script>
 	function myFunction() {
 		var x = document.getElementById("myTopnav");
@@ -107,12 +114,35 @@ body,html{font-family:Nunito,Arial,sans-serif;font-size:1.025rem;height:100%}
 		}
 	}
 	$(window).scroll(function () {
-		var top = 64 - $(this).scrollTop();
+		var top = 65.6 - $(this).scrollTop();
 		if (top < 0)
 			$('.wy-nav-side').css({ 'top': 0 });
 		else
 			$('.wy-nav-side').css({ 'top': top });
 	});
+	var config = {
+		"apiKey": "688bab0005645ab4ef2e0d8bcf4f2e3bd467a3e9",
+		"product": "COMMUNITY",
+		"optionalCookies": [{
+			"name": "analytics",
+			"label": "Analytical Cookies",
+			"description": "Analytical cookies help us to improve our website by collecting and reporting information on its usage.",
+			"cookies": ["_ga_*", "_ga", "_gid", "_gat_gtag_UA_*"],
+			"onAccept": "function () {}",
+			"onRevoke": "function () {}"
+		}],
+		"mode": "ccpa",
+		"excludedCountries": "all",
+		"iabCMP": false,
+		"necessaryCookies": ["__cf_bm"],
+		"branding": {
+			"fontColor": "",
+			"backgroundColor": "#343131"
+		}
+	};
+	
+	CookieControl.load( config );
+
 	window.dataLayer = window.dataLayer || [];
 	function gtag() { dataLayer.push(arguments); }
 	gtag('js', new Date());

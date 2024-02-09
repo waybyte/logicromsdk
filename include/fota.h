@@ -36,7 +36,8 @@ int fota_in_progress(void);
 /**
  * @brief Register with Logicrom FOTA server for automatic firmware
  * updates via Device management console. Automatic firmware update
- * is checked once a day on server.
+ * is checked once a day on Waybyte server. This function also enable
+ * core firmware update checks.
  * 
  * This function also add additional options in "fota" command
  * 

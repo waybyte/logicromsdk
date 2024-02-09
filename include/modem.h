@@ -275,6 +275,37 @@ int md_nvm_read(int index, void *data, int len);
  */
 int md_get_networktime(struct tm *datetime);
 
+/**
+ * @brief Register GPIO for SIM detect 
+ * 
+ * @param gpio 		[in] GPIO number
+ * @param act_level [in] Active level of SIM detect line
+ * @return 0 for success, negative for error (@ref mderror_e)
+ */
+int md_register_simdetect(uint32_t gpio, int act_level);
+
+/**
+ * @brief Unregister or release GPIO for SIM detect
+ * 
+ * @return 0 for success, negative for error (@ref mderror_e)
+ */
+int md_unregister_simdetect(void);
+
+/**
+ * @brief Enable or disable flight mode
+ * 
+ * @param mode 1 to enable, 0 to disable
+ * @return 0 on success, negative on error (@ref mderror_e)
+ */
+int md_set_flightmode(int mode);
+
+/**
+ * @brief Get flight mode status
+ * 
+ * @return 1 if enabled, 0 if disabled
+ */
+int md_get_flightmode(void);
+
 #ifdef __cplusplus
 }
 #endif

@@ -30,9 +30,10 @@ enum _net_state {
  * 
  */
 enum nettype_e {
-	NET_TYPE_UNKNOWN,
-	NET_TYPE_GSM,
-	NET_TYPE_LTE,
+	NET_TYPE_UNKNOWN,	/**< Unknown network type, applicable to net_gettype() */
+	NET_TYPE_AUTO = 0,	/**< Autoselect network type, applicable to net_settype() */
+	NET_TYPE_GSM,		/**< Network type 2G/GSM */
+	NET_TYPE_LTE,		/**< Network type 4G LTE */
 };
 
 /**
@@ -47,6 +48,7 @@ struct netparam_t {
 							 For GSM; RSSI Value - 0:-113dBm or less to 31:-55dBm or more,\n
 							 For 4G/NB-IoT; RSRP Value - 0:-140dBm or less to 97:-44dBm or more,\n
 							 99: Not detectable */
+	uint8_t mode;		/**< Network mode @ref nettype_e */
 	const char *apn;	/**< Currently used APN as null terminted string */
 };
 
@@ -107,10 +109,18 @@ int network_getstatus(int sockfd);
 
 /**
  * Get status of network, if its ready or not for IP data transmission
+ * @deprecated since v1.0.0
  *
  * @return			returns 1 if network ready, 0 otherwise
  */
-int network_isready(void);
+__attribute__((__deprecated__)) int network_isready(void);
+
+/**
+ * Get status of network, if its ready or not for IP data transmission
+ *
+ * @return			returns 1 if network ready, 0 otherwise
+ */
+int network_isdataready(void);
 
 /**
  * Reset and restart network
@@ -120,16 +130,31 @@ void network_reset(void);
 #if !defined(PLATFORM_BC20) || defined(_DOXYGEN_)
 /**
  * Enable/Disable GPRS. GPRS is enabled by default
+ * @deprecated since v1.0.0
  * @param enable	[in] 1 to enable, 0 to disable
  * @return			0 on success, negative value on error
  */
-int network_gprsenable(int enable);
+__attribute__((__deprecated__)) int network_gprsenable(int enable);
+
+/**
+ * Enable/Disable data services. Data service is enabled by default
+ * @param enable	[in] 1 to enable, 0 to disable
+ * @return			0 on success, negative value on error
+ */
+int network_dataenable(int enable);
 
 /**
  * Get GPRS enable/disable status
+ * @deprecated since v1.0.0
  * @return			GPRS status
  */
-int network_isgprsenable(void);
+__attribute__((__deprecated__)) int network_isgprsenable(void);
+
+/**
+ * Get Data service enable/disable status
+ * @return			service status
+ */
+int network_isdataenable(void);
 
 /**
  * Get IP address assigned to module
@@ -152,13 +177,21 @@ const char *network_getcurrapn(void);
 uint8_t network_gettype(void);
 
 /**
+ * @brief Set current network type
+ * 
+ * @param type Network type @ref nettype_e
+ * @return 0 on success, negative on failure
+ */
+int network_settype(int type);
+
+/**
  * Setup Network status LED. Attach GPIO line managed by network
  * thread for status LED.
  * 
  * IO Drive Logic: Positive (1 - High, 0 - Low)
  * 
  * LED Timings in milliseconds (On Time/Off Time):
- * -----------------------------------------------
+ * 
  * No Sim: 250/3000
  * No Network/Searching: 50/500
  * GSM/GPRS Registered: 50/1000

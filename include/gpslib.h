@@ -16,9 +16,9 @@ extern "C"
 #endif
 
 /**
- * @brief Default harsh breaking/deceleration value - 0.55g
+ * @brief Default harsh braking/deceleration value - 0.55g
  */
-#define DEF_HARSHBREAK 0.55
+#define DEF_HARSHBRAKE 0.55
 /**
  * @brief Default Harsh acceleration value - 0.43g
  */
@@ -48,7 +48,7 @@ enum gpsevent_e {
 	GPS_EVENT_MOTION_STOP, /**< Motion stop event */
 	GPS_EVENT_MOTION_START,/**< Motion start event. use @ref gps_get_starttrace
 								function to get complete movement trace. */
-	GPS_EVENT_HARSHBREAK,  /**< Harsh break detected */
+	GPS_EVENT_HARSHBRAKE,  /**< Harsh brake detected */
 	GPS_EVENT_OVERACCEL,   /**< Harsh/over acceleration detected */
 	GPS_EVENT_OVERSPEED,   /**< Over-speed detected */
 	GPS_EVENT_SPEED_NORMAL,/**< Speed back to normal, Occurs after over-speed
@@ -68,7 +68,7 @@ enum gpsevent_e {
  * GPS Configuration parameter type
  */
 enum gpsparam_e {
-	GPS_PARAM_HARSHBREAK_LIMIT,  /**< Set threshold for Harsh breaking in
+	GPS_PARAM_HARSHBRAKE_LIMIT,  /**< Set threshold for Harsh braking in
 									  g (m/s2). Expects param as float */
 	GPS_PARAM_OVERACCEL_LIMIT,   /**< Set threshold for Harsh acceleration in
 									  g (m/s2). Expects param as float */
@@ -76,7 +76,8 @@ enum gpsparam_e {
 									  param as float */
 	GPS_PARAM_TURNINGSPEED_LIMIT,/**< Set harsh turning speed limit in Km/h,
 									  expects parameter as float */
-	GPS_PARAM_ODOMETER,          /**< Set odometer value in meters */
+	GPS_PARAM_ODOMETER,          /**< Set odometer value in meters,
+									  expects parameter as double */
 };
 
 /**
@@ -129,7 +130,7 @@ struct gpsconfig_t {
 	int baud;			/**< GPS Baudrate */
 	float speedlimit;	/**< Over-speed limit in Km/h */
 	float harshturn;	/**< Harsh Turning speed limit in Km/h */
-	float harshbrk;		/**< Harsh breaking limit in g (m/s2) */
+	float harshbrake;	/**< Harsh braking limit in g (m/s2) */
 	float overaccel;	/**< Harsh acceleration limit in g (m/s2) */
 	/**
 	 * GPS event callback function

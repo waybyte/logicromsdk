@@ -6,6 +6,8 @@
 #ifndef INC_HW_BLUETOOTH_H_
 #define INC_HW_BLUETOOTH_H_
 
+#include "bluetooth_le.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -75,7 +77,8 @@ struct btinfo_t {
  * Initialize Bluetooth hardware
  * @param mode			[in] Bluetooth controller mode see @ref btmode_e
  * @param name			[in] Name of device shown to other bluetooth device while searching
- * @param use_btcli		[in] Bluetooth console select (1 to enable, 0 to disable).
+ * @param use_btcli		[in] Bluetooth console select to enable or disable command line interface (CLI)
+ * 							 on bluetooth(LE) UART interface. (1 to enable, 0 to disable).
  * 							 When enabled, /dev/bthost0 device file will not be available
  * 							 to the application.
  * @return				For return value see @ref bterr_e

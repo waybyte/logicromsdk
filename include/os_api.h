@@ -111,27 +111,66 @@ int os_message_send(int dest_taskid, uint32_t message, uint32_t param1, uint32_t
 uint32_t os_mutex_create(void);
 
 /**
- * Take a mutex. If mutex is not available, Task will be suspended until mutex is available.
+ * Lock a mutex. If mutex is not available, Task will be suspended until mutex is available.
  * @param mutex		[in] Mutex ID created by @ref os_mutex_create()
  * @return			0 on success, negative value on error
  */
-int os_mutex_take(uint32_t mutex);
+int os_mutex_lock(uint32_t mutex);
 
 /**
- * Try to take a mutex. This API is similar to @ref os_mutex_take() with a optional timeout
+ * Lock a mutex. If mutex is not available, Task will be suspended until mutex is available.
+ * This API is deprecated. use @ref os_mutex_lock()
+ * @deprecated since v1.0.0
+ * @param mutex		[in] Mutex ID created by @ref os_mutex_create()
+ * @return			0 on success, negative value on error
+ */
+__attribute__((__deprecated__)) int os_mutex_take(uint32_t mutex);
+
+/**
+ * Try to lock a mutex. This API is similar to @ref os_mutex_lock() with a optional timeout
  * @param mutex		[in] Mutex ID created by @ref os_mutex_create()
  * @param timeout	[in] duration in ms to wait, @ref OS_WAIT_FOREVER for indefinite wait, 0 to return immediately
  * @return			0 on success, negative value on error
  */
-int os_mutex_trytake(uint32_t mutex, uint32_t timeout);
+int os_mutex_trylock(uint32_t mutex, uint32_t timeout);
 
 /**
- * Release a mutex. Once a mutex is released, OS does not yield on waiting task. Task switch happens when executing task is suspended
+ * Try to lock a mutex. This API is similar to @ref os_mutex_lock() with a optional timeout
+ * This API is deprecated. use @ref os_mutex_trylock()
+ * @deprecated since v1.0.0
+ * @param mutex		[in] Mutex ID created by @ref os_mutex_create()
+ * @param timeout	[in] duration in ms to wait, @ref OS_WAIT_FOREVER for indefinite wait, 0 to return immediately
+ * @return			0 on success, negative value on error
+ */
+__attribute__((__deprecated__)) int os_mutex_trytake(uint32_t mutex, uint32_t timeout);
+
+/**
+ * Unlock a mutex. Once a mutex is Unlocked, OS does not yield on waiting task. Task switch happens when executing task is suspended
  * by sleep or waiting on external queue message.
  * @param mutex		[in] Mutex ID created by @ref os_mutex_create()
  * @return			0 on success, negative value on error
  */
-int os_mutex_give(uint32_t mutex);
+int os_mutex_unlock(uint32_t mutex);
+
+/**
+ * Unlock a mutex. Once a mutex is Unlocked, OS does not yield on waiting task. Task switch happens when executing task is suspended
+ * by sleep or waiting on external queue message.
+ * This API is deprecated. use @ref os_mutex_unlock()
+ * @deprecated since v1.0.0
+ * @param mutex		[in] Mutex ID created by @ref os_mutex_create()
+ * @return			0 on success, negative value on error
+ */
+__attribute__((__deprecated__)) int os_mutex_give(uint32_t mutex);
+
+/**
+ * Delete mutex.
+ * 
+ * @note this function is not available on MT2503/MT6261 chipset.
+ * 
+ * @param mutex		[in] Mutex ID created by @ref os_mutex_create()
+ * @return			0 on success, negative value on error
+ */
+int os_mutex_delete(uint32_t mutex);
 
 /**
  * Create a semaphore
@@ -247,10 +286,28 @@ uint64_t os_get_tickus(void);
 
 /**
  * Start a suspended task created by @ref os_task_create()
+ * @deprecated use @ref os_task_resume()
+ * 
  * @param taskid		[in] Task ID
  * @return				0 on success, negative value on error
  */
 int os_task_start(int taskid);
+
+/**
+ * Resume a task which is in suspended state
+ * 
+ * @param taskid		[in] Task ID
+ * @return				0 on success, negative value on error
+ */
+int os_task_resume(int taskid);
+
+/**
+ * Suspend a task
+ * 
+ * @param taskid		[in] Task ID
+ * @return				0 on success, negative value on error
+ */
+int os_task_suspend(int taskid);
 
 /**
  * Enter critical section

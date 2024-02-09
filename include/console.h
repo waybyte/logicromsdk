@@ -30,8 +30,18 @@ enum cli_auth_rc {
 typedef int (*cliauth_f)(const char *user, const char *pass);
 
 /**
- * Set Authentication function
+ * Initialize and enable Command line interface for STDIO port
+ * 
  * @param fn		Pointer to auth function of type @ref cliauth_f
+ * 					Set NULL to disable login.
+ * @return			0 on success, negative value on error
+ */
+int cli_init(cliauth_f fn);
+
+/**
+ * Set/Change Authentication function
+ * @param fn		Pointer to auth function of type @ref cliauth_f
+ * 					Set NULL to disable login.
  * @return			0 on success, negative value on error
  */
 int cli_set_authfn(cliauth_f fn);

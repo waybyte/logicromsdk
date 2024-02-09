@@ -1,7 +1,7 @@
 {
 	"name": "framework-logicromsdk",
-	"version": "0.9.9",
-	"description": "Logicrom Software Development Kit is a framework for Wireless IoT development on 4G LTE Cat.1 (RDA8910, ASR1601, ASR1603), GSM (MT2503, MT6261, RDA8955) and NBIoT (MT2625) chipsets/modules.",
+	"version": "1.0.0",
+	"description": "Logicrom OpenCPU SDK is a framework to do IoT development on wireless 4G LTE Cat.1 (RDA8910, ASR1601, ASR1603), GSM (MT2503, MT6261, RDA8955) and NBIoT (MT2625) chipsets/modules.",
 	"keywords": [
 		"framework",
 		"logicrom",

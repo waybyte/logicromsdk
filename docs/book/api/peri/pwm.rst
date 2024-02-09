@@ -52,6 +52,29 @@ MT2503/MT6261/MT2625 based modules
 +--------------+-----------+-------------------+-----------+------------+------------+
 
 
+Example Usage
+-------------
+
+.. code-block:: c
+
+	#include <hw/pwm.h>
+
+	/* Init PWM */
+	pwm_init(PWM_CH0);
+
+	/* configure PWM @ 1Khz 50% duty */
+	pwm_config(PWM_CH0, 1000, 50);
+
+	/* start pwm */
+	pwm_start(PWM_CH0);
+
+	/* stop PWM */
+	pwm_stop(PWM_CH0);
+
+	/* free PWM */
+	pwm_free(PWM_CH0);
+
+
 Application Example
 -------------------
 

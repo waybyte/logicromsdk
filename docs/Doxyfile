@@ -32,7 +32,7 @@ DOXYFILE_ENCODING      = UTF-8
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = "Logicrom SDK"
+PROJECT_NAME           = "Logicrom OpenCPU SDK"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
@@ -875,6 +875,7 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = ../include/arpa/inet.h \
+                         ../include/audio.h \
                          ../include/circbuf.h \
                          ../include/command.h \
                          ../include/console.h \
@@ -893,6 +894,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/gpsdriver.h \
                          ../include/gpslib.h \
                          ../include/hw/adc.h \
+                         ../include/hw/bluetooth_le.h \
                          ../include/hw/bluetooth.h \
                          ../include/hw/display.h \
                          ../include/hw/gnss.h \
@@ -902,6 +904,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/hw/pwm.h \
                          ../include/hw/sdmmc.h \
                          ../include/hw/spi.h \
+                         ../include/hw/usb.h \
                          ../include/int64str.h \
                          ../include/lib.h \
                          ../include/libtime.h \
@@ -920,6 +923,7 @@ INPUT                  = ../include/arpa/inet.h \
                          ../include/plat/def_spi.h \
                          ../include/proto/httpc.h \
                          ../include/proto/modbus.h \
+                         ../include/proto/mqttclient.h \
                          ../include/proto/ntpc.h \
                          ../include/remotedbg.h \
                          ../include/ril/ril.h \
@@ -2365,7 +2369,8 @@ INCLUDE_FILE_PATTERNS  =
 
 PREDEFINED             = _DOXYGEN_=1 \
                          __cplusplus \
-                         SOC_RDA8910=1
+                         SOC_RDA8910=1 \
+                         __attribute__(x)=
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

@@ -23,6 +23,7 @@ GNSS chips.
 Following are the supported chipset or modules:
 
 1. Quectel L89 R2.0 IRNSS Module
+   
 2. Modules compatible with CASIC GNSS recevier protocol
 
    * Neoway N58 LTE Cat.1
@@ -38,6 +39,7 @@ Following are the supported chipset or modules:
    * Quectel MC20
 
 4. SIRF Star III type chipset
+   
 5. STMicro STA8090 based IRNSS modules
 
    * Quectel L89
@@ -48,6 +50,12 @@ Following are the supported chipset or modules:
    * Quectel L26C
    * Quectel BC20 (NB-IoT)
    * Quectel EC200UCN-AA LTE Cat.1 Module
+   * Quectel MC65
+   * Quectel MC25
+
+7. GOKE GK9501 chipset
+   
+   * AiThinker A9G
 
 
 Application Example

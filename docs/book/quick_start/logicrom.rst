@@ -1,5 +1,5 @@
-Creating Project in PlatformIO using Logicrom SDK
-*************************************************
+Creating Project in PlatformIO using Logicrom OpenCPU SDK
+=========================================================
 
 Setting Up the Project
 ----------------------
@@ -7,6 +7,8 @@ Setting Up the Project
 1. Go to "Projects" from PlatformIO Home and click "Create New Project" button.
 
 .. image:: ../../_static/platformio-ide-new-project.png
+    :group: logicromsdk
+    :title: Create New Project
 
 2. Configure Project settings:
    * Name: Name of project
@@ -16,16 +18,22 @@ Setting Up the Project
    * Click finish to create project.
 
 .. image:: ../../_static/platformio-ide-project-config-logicrom.png 
+    :group: logicromsdk
+    :title: Configure project settings
 
 3. Open ``main.c`` file form ``src`` folder. It is default sample source with a sample hello world
    task.
 
 .. image:: ../../_static/platformio-ide-code-sample-logicrom.png
+    :group: logicromsdk
+    :title: main.c file
 
 1. Build your project with ctrl+alt+b hotkey (see all Key Bindings in “User Guide” section below)
    or using “Build” button on the PlatformIO Toolbar.
    
 .. image:: ../../_static/platformio-ide-code-build-logicrom.png
+    :group: logicromsdk
+    :title: Build Project
 
 Serial Port Configuration
 -------------------------

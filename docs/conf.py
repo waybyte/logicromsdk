@@ -13,14 +13,15 @@
 import os
 import sys
 import sphinx_rtd_theme
+from datetime import datetime
 
 sys.path.insert(0, os.path.abspath('./_ext'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Logicrom SDK'
-copyright = 'Waybyte Solutions'
-author = 'Ajay Bhargav'
+project = 'Logicrom OpenCPU SDK'
+copyright = "2021-" + datetime.today().strftime("%Y") + ", Waybyte Solutions"
+author = 'Waybyte Developers'
 
 # -- General configuration ---------------------------------------------------
 master_doc = 'index'
@@ -31,7 +32,10 @@ master_doc = 'index'
 extensions = [
         "breathe",
         "gen_include",
-        "link_roles"
+        "link_roles",
+        "sphinxcontrib.jquery",
+        "sphinxcontrib.images",
+        "sphinx_copybutton",
         #,"exhale"
 ]
 
@@ -50,8 +54,8 @@ primary_domain = 'cpp'
 highlight_language = 'cpp'
 
 # Breathe Configuration
-breathe_projects = { 'Logicrom SDK': './xml' }
-breathe_default_project = 'Logicrom SDK'
+breathe_projects = { 'Logicrom OpenCPU SDK': './xml' }
+breathe_default_project = 'Logicrom OpenCPU SDK'
 
 # Exhale Configuration
 exhale_args = {
@@ -84,4 +88,9 @@ html_static_path = ['_static']
 
 html_theme_options = {
         'style_external_links': True
+}
+
+# use lightbox2
+images_config = {
+    'override_image_directive': True,
 }

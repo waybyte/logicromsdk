@@ -6,6 +6,7 @@ Firmware Flashing Guide
 
     Core Firmware Flashing <flash/core>
     Application Firmware Flashing <flash/application>
+    MT2503/MT6261 Core Re-Flashing <flash/core_reflash>
 
 Flashing Issues
 ---------------

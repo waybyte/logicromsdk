@@ -1,14 +1,11 @@
-.. logicromsdk documentation master file, created by
-   sphinx-quickstart on Mon May 25 18:39:44 2020.
-
-Logicrom IoT SDK
-================
+Logicrom OpenCPU SDK
+====================
 
 .. |br| raw:: html
 
 	<br>
 
-Logicrom Software Development Kit is a framework for Wireless IoT development
+Logicrom Software Development Kit is an OpenCPU framework for Wireless IoT development
 on 4G LTE Cat.1 (RDA8910, ASR1601, ASR1603), GSM (MT2503, MT6261, RDA8955) and
 NBIoT (MT2625) chipsets/modules.
 
@@ -68,6 +65,7 @@ Supported Modules
 .. [2] Not Supported on logicrom
 .. [3] Supported on module with GNSS
 
+
 Documentation
 =============
 
@@ -80,6 +78,8 @@ Documentation
    Firmware Flashing Guide <book/flashing>
    SDK Examples <book/example>
    Bug Report <book/bugs>
+   Copyright and Licenses <book/COPYRIGHT>
+
 
 Indices and tables
 ==================

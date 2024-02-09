@@ -1,7 +1,7 @@
 Command Processor and Command Line Interface
 ============================================
 
-Logicrom SDK provide in-built command processor and CLI with many features like
+Logicrom OpenCPU SDK provide in-built command processor and CLI with many features like
 user authentication and command autocomplete etc.
 
 By default SDK provide system commands and linux like core utility commands.

@@ -2,7 +2,8 @@
 # pip install --user -r requirements.txt
 #
 Sphinx
-jinja2<3.1
 breathe
 sphinx-rtd-theme
 sphinx-notfound-page
+sphinx-copybutton
+sphinxcontrib-images

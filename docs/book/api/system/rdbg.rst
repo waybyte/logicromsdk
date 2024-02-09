@@ -6,11 +6,9 @@ Logicrom provide in-built remote debugging console that runs over a TCP socket.
 A remote console session can be initiated by sending *rdbg* command. Device
 opens up a TCP socket to the server and port provided in the command. When
 device is connected to server, it sends a message describing its identity
-in following format
+in following format.
 
-::
-
-    $RDBG,[UID],[IMEI]#[CR][LF]
+``$RDBG,[UID],[IMEI]#[CR][LF]``
 
 
 Where UID is device unique ID, and IMEI is module's IMEI.

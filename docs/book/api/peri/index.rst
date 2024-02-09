@@ -5,6 +5,7 @@ Peripherals
    :maxdepth: 1
 
    ADC <adc>
+   Audio <audio>
    GPIO <gpio>
    I2C <i2c>
    SPI <spi>

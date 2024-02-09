@@ -1,5 +1,5 @@
 Creating Project in PlatformIO using Arduino Framework
-******************************************************
+======================================================
 
 Setting Up the Project
 ----------------------
@@ -7,6 +7,8 @@ Setting Up the Project
 1. Go to "Projects" from PlatformIO Home and click "Create New Project" button.
 
 .. image:: ../../_static/platformio-ide-new-project.png
+    :group: Arduino
+    :title: Create New Project
 
 2. Configure Project settings:
    * Name: Name of project
@@ -16,6 +18,8 @@ Setting Up the Project
    * Click finish to create project.
 
 .. image:: ../../_static/platformio-ide-project-config-arduino.png
+    :group: Arduino
+    :title: Configure Project settings
 
 3. Open ``main.cpp`` file form ``src`` folder and replace its contents with
 
@@ -51,11 +55,15 @@ Setting Up the Project
     }
 
 .. image:: ../../_static/platformio-ide-code-sample-arduino.png
+    :group: Arduino
+    :title: main.cpp
 
 4. Build your project with ctrl+alt+b hotkey (see all Key Bindings in “User Guide” section below)
    or using “Build” button on the PlatformIO Toolbar.
    
 .. image:: ../../_static/platformio-ide-code-build-arduino.png
+    :group: Arduino
+    :title: Build project
 
 Serial Port Configuration
 -------------------------
@@ -99,8 +107,11 @@ Each environment in ``platform.ini`` file has its own task list which can be exe
 list as shown below.
 
 .. image:: ../../_static/platformio-ide-project-tasks.png
+    :group: Arduino
+    :title: Project specific tasks
 
 User can add as many configuration as needed, with different boards etc. using same source.
 
 For advanced configuration settings of ``platform.ini`` Please refer official documentation of PlatformIO:
 https://docs.platformio.org/en/latest/projectconf/index.html#projectconf
+

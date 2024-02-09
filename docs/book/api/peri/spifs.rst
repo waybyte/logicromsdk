@@ -22,9 +22,9 @@ Example Usage
 
     #include <spifs.h>
 
-	/* Enable and mount SPIFS */
-    /* On 4G module when hardware CS line is used */
-	spifs_enable(SPI_PORT_0, -1, 10000000U, SPI_MODE0);
+    /* Enable and mount SPIFS */
+    /* On RDA8910 based module when hardware CS line is used */
+    spifs_enable(SPI_PORT_0, -1, 10000000U, SPI_MODE0);
 
     /* On 4G/2G module with GPIO line as chipselect */
     spifs_enable(SPI_PORT_0, GPIO_1, 10000000U, SPI_MODE0);

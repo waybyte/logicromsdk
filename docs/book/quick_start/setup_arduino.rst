@@ -1,5 +1,5 @@
 Installing Logicrom on Arduino IDE
-**********************************
+==================================
 
 Arduino IDE
 -----------
@@ -18,6 +18,8 @@ Installing Logicrom Platform
    ``https://waybyte.github.io/package_logicrom_index.json``
    
 .. image:: ../../_static/arduino-ide-prefs.png
+    :group: Arduino
+    :title: Configure board URL
 
 4. Go to **Tools** > **Board** > **Board Manager**
 5. In search box, type "Logicrom"
@@ -25,4 +27,6 @@ Installing Logicrom Platform
 7. Select your GSM board from board manager under "Logicrom Arduino"
 
 .. image:: ../../_static/arduino-ide-board-manager.png
+    :group: Arduino
+    :title: Select board from board manager
 
